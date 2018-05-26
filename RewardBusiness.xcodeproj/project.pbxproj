@@ -1,0 +1,557 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FA903D3320B92B7B0081A8A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA903D3220B92B7B0081A8A2 /* AppDelegate.swift */; };
+		FA903D3520B92B7B0081A8A2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA903D3420B92B7B0081A8A2 /* ViewController.swift */; };
+		FA903D3820B92B7B0081A8A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA903D3620B92B7B0081A8A2 /* Main.storyboard */; };
+		FA903D3A20B92B7B0081A8A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA903D3920B92B7B0081A8A2 /* Assets.xcassets */; };
+		FA903D3D20B92B7B0081A8A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA903D3B20B92B7B0081A8A2 /* LaunchScreen.storyboard */; };
+		FA903D4820B92B7B0081A8A2 /* RewardBusinessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA903D4720B92B7B0081A8A2 /* RewardBusinessTests.swift */; };
+		FA903D5320B92B7B0081A8A2 /* RewardBusinessUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA903D5220B92B7B0081A8A2 /* RewardBusinessUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FA903D4420B92B7B0081A8A2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FA903D2720B92B7B0081A8A2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FA903D2E20B92B7B0081A8A2;
+			remoteInfo = RewardBusiness;
+		};
+		FA903D4F20B92B7B0081A8A2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FA903D2720B92B7B0081A8A2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FA903D2E20B92B7B0081A8A2;
+			remoteInfo = RewardBusiness;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		FA903D2F20B92B7B0081A8A2 /* RewardBusiness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RewardBusiness.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA903D3220B92B7B0081A8A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FA903D3420B92B7B0081A8A2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FA903D3720B92B7B0081A8A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FA903D3920B92B7B0081A8A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FA903D3C20B92B7B0081A8A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FA903D3E20B92B7B0081A8A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA903D4320B92B7B0081A8A2 /* RewardBusinessTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RewardBusinessTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA903D4720B92B7B0081A8A2 /* RewardBusinessTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardBusinessTests.swift; sourceTree = "<group>"; };
+		FA903D4920B92B7B0081A8A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA903D4E20B92B7B0081A8A2 /* RewardBusinessUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RewardBusinessUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA903D5220B92B7B0081A8A2 /* RewardBusinessUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardBusinessUITests.swift; sourceTree = "<group>"; };
+		FA903D5420B92B7B0081A8A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FA903D2C20B92B7B0081A8A2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA903D4020B92B7B0081A8A2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA903D4B20B92B7B0081A8A2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FA903D2620B92B7A0081A8A2 = {
+			isa = PBXGroup;
+			children = (
+				FA903D3120B92B7B0081A8A2 /* RewardBusiness */,
+				FA903D4620B92B7B0081A8A2 /* RewardBusinessTests */,
+				FA903D5120B92B7B0081A8A2 /* RewardBusinessUITests */,
+				FA903D3020B92B7B0081A8A2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FA903D3020B92B7B0081A8A2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FA903D2F20B92B7B0081A8A2 /* RewardBusiness.app */,
+				FA903D4320B92B7B0081A8A2 /* RewardBusinessTests.xctest */,
+				FA903D4E20B92B7B0081A8A2 /* RewardBusinessUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FA903D3120B92B7B0081A8A2 /* RewardBusiness */ = {
+			isa = PBXGroup;
+			children = (
+				FA903D3220B92B7B0081A8A2 /* AppDelegate.swift */,
+				FA903D3420B92B7B0081A8A2 /* ViewController.swift */,
+				FA903D3620B92B7B0081A8A2 /* Main.storyboard */,
+				FA903D3920B92B7B0081A8A2 /* Assets.xcassets */,
+				FA903D3B20B92B7B0081A8A2 /* LaunchScreen.storyboard */,
+				FA903D3E20B92B7B0081A8A2 /* Info.plist */,
+			);
+			path = RewardBusiness;
+			sourceTree = "<group>";
+		};
+		FA903D4620B92B7B0081A8A2 /* RewardBusinessTests */ = {
+			isa = PBXGroup;
+			children = (
+				FA903D4720B92B7B0081A8A2 /* RewardBusinessTests.swift */,
+				FA903D4920B92B7B0081A8A2 /* Info.plist */,
+			);
+			path = RewardBusinessTests;
+			sourceTree = "<group>";
+		};
+		FA903D5120B92B7B0081A8A2 /* RewardBusinessUITests */ = {
+			isa = PBXGroup;
+			children = (
+				FA903D5220B92B7B0081A8A2 /* RewardBusinessUITests.swift */,
+				FA903D5420B92B7B0081A8A2 /* Info.plist */,
+			);
+			path = RewardBusinessUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FA903D2E20B92B7B0081A8A2 /* RewardBusiness */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FA903D5720B92B7B0081A8A2 /* Build configuration list for PBXNativeTarget "RewardBusiness" */;
+			buildPhases = (
+				FA903D2B20B92B7B0081A8A2 /* Sources */,
+				FA903D2C20B92B7B0081A8A2 /* Frameworks */,
+				FA903D2D20B92B7B0081A8A2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RewardBusiness;
+			productName = RewardBusiness;
+			productReference = FA903D2F20B92B7B0081A8A2 /* RewardBusiness.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FA903D4220B92B7B0081A8A2 /* RewardBusinessTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FA903D5A20B92B7B0081A8A2 /* Build configuration list for PBXNativeTarget "RewardBusinessTests" */;
+			buildPhases = (
+				FA903D3F20B92B7B0081A8A2 /* Sources */,
+				FA903D4020B92B7B0081A8A2 /* Frameworks */,
+				FA903D4120B92B7B0081A8A2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FA903D4520B92B7B0081A8A2 /* PBXTargetDependency */,
+			);
+			name = RewardBusinessTests;
+			productName = RewardBusinessTests;
+			productReference = FA903D4320B92B7B0081A8A2 /* RewardBusinessTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		FA903D4D20B92B7B0081A8A2 /* RewardBusinessUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FA903D5D20B92B7B0081A8A2 /* Build configuration list for PBXNativeTarget "RewardBusinessUITests" */;
+			buildPhases = (
+				FA903D4A20B92B7B0081A8A2 /* Sources */,
+				FA903D4B20B92B7B0081A8A2 /* Frameworks */,
+				FA903D4C20B92B7B0081A8A2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FA903D5020B92B7B0081A8A2 /* PBXTargetDependency */,
+			);
+			name = RewardBusinessUITests;
+			productName = RewardBusinessUITests;
+			productReference = FA903D4E20B92B7B0081A8A2 /* RewardBusinessUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FA903D2720B92B7B0081A8A2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "MOLLY BIN";
+				TargetAttributes = {
+					FA903D2E20B92B7B0081A8A2 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					FA903D4220B92B7B0081A8A2 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = FA903D2E20B92B7B0081A8A2;
+					};
+					FA903D4D20B92B7B0081A8A2 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = FA903D2E20B92B7B0081A8A2;
+					};
+				};
+			};
+			buildConfigurationList = FA903D2A20B92B7B0081A8A2 /* Build configuration list for PBXProject "RewardBusiness" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FA903D2620B92B7A0081A8A2;
+			productRefGroup = FA903D3020B92B7B0081A8A2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FA903D2E20B92B7B0081A8A2 /* RewardBusiness */,
+				FA903D4220B92B7B0081A8A2 /* RewardBusinessTests */,
+				FA903D4D20B92B7B0081A8A2 /* RewardBusinessUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FA903D2D20B92B7B0081A8A2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA903D3D20B92B7B0081A8A2 /* LaunchScreen.storyboard in Resources */,
+				FA903D3A20B92B7B0081A8A2 /* Assets.xcassets in Resources */,
+				FA903D3820B92B7B0081A8A2 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA903D4120B92B7B0081A8A2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA903D4C20B92B7B0081A8A2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FA903D2B20B92B7B0081A8A2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA903D3520B92B7B0081A8A2 /* ViewController.swift in Sources */,
+				FA903D3320B92B7B0081A8A2 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA903D3F20B92B7B0081A8A2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA903D4820B92B7B0081A8A2 /* RewardBusinessTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA903D4A20B92B7B0081A8A2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA903D5320B92B7B0081A8A2 /* RewardBusinessUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FA903D4520B92B7B0081A8A2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FA903D2E20B92B7B0081A8A2 /* RewardBusiness */;
+			targetProxy = FA903D4420B92B7B0081A8A2 /* PBXContainerItemProxy */;
+		};
+		FA903D5020B92B7B0081A8A2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FA903D2E20B92B7B0081A8A2 /* RewardBusiness */;
+			targetProxy = FA903D4F20B92B7B0081A8A2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FA903D3620B92B7B0081A8A2 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FA903D3720B92B7B0081A8A2 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		FA903D3B20B92B7B0081A8A2 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FA903D3C20B92B7B0081A8A2 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FA903D5520B92B7B0081A8A2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FA903D5620B92B7B0081A8A2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FA903D5820B92B7B0081A8A2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = RewardBusiness/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.rewardbusiness.RewardBusiness;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FA903D5920B92B7B0081A8A2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = RewardBusiness/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.rewardbusiness.RewardBusiness;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		FA903D5B20B92B7B0081A8A2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = RewardBusinessTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.rewardbusiness.RewardBusinessTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RewardBusiness.app/RewardBusiness";
+			};
+			name = Debug;
+		};
+		FA903D5C20B92B7B0081A8A2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = RewardBusinessTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.rewardbusiness.RewardBusinessTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RewardBusiness.app/RewardBusiness";
+			};
+			name = Release;
+		};
+		FA903D5E20B92B7B0081A8A2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = RewardBusinessUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.rewardbusiness.RewardBusinessUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = RewardBusiness;
+			};
+			name = Debug;
+		};
+		FA903D5F20B92B7B0081A8A2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = RewardBusinessUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.rewardbusiness.RewardBusinessUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = RewardBusiness;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FA903D2A20B92B7B0081A8A2 /* Build configuration list for PBXProject "RewardBusiness" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA903D5520B92B7B0081A8A2 /* Debug */,
+				FA903D5620B92B7B0081A8A2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FA903D5720B92B7B0081A8A2 /* Build configuration list for PBXNativeTarget "RewardBusiness" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA903D5820B92B7B0081A8A2 /* Debug */,
+				FA903D5920B92B7B0081A8A2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FA903D5A20B92B7B0081A8A2 /* Build configuration list for PBXNativeTarget "RewardBusinessTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA903D5B20B92B7B0081A8A2 /* Debug */,
+				FA903D5C20B92B7B0081A8A2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FA903D5D20B92B7B0081A8A2 /* Build configuration list for PBXNativeTarget "RewardBusinessUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA903D5E20B92B7B0081A8A2 /* Debug */,
+				FA903D5F20B92B7B0081A8A2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FA903D2720B92B7B0081A8A2 /* Project object */;
+}
