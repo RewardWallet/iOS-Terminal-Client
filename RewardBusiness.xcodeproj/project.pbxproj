@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		56F90503FC319538D536387A /* Pods_RewardBusinessTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D4BB35A868F91E64F4437F2 /* Pods_RewardBusinessTests.framework */; };
+		A8BD77D499E2210E95A5E940 /* Pods_RewardBusiness.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99645BB038B5BD2083A82785 /* Pods_RewardBusiness.framework */; };
 		FA903D3320B92B7B0081A8A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA903D3220B92B7B0081A8A2 /* AppDelegate.swift */; };
 		FA903D3520B92B7B0081A8A2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA903D3420B92B7B0081A8A2 /* ViewController.swift */; };
 		FA903D3820B92B7B0081A8A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA903D3620B92B7B0081A8A2 /* Main.storyboard */; };
@@ -14,6 +16,14 @@
 		FA903D3D20B92B7B0081A8A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA903D3B20B92B7B0081A8A2 /* LaunchScreen.storyboard */; };
 		FA903D4820B92B7B0081A8A2 /* RewardBusinessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA903D4720B92B7B0081A8A2 /* RewardBusinessTests.swift */; };
 		FA903D5320B92B7B0081A8A2 /* RewardBusinessUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA903D5220B92B7B0081A8A2 /* RewardBusinessUITests.swift */; };
+		FA903D6120B92DF40081A8A2 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = FA903D6020B92DF40081A8A2 /* README.md */; };
+		FA903D6620B92FC60081A8A2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA903D6520B92FC60081A8A2 /* Constants.swift */; };
+		FA903D6820B931240081A8A2 /* RWViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA903D6720B931240081A8A2 /* RWViewController.swift */; };
+		FA903D6C20BA09150081A8A2 /* QRScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA903D6B20BA09150081A8A2 /* QRScanViewController.swift */; };
+		FA903D6F20BA0DD10081A8A2 /* RWNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA903D6E20BA0DCF0081A8A2 /* RWNavigationController.swift */; };
+		FA903D7420BA0F680081A8A2 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA903D7320BA0F680081A8A2 /* UIColor+Extension.swift */; };
+		FA903D7620BA2EB40081A8A2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA903D7520BA2EB40081A8A2 /* HomeViewController.swift */; };
+		FA903D7820BA2FC20081A8A2 /* BusinessSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA903D7720BA2FC20081A8A2 /* BusinessSettingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +44,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1D4BB35A868F91E64F4437F2 /* Pods_RewardBusinessTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RewardBusinessTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E81872762953E855787B901 /* Pods-RewardBusinessTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RewardBusinessTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RewardBusinessTests/Pods-RewardBusinessTests.release.xcconfig"; sourceTree = "<group>"; };
+		7FD8ECEDF286247AC7F1E5B3 /* Pods-RewardBusinessTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RewardBusinessTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RewardBusinessTests/Pods-RewardBusinessTests.debug.xcconfig"; sourceTree = "<group>"; };
+		99645BB038B5BD2083A82785 /* Pods_RewardBusiness.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RewardBusiness.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DCEE8F2FA431E7B34982AC76 /* Pods-RewardBusiness.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RewardBusiness.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RewardBusiness/Pods-RewardBusiness.debug.xcconfig"; sourceTree = "<group>"; };
+		E49AAA5D470182DAF2A3D628 /* Pods-RewardBusiness.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RewardBusiness.release.xcconfig"; path = "Pods/Target Support Files/Pods-RewardBusiness/Pods-RewardBusiness.release.xcconfig"; sourceTree = "<group>"; };
 		FA903D2F20B92B7B0081A8A2 /* RewardBusiness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RewardBusiness.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA903D3220B92B7B0081A8A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA903D3420B92B7B0081A8A2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +63,14 @@
 		FA903D4E20B92B7B0081A8A2 /* RewardBusinessUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RewardBusinessUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA903D5220B92B7B0081A8A2 /* RewardBusinessUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardBusinessUITests.swift; sourceTree = "<group>"; };
 		FA903D5420B92B7B0081A8A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA903D6020B92DF40081A8A2 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		FA903D6520B92FC60081A8A2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		FA903D6720B931240081A8A2 /* RWViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RWViewController.swift; sourceTree = "<group>"; };
+		FA903D6B20BA09150081A8A2 /* QRScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScanViewController.swift; sourceTree = "<group>"; };
+		FA903D6E20BA0DCF0081A8A2 /* RWNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RWNavigationController.swift; sourceTree = "<group>"; };
+		FA903D7320BA0F680081A8A2 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		FA903D7520BA2EB40081A8A2 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		FA903D7720BA2FC20081A8A2 /* BusinessSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessSettingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8BD77D499E2210E95A5E940 /* Pods_RewardBusiness.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56F90503FC319538D536387A /* Pods_RewardBusinessTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,13 +100,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1077EB5DB19F6E72E0A59A6C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				99645BB038B5BD2083A82785 /* Pods_RewardBusiness.framework */,
+				1D4BB35A868F91E64F4437F2 /* Pods_RewardBusinessTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EA6354CF8A8C77A72E21F6CA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DCEE8F2FA431E7B34982AC76 /* Pods-RewardBusiness.debug.xcconfig */,
+				E49AAA5D470182DAF2A3D628 /* Pods-RewardBusiness.release.xcconfig */,
+				7FD8ECEDF286247AC7F1E5B3 /* Pods-RewardBusinessTests.debug.xcconfig */,
+				4E81872762953E855787B901 /* Pods-RewardBusinessTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		FA903D2620B92B7A0081A8A2 = {
 			isa = PBXGroup;
 			children = (
+				FA903D6020B92DF40081A8A2 /* README.md */,
 				FA903D3120B92B7B0081A8A2 /* RewardBusiness */,
 				FA903D4620B92B7B0081A8A2 /* RewardBusinessTests */,
 				FA903D5120B92B7B0081A8A2 /* RewardBusinessUITests */,
 				FA903D3020B92B7B0081A8A2 /* Products */,
+				EA6354CF8A8C77A72E21F6CA /* Pods */,
+				1077EB5DB19F6E72E0A59A6C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -100,9 +149,12 @@
 				FA903D3220B92B7B0081A8A2 /* AppDelegate.swift */,
 				FA903D3420B92B7B0081A8A2 /* ViewController.swift */,
 				FA903D3620B92B7B0081A8A2 /* Main.storyboard */,
+				FA903D6420B92F940081A8A2 /* ViewControllers */,
+				FA903D6320B92F8C0081A8A2 /* Styling */,
 				FA903D3920B92B7B0081A8A2 /* Assets.xcassets */,
 				FA903D3B20B92B7B0081A8A2 /* LaunchScreen.storyboard */,
 				FA903D3E20B92B7B0081A8A2 /* Info.plist */,
+				FA903D7220BA0F500081A8A2 /* Extension */,
 			);
 			path = RewardBusiness;
 			sourceTree = "<group>";
@@ -125,6 +177,42 @@
 			path = RewardBusinessUITests;
 			sourceTree = "<group>";
 		};
+		FA903D6320B92F8C0081A8A2 /* Styling */ = {
+			isa = PBXGroup;
+			children = (
+				FA903D6520B92FC60081A8A2 /* Constants.swift */,
+			);
+			path = Styling;
+			sourceTree = "<group>";
+		};
+		FA903D6420B92F940081A8A2 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				FA903D6D20BA0D840081A8A2 /* NavigationControllers */,
+				FA903D6720B931240081A8A2 /* RWViewController.swift */,
+				FA903D7520BA2EB40081A8A2 /* HomeViewController.swift */,
+				FA903D6B20BA09150081A8A2 /* QRScanViewController.swift */,
+				FA903D7720BA2FC20081A8A2 /* BusinessSettingViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		FA903D6D20BA0D840081A8A2 /* NavigationControllers */ = {
+			isa = PBXGroup;
+			children = (
+				FA903D6E20BA0DCF0081A8A2 /* RWNavigationController.swift */,
+			);
+			path = NavigationControllers;
+			sourceTree = "<group>";
+		};
+		FA903D7220BA0F500081A8A2 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				FA903D7320BA0F680081A8A2 /* UIColor+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +220,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FA903D5720B92B7B0081A8A2 /* Build configuration list for PBXNativeTarget "RewardBusiness" */;
 			buildPhases = (
+				987FCCFF4A89A68B137EBD18 /* [CP] Check Pods Manifest.lock */,
 				FA903D2B20B92B7B0081A8A2 /* Sources */,
 				FA903D2C20B92B7B0081A8A2 /* Frameworks */,
 				FA903D2D20B92B7B0081A8A2 /* Resources */,
+				2299D02BC8178BD0C715EB59 /* [CP] Embed Pods Frameworks */,
+				DEBC7CC16FFA862C5AADD792 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -149,9 +240,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FA903D5A20B92B7B0081A8A2 /* Build configuration list for PBXNativeTarget "RewardBusinessTests" */;
 			buildPhases = (
+				2C835FF71A9FBDF9F690B8CB /* [CP] Check Pods Manifest.lock */,
 				FA903D3F20B92B7B0081A8A2 /* Sources */,
 				FA903D4020B92B7B0081A8A2 /* Frameworks */,
 				FA903D4120B92B7B0081A8A2 /* Resources */,
+				4B9838F65A43123957A61086 /* [CP] Embed Pods Frameworks */,
+				4C558DB99D5A843D9BFC10E0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -234,6 +328,7 @@
 			files = (
 				FA903D3D20B92B7B0081A8A2 /* LaunchScreen.storyboard in Resources */,
 				FA903D3A20B92B7B0081A8A2 /* Assets.xcassets in Resources */,
+				FA903D6120B92DF40081A8A2 /* README.md in Resources */,
 				FA903D3820B92B7B0081A8A2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -254,13 +349,140 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2299D02BC8178BD0C715EB59 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-RewardBusiness/Pods-RewardBusiness-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AlertHUDKit/AlertHUDKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/DeckTransition/DeckTransition.framework",
+				"${BUILT_PRODUCTS_DIR}/DynamicTabBarController/DynamicTabBarController.framework",
+				"${BUILT_PRODUCTS_DIR}/IGListKit/IGListKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/Parse/Parse.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/UIImageColors/UIImageColors.framework",
+				"${BUILT_PRODUCTS_DIR}/URLNavigator/URLNavigator.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlertHUDKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DeckTransition.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DynamicTabBarController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IGListKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Parse.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UIImageColors.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/URLNavigator.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RewardBusiness/Pods-RewardBusiness-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2C835FF71A9FBDF9F690B8CB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RewardBusinessTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4B9838F65A43123957A61086 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RewardBusinessTests/Pods-RewardBusinessTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4C558DB99D5A843D9BFC10E0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RewardBusinessTests/Pods-RewardBusinessTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		987FCCFF4A89A68B137EBD18 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RewardBusiness-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DEBC7CC16FFA862C5AADD792 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RewardBusiness/Pods-RewardBusiness-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		FA903D2B20B92B7B0081A8A2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA903D7420BA0F680081A8A2 /* UIColor+Extension.swift in Sources */,
+				FA903D6F20BA0DD10081A8A2 /* RWNavigationController.swift in Sources */,
 				FA903D3520B92B7B0081A8A2 /* ViewController.swift in Sources */,
+				FA903D7620BA2EB40081A8A2 /* HomeViewController.swift in Sources */,
+				FA903D6820B931240081A8A2 /* RWViewController.swift in Sources */,
+				FA903D7820BA2FC20081A8A2 /* BusinessSettingViewController.swift in Sources */,
 				FA903D3320B92B7B0081A8A2 /* AppDelegate.swift in Sources */,
+				FA903D6C20BA09150081A8A2 /* QRScanViewController.swift in Sources */,
+				FA903D6620B92FC60081A8A2 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,34 +646,41 @@
 		};
 		FA903D5820B92B7B0081A8A2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DCEE8F2FA431E7B34982AC76 /* Pods-RewardBusiness.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RU796FMT78;
 				INFOPLIST_FILE = RewardBusiness/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.rewardbusiness.RewardBusiness;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		FA903D5920B92B7B0081A8A2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E49AAA5D470182DAF2A3D628 /* Pods-RewardBusiness.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RU796FMT78;
 				INFOPLIST_FILE = RewardBusiness/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.rewardbusiness.RewardBusiness;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 		FA903D5B20B92B7B0081A8A2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7FD8ECEDF286247AC7F1E5B3 /* Pods-RewardBusinessTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -468,6 +697,7 @@
 		};
 		FA903D5C20B92B7B0081A8A2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4E81872762953E855787B901 /* Pods-RewardBusinessTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
