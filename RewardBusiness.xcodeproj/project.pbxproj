@@ -17,6 +17,8 @@
 		FA2AC93E20C081AC00D05A75 /* PushNotication.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2AC93D20C081AC00D05A75 /* PushNotication.swift */; };
 		FA2AC94520C0A30900D05A75 /* NumPad+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2AC94420C0A30900D05A75 /* NumPad+UIView.swift */; };
 		FA2AC94E20C4C28100D05A75 /* ConfigureNumPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2AC94D20C4C28100D05A75 /* ConfigureNumPad.swift */; };
+		FA2AC95020C5CB1A00D05A75 /* InventoryItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2AC94F20C5CB1A00D05A75 /* InventoryItemViewController.swift */; };
+		FA2AC95220C5D2C000D05A75 /* ConfigureItemPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2AC95120C5D2C000D05A75 /* ConfigureItemPad.swift */; };
 		FA903D3320B92B7B0081A8A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA903D3220B92B7B0081A8A2 /* AppDelegate.swift */; };
 		FA903D3520B92B7B0081A8A2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA903D3420B92B7B0081A8A2 /* ViewController.swift */; };
 		FA903D3820B92B7B0081A8A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA903D3620B92B7B0081A8A2 /* Main.storyboard */; };
@@ -30,7 +32,7 @@
 		FA903D6C20BA09150081A8A2 /* QRScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA903D6B20BA09150081A8A2 /* QRScanViewController.swift */; };
 		FA903D6F20BA0DD10081A8A2 /* RWNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA903D6E20BA0DCF0081A8A2 /* RWNavigationController.swift */; };
 		FA903D7420BA0F680081A8A2 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA903D7320BA0F680081A8A2 /* UIColor+Extension.swift */; };
-		FA903D7620BA2EB40081A8A2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA903D7520BA2EB40081A8A2 /* HomeViewController.swift */; };
+		FA903D7620BA2EB40081A8A2 /* NumPadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA903D7520BA2EB40081A8A2 /* NumPadViewController.swift */; };
 		FA903D7820BA2FC20081A8A2 /* BusinessSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA903D7720BA2FC20081A8A2 /* BusinessSettingViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +68,8 @@
 		FA2AC93D20C081AC00D05A75 /* PushNotication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotication.swift; sourceTree = "<group>"; };
 		FA2AC94420C0A30900D05A75 /* NumPad+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NumPad+UIView.swift"; sourceTree = "<group>"; };
 		FA2AC94D20C4C28100D05A75 /* ConfigureNumPad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureNumPad.swift; sourceTree = "<group>"; };
+		FA2AC94F20C5CB1A00D05A75 /* InventoryItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryItemViewController.swift; sourceTree = "<group>"; };
+		FA2AC95120C5D2C000D05A75 /* ConfigureItemPad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureItemPad.swift; sourceTree = "<group>"; };
 		FA903D2F20B92B7B0081A8A2 /* RewardBusiness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RewardBusiness.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA903D3220B92B7B0081A8A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA903D3420B92B7B0081A8A2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -85,7 +89,7 @@
 		FA903D6B20BA09150081A8A2 /* QRScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScanViewController.swift; sourceTree = "<group>"; };
 		FA903D6E20BA0DCF0081A8A2 /* RWNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RWNavigationController.swift; sourceTree = "<group>"; };
 		FA903D7320BA0F680081A8A2 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
-		FA903D7520BA2EB40081A8A2 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		FA903D7520BA2EB40081A8A2 /* NumPadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumPadViewController.swift; sourceTree = "<group>"; };
 		FA903D7720BA2FC20081A8A2 /* BusinessSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessSettingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -166,8 +170,8 @@
 		FA2AC94620C0A85600D05A75 /* NumPad */ = {
 			isa = PBXGroup;
 			children = (
-				FA903D7520BA2EB40081A8A2 /* HomeViewController.swift */,
 				FA2AC94D20C4C28100D05A75 /* ConfigureNumPad.swift */,
+				FA2AC95120C5D2C000D05A75 /* ConfigureItemPad.swift */,
 			);
 			path = NumPad;
 			sourceTree = "<group>";
@@ -246,6 +250,8 @@
 				FA2AC93F20C0946E00D05A75 /* UILoginViewController */,
 				FA903D6D20BA0D840081A8A2 /* NavigationControllers */,
 				FA903D6720B931240081A8A2 /* RWViewController.swift */,
+				FA903D7520BA2EB40081A8A2 /* NumPadViewController.swift */,
+				FA2AC94F20C5CB1A00D05A75 /* InventoryItemViewController.swift */,
 				FA903D6B20BA09150081A8A2 /* QRScanViewController.swift */,
 				FA903D7720BA2FC20081A8A2 /* BusinessSettingViewController.swift */,
 			);
@@ -532,6 +538,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA2AC95020C5CB1A00D05A75 /* InventoryItemViewController.swift in Sources */,
 				FA2AC93C20C080C700D05A75 /* DigitalCard.swift in Sources */,
 				FA2AC93A20C0804700D05A75 /* User.swift in Sources */,
 				FA2AC93E20C081AC00D05A75 /* PushNotication.swift in Sources */,
@@ -540,11 +547,12 @@
 				FA903D6F20BA0DD10081A8A2 /* RWNavigationController.swift in Sources */,
 				FA903D3520B92B7B0081A8A2 /* ViewController.swift in Sources */,
 				FA2AC94520C0A30900D05A75 /* NumPad+UIView.swift in Sources */,
-				FA903D7620BA2EB40081A8A2 /* HomeViewController.swift in Sources */,
+				FA903D7620BA2EB40081A8A2 /* NumPadViewController.swift in Sources */,
 				FA2AC93320C07E9900D05A75 /* Transaction.swift in Sources */,
 				FA903D6820B931240081A8A2 /* RWViewController.swift in Sources */,
 				FA903D7820BA2FC20081A8A2 /* BusinessSettingViewController.swift in Sources */,
 				FA2AC94E20C4C28100D05A75 /* ConfigureNumPad.swift in Sources */,
+				FA2AC95220C5D2C000D05A75 /* ConfigureItemPad.swift in Sources */,
 				FA903D3320B92B7B0081A8A2 /* AppDelegate.swift in Sources */,
 				FA2AC93820C07F1000D05A75 /* Business.swift in Sources */,
 				FA903D6C20BA09150081A8A2 /* QRScanViewController.swift in Sources */,

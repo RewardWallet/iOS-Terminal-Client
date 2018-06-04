@@ -1,31 +1,29 @@
 //
-//  HomeViewController.swift
+//  InventoryItemViewController.swift
 //  RewardBusiness
 //
-//  Created by MOLLY BIN on 2018-05-26.
+//  Created by MOLLY BIN on 2018-06-04.
 //  Copyright © 2018 MOLLY BIN. All rights reserved.
 //
 
 import UIKit
 import NumPad
 
-class HomeViewController: UIViewController{
+class InventoryItemViewController: UIViewController {
 
-   
-    
     lazy var numPad: NumPad = { [unowned self] in
-        let numPad = ConfigureNumPad()
+        let numPad = ConfigureItemPad()
         numPad.delegate = self
         numPad.translatesAutoresizingMaskIntoConstraints = false
         numPad.backgroundColor = self.borderColor
         self.containerView.addSubview(numPad)
         return numPad
         }()
-
+    
     
     
     let borderColor = UIColor(white: 0.9, alpha: 1)
-   
+    
     lazy var containerView: UIView = { [unowned self] in
         let containerView = UIView()
         containerView.layer.borderColor = self.borderColor.cgColor
@@ -41,45 +39,45 @@ class HomeViewController: UIViewController{
         textField.textAlignment = .right
         textField.textColor = UIColor(white: 0.3, alpha: 1)
         textField.font = .systemFont(ofSize: 40)
-        textField.placeholder = "0".currency()
+        textField.placeholder = "0"
         textField.isEnabled = false
         self.containerView.addSubview(textField)
         return textField
         }()
-  
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .backgroundColor
+
         // Do any additional setup after loading the view.
+        view.backgroundColor = .backgroundColor
         
         let views: [String : Any] = ["textField": textField, "numPad": numPad]
         containerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-20-[textField]-20-|", options: [], metrics: nil, views: views))
         containerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[numPad]|", options: [], metrics: nil, views: views))
-        containerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-50-[textField(==100)][numPad]-50-|", options: [], metrics: nil, views: views))
+        containerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-100-[textField(==80)][numPad]-50-|", options: [], metrics: nil, views: views))
         self.containerView.addSubview(numPad)
-        
-    
     }
-    
-   
 
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        numPad.invalidateLayout()
-    }
-    
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
- 
+    
+    
     private func didTapEnter(){
+        //save the total amount total and the total item
+        //open transaction
+        
         print(textField.text as! String)
+
+//        let InventoryItemViewController = self.storyboard?.instantiateViewController(withIdentifier: "InventoryItemViewController") as! InventoryItemViewController
+//        //self.present(InventoryItemViewController, animated: true, completion: nil)
+//        self.navigationController?.pushViewController(InventoryItemViewController, animated: true)
     }
     
-
     /*
     // MARK: - Navigation
 
@@ -89,11 +87,11 @@ class HomeViewController: UIViewController{
         // Pass the selected object to the new view controller.
     }
     */
-    
-   
+
 }
 
-extension HomeViewController : NumPadDelegate{
+
+extension InventoryItemViewController : NumPadDelegate{
     
     
     func numPad(_ numPad: NumPad, itemTapped item: Item, atPosition position: Position) {
@@ -108,9 +106,10 @@ extension HomeViewController : NumPadDelegate{
             if Int(string) == 0 {
                 textField.text = nil
             } else {
-                textField.text = string.currency()
+                textField.text = string.sanitized()
             }
         }
     }
 }
+
 
