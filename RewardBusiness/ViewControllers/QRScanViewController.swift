@@ -97,6 +97,21 @@ class QRScanViewController: RWViewController, AVCaptureMetadataOutputObjectsDele
     
     func found(code: String) {
         print("hello, I found the QR Code")
+        let alert = UIAlertController(title: "QR Code", message: "Found", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+            switch action.style{
+            case .default:
+                print("default")
+                
+            case .cancel:
+                print("cancel")
+                
+            case .destructive:
+                print("destructive")
+                
+                
+            }}))
+        self.present(alert, animated: true, completion: nil)
     }
     
     override var prefersStatusBarHidden: Bool {

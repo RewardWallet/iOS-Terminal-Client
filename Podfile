@@ -43,6 +43,9 @@ target 'RewardBusiness' do
   # https://github.com/onevcat/Kingfisher
   pod 'Kingfisher'
   
+  #NumPad
+  # https://github.com/efremidze/NumPad
+  pod 'NumPad'
 
   target 'RewardBusinessTests' do
     inherit! :search_paths
