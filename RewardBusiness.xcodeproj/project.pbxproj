@@ -19,6 +19,7 @@
 		FA2AC94E20C4C28100D05A75 /* ConfigureNumPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2AC94D20C4C28100D05A75 /* ConfigureNumPad.swift */; };
 		FA2AC95020C5CB1A00D05A75 /* InventoryItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2AC94F20C5CB1A00D05A75 /* InventoryItemViewController.swift */; };
 		FA2AC95220C5D2C000D05A75 /* ConfigureItemPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2AC95120C5D2C000D05A75 /* ConfigureItemPad.swift */; };
+		FA2AC95420C5E08500D05A75 /* QRCodeDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2AC95320C5E08500D05A75 /* QRCodeDetailsViewController.swift */; };
 		FA903D3320B92B7B0081A8A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA903D3220B92B7B0081A8A2 /* AppDelegate.swift */; };
 		FA903D3520B92B7B0081A8A2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA903D3420B92B7B0081A8A2 /* ViewController.swift */; };
 		FA903D3820B92B7B0081A8A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA903D3620B92B7B0081A8A2 /* Main.storyboard */; };
@@ -70,6 +71,7 @@
 		FA2AC94D20C4C28100D05A75 /* ConfigureNumPad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureNumPad.swift; sourceTree = "<group>"; };
 		FA2AC94F20C5CB1A00D05A75 /* InventoryItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryItemViewController.swift; sourceTree = "<group>"; };
 		FA2AC95120C5D2C000D05A75 /* ConfigureItemPad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureItemPad.swift; sourceTree = "<group>"; };
+		FA2AC95320C5E08500D05A75 /* QRCodeDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeDetailsViewController.swift; sourceTree = "<group>"; };
 		FA903D2F20B92B7B0081A8A2 /* RewardBusiness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RewardBusiness.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA903D3220B92B7B0081A8A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA903D3420B92B7B0081A8A2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 				FA903D7520BA2EB40081A8A2 /* NumPadViewController.swift */,
 				FA2AC94F20C5CB1A00D05A75 /* InventoryItemViewController.swift */,
 				FA903D6B20BA09150081A8A2 /* QRScanViewController.swift */,
+				FA2AC95320C5E08500D05A75 /* QRCodeDetailsViewController.swift */,
 				FA903D7720BA2FC20081A8A2 /* BusinessSettingViewController.swift */,
 			);
 			path = ViewControllers;
@@ -547,6 +550,7 @@
 				FA903D6F20BA0DD10081A8A2 /* RWNavigationController.swift in Sources */,
 				FA903D3520B92B7B0081A8A2 /* ViewController.swift in Sources */,
 				FA2AC94520C0A30900D05A75 /* NumPad+UIView.swift in Sources */,
+				FA2AC95420C5E08500D05A75 /* QRCodeDetailsViewController.swift in Sources */,
 				FA903D7620BA2EB40081A8A2 /* NumPadViewController.swift in Sources */,
 				FA2AC93320C07E9900D05A75 /* Transaction.swift in Sources */,
 				FA903D6820B931240081A8A2 /* RWViewController.swift in Sources */,

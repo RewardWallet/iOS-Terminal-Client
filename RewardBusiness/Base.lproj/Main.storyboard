@@ -28,7 +28,7 @@
             </objects>
             <point key="canvasLocation" x="1099" y="-2695"/>
         </scene>
-        <!--Total Amount-->
+        <!--Total Payment-->
         <scene sceneID="xUc-5u-Tq5">
             <objects>
                 <viewController id="Ut8-P8-Mkq" customClass="NumPadViewController" customModule="RewardBusiness" customModuleProvider="target" sceneMemberID="viewController">
@@ -41,7 +41,7 @@
                             </navigationItem>
                         </items>
                     </navigationBar>
-                    <navigationItem key="navigationItem" title="Total Amount" prompt="Please enter the total amount" id="ZLy-eh-M1f" userLabel="Home">
+                    <navigationItem key="navigationItem" title="Total Payment" prompt="Please enter the total payment amount" id="ZLy-eh-M1f" userLabel="Home">
                         <barButtonItem key="rightBarButtonItem" title="Scan" image="iconScan" id="K4G-DZ-3CE">
                             <connections>
                                 <segue destination="bJO-vk-xgg" kind="show" id="IXC-Wi-2P7"/>
@@ -66,17 +66,63 @@
         <!--Scan View Controller-->
         <scene sceneID="2iP-vi-q1I">
             <objects>
-                <viewController id="bJO-vk-xgg" customClass="QRScanViewController" customModule="RewardBusiness" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="QRScanViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="bJO-vk-xgg" customClass="QRScanViewController" customModule="RewardBusiness" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HCh-31-Z3f">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Put a QrCode in front of your camera" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LUQ-Up-FH4">
+                                <rect key="frame" x="20" y="661" width="984" height="37"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="0.52936536073684692" green="0.52944260835647583" blue="0.52934086322784424" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="LUQ-Up-FH4" firstAttribute="centerX" secondItem="uYV-Ep-GPZ" secondAttribute="centerX" id="D5t-d1-gO5"/>
+                            <constraint firstItem="uYV-Ep-GPZ" firstAttribute="bottom" secondItem="LUQ-Up-FH4" secondAttribute="bottom" constant="21" id="ISn-Ql-lom"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="uYV-Ep-GPZ"/>
                     </view>
+                    <connections>
+                        <outlet property="infoLbi" destination="LUQ-Up-FH4" id="Sbg-UV-w2j"/>
+                        <segue destination="Ugi-qa-Ddh" kind="show" identifier="segToDetailsVC" id="26m-xD-hU0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UBG-kE-njL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1376" y="-1920"/>
+            <point key="canvasLocation" x="1375.78125" y="-1920.3125"/>
+        </scene>
+        <!--Code Details View Controller-->
+        <scene sceneID="TUI-1P-zlf">
+            <objects>
+                <viewController id="Ugi-qa-Ddh" customClass="QRCodeDetailsViewController" customModule="RewardBusiness" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3db-wS-0DY">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ggb-Ip-ZtX">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ggb-Ip-ZtX" firstAttribute="leading" secondItem="dQV-Bj-gpN" secondAttribute="leading" id="DJt-nU-lEP"/>
+                            <constraint firstAttribute="bottom" secondItem="ggb-Ip-ZtX" secondAttribute="bottom" id="NNf-QQ-V0J"/>
+                            <constraint firstItem="ggb-Ip-ZtX" firstAttribute="trailing" secondItem="dQV-Bj-gpN" secondAttribute="trailing" id="dHF-u9-MXg"/>
+                            <constraint firstItem="ggb-Ip-ZtX" firstAttribute="top" secondItem="3db-wS-0DY" secondAttribute="top" id="pwq-4f-XAV"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="dQV-Bj-gpN"/>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="ggb-Ip-ZtX" id="dsD-7E-Kpe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5uE-ux-JDT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2084.1796875" y="-1920.3125"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="ycu-bf-E6Z">

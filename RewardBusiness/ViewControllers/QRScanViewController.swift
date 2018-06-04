@@ -8,17 +8,33 @@
 
 import UIKit
 import AVFoundation
+import AudioToolbox
 
 class QRScanViewController: RWViewController, AVCaptureMetadataOutputObjectsDelegate {
 
     
     var captureSession: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!
+    let systemSoundId : SystemSoundID = 1016
     
-   
+
+    
+    @IBOutlet weak var infoLbi: UILabel!
+    
+    let codeFrame:UIView = {
+        let codeFrame = UIView()
+        codeFrame.layer.borderColor = UIColor.red.cgColor
+        codeFrame.layer.borderWidth = 1.5
+        codeFrame.frame = CGRect.zero
+        codeFrame.translatesAutoresizingMaskIntoConstraints = false
+        return codeFrame
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .backgroundColor
+        
+                
         captureSession = AVCaptureSession()
         
         guard let videoCaptureDevice = AVCaptureDevice.default(for: .video) else { return }
@@ -53,7 +69,8 @@ class QRScanViewController: RWViewController, AVCaptureMetadataOutputObjectsDele
         previewLayer.frame = view.layer.bounds
         previewLayer.videoGravity = .resizeAspectFill
         view.layer.addSublayer(previewLayer)
-        
+        view.bringSubview(toFront: infoLbi)
+
         captureSession.startRunning()
     }
     
@@ -83,16 +100,42 @@ class QRScanViewController: RWViewController, AVCaptureMetadataOutputObjectsDele
     }
     
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
-        captureSession.stopRunning()
+//        captureSession.stopRunning()
+//
+//        if let metadataObject = metadataObjects.first {
+//            guard let readableObject = metadataObject as? AVMetadataMachineReadableCodeObject else { return }
+//            guard let stringValue = readableObject.stringValue else { return }
+//            AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
+//            found(code: stringValue)
+//        }
+//
+//        dismiss(animated: true)
+        if metadataObjects.count == 0{
+            print("no objects returned")
+            return
         
-        if let metadataObject = metadataObjects.first {
-            guard let readableObject = metadataObject as? AVMetadataMachineReadableCodeObject else { return }
-            guard let stringValue = readableObject.stringValue else { return }
-            AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
-            found(code: stringValue)
         }
         
-        dismiss(animated: true)
+        let metaDataObject = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
+        guard let StringCodeValue = metaDataObject.stringValue else {
+            return
+        }
+        
+        view.addSubview(codeFrame)
+        
+        //transformedMetaDataObject returns layer coordinates/height/width from visual properties
+        guard let metaDataCoordinates = previewLayer?.transformedMetadataObject(for: metaDataObject) else {
+            return
+        }
+        
+        //Those coordinates are assigned to our codeFrame
+        codeFrame.frame = metaDataCoordinates.bounds
+        AudioServicesPlayAlertSound(systemSoundId)
+        infoLbi.text = StringCodeValue
+        if let url = URL(string: StringCodeValue) {
+            performSegue(withIdentifier: "segToDetailsVC", sender: self)
+            captureSession?.stopRunning()
+        }
     }
     
     func found(code: String) {
@@ -130,14 +173,17 @@ class QRScanViewController: RWViewController, AVCaptureMetadataOutputObjectsDele
 
   
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if let nextVC = segue.destination as? QRCodeDetailsViewController{
+            nextVC.scannedCode = infoLbi.text
+        }
     }
-    */
+   
 
 }
