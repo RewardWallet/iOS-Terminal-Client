@@ -36,9 +36,9 @@ class API: NSObject {
         Parse.setLogLevel(.debug)
         Parse.enableLocalDatastore()
         let config = ParseClientConfiguration {
-            $0.applicationId = "5++ejBLY/kzVaVibHAIIQZvbawrEywUCNqpD+FVpHgU="
-            $0.clientKey = "oR3Jp5YMyxSBu6r6nh9xuYQD5AcsdubQmvATY1OEtXo="
-            $0.server = "https://nathantannar.me/api/dev/"
+            $0.applicationId = "5ejBLYkzVaVibHAIIQZvbawrEywUCNqpDFVpHgU"
+            $0.clientKey = "oR3Jp5YMyxSBu6r6nh9xuYQD5AcsdubQmvATY1OEtXo"
+            $0.server = "https://nathantannar.me/api/prod/"
         }
         Parse.initialize(with: config)
     }

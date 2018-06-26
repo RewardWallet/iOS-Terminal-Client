@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="m6N-0z-Y0U" customClass="PhoneFieldCell" customModule="UserClient" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="m6N-0z-Y0U" id="X96-ae-udA">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jzc-HW-gFE">
+                        <rect key="frame" x="15" y="0.0" width="75" height="43.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="75" id="sbL-WT-Izq"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="15" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="uAy-iH-pu9" customClass="PhoneNumberTextField" customModule="PhoneNumberKit">
+                        <rect key="frame" x="100" y="0.0" width="205" height="43.5"/>
+                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="jzc-HW-gFE" secondAttribute="bottom" id="0WP-Uq-Tz7"/>
+                    <constraint firstItem="uAy-iH-pu9" firstAttribute="leading" secondItem="jzc-HW-gFE" secondAttribute="trailing" constant="10" id="5Cb-TP-egX"/>
+                    <constraint firstAttribute="bottom" secondItem="uAy-iH-pu9" secondAttribute="bottom" id="5ey-BN-ynE"/>
+                    <constraint firstAttribute="trailing" secondItem="uAy-iH-pu9" secondAttribute="trailing" constant="15" id="Xpx-2t-PLn"/>
+                    <constraint firstItem="jzc-HW-gFE" firstAttribute="top" secondItem="X96-ae-udA" secondAttribute="top" id="ef9-xp-fJH"/>
+                    <constraint firstItem="uAy-iH-pu9" firstAttribute="top" secondItem="X96-ae-udA" secondAttribute="top" id="nwC-aJ-4jh"/>
+                    <constraint firstItem="jzc-HW-gFE" firstAttribute="leading" secondItem="X96-ae-udA" secondAttribute="leading" constant="15" id="yCw-2g-amD"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="textField" destination="uAy-iH-pu9" id="9zK-1C-DUD"/>
+                <outlet property="titleLabel" destination="jzc-HW-gFE" id="1Nj-CJ-fao"/>
+            </connections>
+            <point key="canvasLocation" x="262" y="258"/>
+        </tableViewCell>
+    </objects>
+</document>

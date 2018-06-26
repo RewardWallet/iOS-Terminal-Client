@@ -46,6 +46,8 @@ target 'RewardBusiness' do
   #NumPad
   # https://github.com/efremidze/NumPad
   pod 'NumPad'
+  pod 'Former'
+  pod 'PhoneNumberKit'
 
   target 'RewardBusinessTests' do
     inherit! :search_paths

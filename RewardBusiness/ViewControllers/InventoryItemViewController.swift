@@ -10,6 +10,9 @@ import UIKit
 import NumPad
 
 class InventoryItemViewController: UIViewController {
+    
+    var cost: Double = 0
+    var count: Int = 0
 
     lazy var numPad: NumPad = { [unowned self] in
         let numPad = ConfigureItemPad()
@@ -59,6 +62,10 @@ class InventoryItemViewController: UIViewController {
         containerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[numPad]|", options: [], metrics: nil, views: views))
         containerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-100-[textField(==80)][numPad]-50-|", options: [], metrics: nil, views: views))
         self.containerView.addSubview(numPad)
+        
+        title = "Total Inventory"
+        tabBarItem = UITabBarItem.init(title: title, image: UIImage.iconCheckout    , selectedImage: UIImage.iconCheckout)
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -72,10 +79,14 @@ class InventoryItemViewController: UIViewController {
         //open transaction
         
         print(textField.text as! String)
-
-//        let InventoryItemViewController = self.storyboard?.instantiateViewController(withIdentifier: "InventoryItemViewController") as! InventoryItemViewController
+        let purchasedinfo = [cost, count] as [Any]
+        guard let viewController = AppRouter.shared.viewController(for: .qrcode, context: purchasedinfo) else{ return }
+        AppRouter.shared.present(viewController, wrap: PrimaryNavigationController.self, from: self, animated: true, completion: nil)
+//        let QRScanViewController = self.storyboard?.instantiateViewController(withIdentifier: "QRScanViewController") as! QRScanViewController
+//        QRScanViewController.cost = cost
+//        QRScanViewController.count = Int(textField.text?.sanitized() ?? "0") ?? 0
 //        //self.present(InventoryItemViewController, animated: true, completion: nil)
-//        self.navigationController?.pushViewController(InventoryItemViewController, animated: true)
+//        self.navigationController?.pushViewController(QRScanViewController, animated: true)
     }
     
     /*
@@ -107,6 +118,7 @@ extension InventoryItemViewController : NumPadDelegate{
                 textField.text = nil
             } else {
                 textField.text = string.sanitized()
+                count = Int(textField.text?.sanitized() ?? "0") ?? 0
             }
         }
     }

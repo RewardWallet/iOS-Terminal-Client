@@ -14,13 +14,15 @@ class BusinessSettingViewController: RWViewController{
         super.viewDidLoad()
         view.backgroundColor = .backgroundColor
         // Do any additional setup after loading the view.
+        title = "Account Profile"
+        tabBarItem = UITabBarItem.init(title: title, image: UIImage.icon_user , selectedImage: UIImage.icon_user)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
 
     /*
     // MARK: - Navigation
@@ -33,3 +35,4 @@ class BusinessSettingViewController: RWViewController{
     */
 
 }
+

@@ -9,6 +9,7 @@
 import UIKit
 import AVFoundation
 import AudioToolbox
+import Parse
 
 class QRScanViewController: RWViewController, AVCaptureMetadataOutputObjectsDelegate {
 
@@ -16,6 +17,11 @@ class QRScanViewController: RWViewController, AVCaptureMetadataOutputObjectsDele
     var captureSession: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!
     let systemSoundId : SystemSoundID = 1016
+    var businessId : String = ""
+    var userId : String = ""
+    var transactionId: String = ""
+    var cost: Double = 0
+    var count: Int = 0
     
 
     
@@ -33,7 +39,8 @@ class QRScanViewController: RWViewController, AVCaptureMetadataOutputObjectsDele
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .backgroundColor
-        
+        navigationItem.title = "QRCode Scan"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(fetchNumPad))
                 
         captureSession = AVCaptureSession()
         
@@ -69,12 +76,15 @@ class QRScanViewController: RWViewController, AVCaptureMetadataOutputObjectsDele
         previewLayer.frame = view.layer.bounds
         previewLayer.videoGravity = .resizeAspectFill
         view.layer.addSublayer(previewLayer)
-        view.bringSubview(toFront: infoLbi)
+        //view.bringSubview(toFront: infoLbi)
 
         captureSession.startRunning()
     }
     
-
+    @objc
+    func fetchNumPad(){
+           AppRouter.shared.present(.numpad, wrap: nil, from: nil, animated: true, completion: nil)
+    }
     
     func failed() {
         let ac = UIAlertController(title: "Scanning not supported", message: "Your device does not support scanning a code from an item. Please use a device with a camera.", preferredStyle: .alert)
@@ -120,6 +130,10 @@ class QRScanViewController: RWViewController, AVCaptureMetadataOutputObjectsDele
         guard let StringCodeValue = metaDataObject.stringValue else {
             return
         }
+        captureSession.stopRunning()
+        let StringCodeParsed = StringCodeValue.components(separatedBy: "-")
+        businessId = StringCodeParsed[0]
+        userId = StringCodeParsed[1]
         
         view.addSubview(codeFrame)
         
@@ -131,15 +145,44 @@ class QRScanViewController: RWViewController, AVCaptureMetadataOutputObjectsDele
         //Those coordinates are assigned to our codeFrame
         codeFrame.frame = metaDataCoordinates.bounds
         AudioServicesPlayAlertSound(systemSoundId)
-        infoLbi.text = StringCodeValue
-        if let url = URL(string: StringCodeValue) {
-            performSegue(withIdentifier: "segToDetailsVC", sender: self)
-            captureSession?.stopRunning()
+        //infoLbi.text = StringCodeValue
+        
+        let Openparams: [AnyHashable: Any] = ["businessId": businessId, "amount": cost, "itemCount": count]
+        PFCloud.callFunction(inBackground: "openTransaction", withParameters: Openparams) { (response, error) in
+            let json = response as? [String:Any]
+            if let transactionId = json?["objectId"] {
+            
+                let Closeparams: [AnyHashable: Any] = ["transactionId": transactionId, "userId": self.userId]
+                PFCloud.callFunction(inBackground: "closeTransaction", withParameters: Closeparams) { (response, error) in
+                    let json = response as? [String:Any]
+                    let pointsAdded = json?["pointsAdded"]
+                    print(pointsAdded)
+                }
+            }
+            
         }
+
+        found(code: StringCodeValue)
+//        if let url = URL(string: StringCodeValue) {
+//            performSegue(withIdentifier: "segToDetailsVC", sender: self)
+//            captureSession?.stopRunning()
+//        }
+//        if Transaction().transactionId == transactionId{
+//            print("transactionId matched")
+//            if let url = URL(string: StringCodeValue) {
+//                performSegue(withIdentifier: "segToDetailsVC", sender: self)
+//                captureSession?.stopRunning()
+//            }
+//
+//        }else{
+//            print("transactionId is not matched")
+//        }
+//
+        
     }
     
     func found(code: String) {
-        print("hello, I found the QR Code")
+        print("QR Code scan successfully")
         let alert = UIAlertController(title: "QR Code", message: "Found", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
             switch action.style{

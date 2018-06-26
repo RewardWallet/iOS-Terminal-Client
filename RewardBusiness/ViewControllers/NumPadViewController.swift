@@ -9,9 +9,9 @@
 import UIKit
 import NumPad
 
-class NumPadViewController: UIViewController{
+class NumPadViewController: RWViewController{
 
-   
+    var cost: Double = 0
     
     lazy var numPad: NumPad = { [unowned self] in
         let numPad = ConfigureNumPad()
@@ -58,7 +58,8 @@ class NumPadViewController: UIViewController{
         containerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[numPad]|", options: [], metrics: nil, views: views))
         containerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-100-[textField(==80)][numPad]-50-|", options: [], metrics: nil, views: views))
         self.containerView.addSubview(numPad)
-        
+        title = "Total Payment"
+        tabBarItem = UITabBarItem.init(title: title, image: UIImage.icon_wallet, selectedImage: UIImage.icon_wallet)
     
     }
     
@@ -75,11 +76,14 @@ class NumPadViewController: UIViewController{
         // Dispose of any resources that can be recreated.
     }
  
-    private func didTapEnter(){
+    private func didSavePayment(){
         print(textField.text as! String)
-        let InventoryItemViewController = self.storyboard?.instantiateViewController(withIdentifier: "InventoryItemViewController") as! InventoryItemViewController
-        //self.present(InventoryItemViewController, animated: true, completion: nil)
-        self.navigationController?.pushViewController(InventoryItemViewController, animated: true)
+        guard AppRouter.shared.viewController(for: .inventory, context: textField.text?.sanitized() ?? "0") != nil else{ return }
+        
+//        let InventoryItemViewController = self.storyboard?.instantiateViewController(withIdentifier: "InventoryItemViewController") as! InventoryItemViewController
+//        InventoryItemViewController.cost = Double(textField.text?.sanitized() ?? "0") ?? 0
+//        //self.present(InventoryItemViewController, animated: true, completion: nil)
+//        self.navigationController?.pushViewController(InventoryItemViewController, animated: true)
     }
     
 
@@ -104,7 +108,7 @@ extension NumPadViewController : NumPadDelegate{
         case (3, 0):
             textField.text = nil
         case (3, 2):
-            didTapEnter()
+            didSavePayment()
         default:
             let item = numPad.item(forPosition: position)!
             let string = textField.text!.sanitized() + item.title!

@@ -13,6 +13,7 @@ import IGListKit
 final class Transaction: PFObject {
     
     //    @NSManaged var someValue: String?
+    @NSManaged var transactionId : String?
     
 }
 
