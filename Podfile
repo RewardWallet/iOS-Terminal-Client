@@ -48,6 +48,7 @@ target 'RewardBusiness' do
   pod 'NumPad'
   pod 'Former'
   pod 'PhoneNumberKit'
+  pod 'M13Checkbox'
 
   target 'RewardBusinessTests' do
     inherit! :search_paths

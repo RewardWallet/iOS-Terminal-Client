@@ -15,7 +15,10 @@ enum AppRoute {
     //case dispatch
     
     //Auth
-    case login//, signup, logout
+    case login, signup//, logout
+    
+    //checkout
+    case checkout
     
     //numpad
     case numpad, inventory
@@ -33,7 +36,8 @@ enum AppRoute {
         switch self {
         //case .dispatch: return urlScheme
         case .login: return urlScheme + "login/"
-        //case .signup: return urlScheme + "signup/"
+        case .signup: return urlScheme + "signup/"
+        case .checkout :return urlScheme + "checkout/"
         //case .logout: return urlScheme + "logout/"
       
 //        case .business : return urlScheme + "business/"
@@ -146,14 +150,18 @@ class AppRouter: Navigator {
 //            case .logout:
 //                User.logoutInBackground(nil)
 //                return self.viewController(for: .welcome)
-//            case .signup:
-//                return SignUpViewController()
-
+            case .signup:
+                return SignUpViewController()
+            case .numpad:
+                return NumPadViewController()
+//            case .inventory:
+//                return InventoryItemViewController()
+//
             case .qrcode:
                 return  QRScanViewController()
-            case .numpad, .inventory, .account:
-                let index = [.numpad, .inventory, .account].index(of: route)!
-                let viewControllers = [NumPadViewController(), InventoryItemViewController(),  BusinessSettingViewController()]
+            case .checkout, .inventory, .account:
+                let index = [.checkout, .inventory, .account].index(of: route)!
+                let viewControllers = [HomeViewController(), InventoryItemViewController(),  BusinessSettingViewController()]
                 viewControllers.forEach { $0.viewDidLoad() }
                 let nav = viewControllers.map {
                     return PrimaryNavigationController(rootViewController: $0)

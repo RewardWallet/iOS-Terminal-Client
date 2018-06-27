@@ -58,9 +58,18 @@ class NumPadViewController: RWViewController{
         containerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[numPad]|", options: [], metrics: nil, views: views))
         containerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-100-[textField(==80)][numPad]-50-|", options: [], metrics: nil, views: views))
         self.containerView.addSubview(numPad)
-        title = "Total Payment"
-        tabBarItem = UITabBarItem.init(title: title, image: UIImage.icon_wallet, selectedImage: UIImage.icon_wallet)
-    
+        
+        let title = "Payment"
+        let navigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 70))
+        navigationBar.barTintColor = .primaryColor
+        view.addSubview(navigationBar)
+        
+        //let cancelButton = UIBarButtonItem(image: UIImage.iconClose, style: UIBarButtonItemStyle.plain, target: nil, action: nil)
+        let cancelButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.cancel, target: nil, action: #selector(NumPadViewController.didTapCancel))
+        let navigationItem = UINavigationItem(title: title)
+        navigationItem.leftBarButtonItem = cancelButton
+        cancelButton.tintColor = UIColor.white
+        navigationBar.items = [navigationItem]
     }
     
    
@@ -75,7 +84,8 @@ class NumPadViewController: RWViewController{
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
- 
+    
+    @objc
     private func didSavePayment(){
         print(textField.text as! String)
         guard AppRouter.shared.viewController(for: .inventory, context: textField.text?.sanitized() ?? "0") != nil else{ return }
@@ -86,7 +96,10 @@ class NumPadViewController: RWViewController{
 //        self.navigationController?.pushViewController(InventoryItemViewController, animated: true)
     }
     
-
+    @objc private func didTapCancel(){
+         AppRouter.shared.present(.checkout, wrap: nil, from: nil, animated: true, completion: nil)
+    }
+    
     /*
     // MARK: - Navigation
 

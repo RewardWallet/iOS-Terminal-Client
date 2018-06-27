@@ -97,8 +97,8 @@ final class LoginViewController: RWViewController {
         super.viewDidLoad()
         
         #if DEBUG
-            emailField.text = "ntannar@sfu.ca"
-            passwordField.text = "oR3Jp5YMyxS"
+            emailField.text = "mbin@sfu.ca"
+            passwordField.text = "oyLf387LTN"
         #endif
         
         setupView()
@@ -197,13 +197,13 @@ final class LoginViewController: RWViewController {
         guard let email = emailField.text, let password = passwordField.text else { return }
         
         API.shared.showProgressHUD(ignoreUserInteraction: true)
-        User.loginInBackground(email: email, password: password) { [weak self] (success, error) in
+        Business.loginInBackground(email: email, password: password) { [weak self] (success, error) in
             API.shared.dismissProgressHUD()
             guard success else {
                 self?.handleError(error?.localizedDescription)
                 return
             }
-            AppRouter.shared.present(.numpad, wrap: nil, from: nil, animated: true, completion: nil)
+            AppRouter.shared.present(.checkout, wrap: nil, from: nil, animated: true, completion: nil)
             
         }
     }
@@ -220,7 +220,7 @@ final class LoginViewController: RWViewController {
     
     @objc
     private func didTapSignUp() {
-        
+//         AppRouter.shared.push(.signup, context: nil, from: navigationController, animated: true)
         
     }
     

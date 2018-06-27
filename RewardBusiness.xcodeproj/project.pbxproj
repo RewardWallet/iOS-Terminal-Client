@@ -61,6 +61,9 @@
 		FACB661F20DC213B00DF8D5C /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB661E20DC213B00DF8D5C /* UIApplication+Extensions.swift */; };
 		FACB662120DC218600DF8D5C /* UIWindow+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB662020DC218600DF8D5C /* UIWindow+Extensions.swift */; };
 		FACB662320DC245E00DF8D5C /* RippleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB662220DC245E00DF8D5C /* RippleButton.swift */; };
+		FACB662520E2EFD000DF8D5C /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB662420E2EFD000DF8D5C /* SignUpViewController.swift */; };
+		FACB662720E2F35500DF8D5C /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB662620E2F35500DF8D5C /* String+Extensions.swift */; };
+		FACB662B20E301E700DF8D5C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB662A20E301E700DF8D5C /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -145,6 +148,9 @@
 		FACB661E20DC213B00DF8D5C /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
 		FACB662020DC218600DF8D5C /* UIWindow+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+Extensions.swift"; sourceTree = "<group>"; };
 		FACB662220DC245E00DF8D5C /* RippleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RippleButton.swift; sourceTree = "<group>"; };
+		FACB662420E2EFD000DF8D5C /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		FACB662620E2F35500DF8D5C /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		FACB662A20E301E700DF8D5C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,6 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				FACB660E20DC0E5C00DF8D5C /* LoginViewController.swift */,
+				FACB662420E2EFD000DF8D5C /* SignUpViewController.swift */,
 			);
 			path = UILoginViewController;
 			sourceTree = "<group>";
@@ -327,7 +334,9 @@
 				FA2AC94620C0A85600D05A75 /* NumPad */,
 				FA2AC93F20C0946E00D05A75 /* UILoginViewController */,
 				FA903D6D20BA0D840081A8A2 /* NavigationControllers */,
+				FACB662C20E306C200DF8D5C /* Redeem */,
 				FA903D6720B931240081A8A2 /* RWViewController.swift */,
+				FACB662A20E301E700DF8D5C /* HomeViewController.swift */,
 				FA903D7520BA2EB40081A8A2 /* NumPadViewController.swift */,
 				FA2AC94F20C5CB1A00D05A75 /* InventoryItemViewController.swift */,
 				FA903D6B20BA09150081A8A2 /* QRScanViewController.swift */,
@@ -358,6 +367,7 @@
 				FACB661820DC1E7000DF8D5C /* Enum+Extensions.swift */,
 				FACB661E20DC213B00DF8D5C /* UIApplication+Extensions.swift */,
 				FACB662020DC218600DF8D5C /* UIWindow+Extensions.swift */,
+				FACB662620E2F35500DF8D5C /* String+Extensions.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -370,6 +380,13 @@
 				FACB662220DC245E00DF8D5C /* RippleButton.swift */,
 			);
 			path = Controls;
+			sourceTree = "<group>";
+		};
+		FACB662C20E306C200DF8D5C /* Redeem */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Redeem;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -528,6 +545,7 @@
 				"${BUILT_PRODUCTS_DIR}/Former/Former.framework",
 				"${BUILT_PRODUCTS_DIR}/IGListKit/IGListKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/M13Checkbox/M13Checkbox.framework",
 				"${BUILT_PRODUCTS_DIR}/NumPad/NumPad.framework",
 				"${BUILT_PRODUCTS_DIR}/Parse/Parse.framework",
 				"${BUILT_PRODUCTS_DIR}/PhoneNumberKit/PhoneNumberKit.framework",
@@ -544,6 +562,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Former.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IGListKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/M13Checkbox.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NumPad.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Parse.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PhoneNumberKit.framework",
@@ -661,6 +680,7 @@
 				FA903D7620BA2EB40081A8A2 /* NumPadViewController.swift in Sources */,
 				FA2AC93320C07E9900D05A75 /* Transaction.swift in Sources */,
 				FA9BC01D20DB319700C46400 /* UIView+Style.swift in Sources */,
+				FACB662720E2F35500DF8D5C /* String+Extensions.swift in Sources */,
 				FACB661F20DC213B00DF8D5C /* UIApplication+Extensions.swift in Sources */,
 				FA2AC96420D2412A00D05A75 /* ProfileLabelCell.swift in Sources */,
 				FACB661720DC1A4000DF8D5C /* AppRouter.swift in Sources */,
@@ -669,6 +689,7 @@
 				FA2AC96520D2412A00D05A75 /* ProfileImageCell.swift in Sources */,
 				FA903D6820B931240081A8A2 /* RWViewController.swift in Sources */,
 				FA903D7820BA2FC20081A8A2 /* BusinessSettingViewController.swift in Sources */,
+				FACB662B20E301E700DF8D5C /* HomeViewController.swift in Sources */,
 				FACB660D20DB39D200DF8D5C /* UIAnimatedPhoneNumberTextField.swift in Sources */,
 				FACB661D20DC208200DF8D5C /* MainContainerController.swift in Sources */,
 				FACB660B20DB39AF00DF8D5C /* UIAnimatedTextField.swift in Sources */,
@@ -680,6 +701,7 @@
 				FACB661920DC1E7000DF8D5C /* Enum+Extensions.swift in Sources */,
 				FACB660820DB38EE00DF8D5C /* NSAttributedString+Extensions.swift in Sources */,
 				FA903D3320B92B7B0081A8A2 /* AppDelegate.swift in Sources */,
+				FACB662520E2EFD000DF8D5C /* SignUpViewController.swift in Sources */,
 				FA2AC93820C07F1000D05A75 /* Business.swift in Sources */,
 				FA903D6C20BA09150081A8A2 /* QRScanViewController.swift in Sources */,
 				FA903D6620B92FC60081A8A2 /* Constants.swift in Sources */,
