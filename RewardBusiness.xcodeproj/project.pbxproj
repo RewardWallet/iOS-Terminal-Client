@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3855F3F220EACC6900BA6769 /* Parse+IGListKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3855F3F020EACC6800BA6769 /* Parse+IGListKit.swift */; };
+		3855F3F320EACC6900BA6769 /* PFFile+Kingfisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3855F3F120EACC6900BA6769 /* PFFile+Kingfisher.swift */; };
 		56F90503FC319538D536387A /* Pods_RewardBusinessTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D4BB35A868F91E64F4437F2 /* Pods_RewardBusinessTests.framework */; };
 		A8BD77D499E2210E95A5E940 /* Pods_RewardBusiness.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99645BB038B5BD2083A82785 /* Pods_RewardBusiness.framework */; };
 		FA2AC93320C07E9900D05A75 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2AC93220C07E9900D05A75 /* Transaction.swift */; };
@@ -105,6 +107,8 @@
 
 /* Begin PBXFileReference section */
 		1D4BB35A868F91E64F4437F2 /* Pods_RewardBusinessTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RewardBusinessTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3855F3F020EACC6800BA6769 /* Parse+IGListKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Parse+IGListKit.swift"; sourceTree = "<group>"; };
+		3855F3F120EACC6900BA6769 /* PFFile+Kingfisher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PFFile+Kingfisher.swift"; sourceTree = "<group>"; };
 		4E81872762953E855787B901 /* Pods-RewardBusinessTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RewardBusinessTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RewardBusinessTests/Pods-RewardBusinessTests.release.xcconfig"; sourceTree = "<group>"; };
 		7FD8ECEDF286247AC7F1E5B3 /* Pods-RewardBusinessTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RewardBusinessTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RewardBusinessTests/Pods-RewardBusinessTests.debug.xcconfig"; sourceTree = "<group>"; };
 		99645BB038B5BD2083A82785 /* Pods_RewardBusiness.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RewardBusiness.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -407,6 +411,8 @@
 		FA903D7220BA0F500081A8A2 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				3855F3F020EACC6800BA6769 /* Parse+IGListKit.swift */,
+				3855F3F120EACC6900BA6769 /* PFFile+Kingfisher.swift */,
 				FA903D7320BA0F680081A8A2 /* UIColor+Extension.swift */,
 				FA2AC94420C0A30900D05A75 /* NumPad+UIView.swift */,
 				FACB660720DB38EE00DF8D5C /* NSAttributedString+Extensions.swift */,
@@ -485,7 +491,6 @@
 				FA903D2C20B92B7B0081A8A2 /* Frameworks */,
 				FA903D2D20B92B7B0081A8A2 /* Resources */,
 				2299D02BC8178BD0C715EB59 /* [CP] Embed Pods Frameworks */,
-				DEBC7CC16FFA862C5AADD792 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -504,8 +509,6 @@
 				FA903D3F20B92B7B0081A8A2 /* Sources */,
 				FA903D4020B92B7B0081A8A2 /* Frameworks */,
 				FA903D4120B92B7B0081A8A2 /* Resources */,
-				4B9838F65A43123957A61086 /* [CP] Embed Pods Frameworks */,
-				4C558DB99D5A843D9BFC10E0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -680,36 +683,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		4B9838F65A43123957A61086 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RewardBusinessTests/Pods-RewardBusinessTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		4C558DB99D5A843D9BFC10E0 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RewardBusinessTests/Pods-RewardBusinessTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		987FCCFF4A89A68B137EBD18 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -726,21 +699,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		DEBC7CC16FFA862C5AADD792 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RewardBusiness/Pods-RewardBusiness-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -781,6 +739,7 @@
 				FACB661F20DC213B00DF8D5C /* UIApplication+Extensions.swift in Sources */,
 				FACB664420E80ED700DF8D5C /* GradientView.swift in Sources */,
 				FACB664F20E98FF100DF8D5C /* EditProfileViewController.swift in Sources */,
+				3855F3F320EACC6900BA6769 /* PFFile+Kingfisher.swift in Sources */,
 				FACB666320E9BFB200DF8D5C /* RWCollectionReusableView.swift in Sources */,
 				FA2AC96420D2412A00D05A75 /* ProfileLabelCell.swift in Sources */,
 				FACB661720DC1A4000DF8D5C /* AppRouter.swift in Sources */,
@@ -792,6 +751,7 @@
 				FA903D7820BA2FC20081A8A2 /* BusinessSettingViewController.swift in Sources */,
 				FACB662B20E301E700DF8D5C /* HomeViewController.swift in Sources */,
 				FACB660D20DB39D200DF8D5C /* UIAnimatedPhoneNumberTextField.swift in Sources */,
+				3855F3F220EACC6900BA6769 /* Parse+IGListKit.swift in Sources */,
 				FACB665D20E9BF0700DF8D5C /* AccountCell.swift in Sources */,
 				FACB661D20DC208200DF8D5C /* MainContainerController.swift in Sources */,
 				FACB666120E9BF7B00DF8D5C /* RWCollectionViewCell.swift in Sources */,

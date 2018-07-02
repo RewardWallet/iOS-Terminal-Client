@@ -175,7 +175,7 @@ class AppRouter: Navigator {
                 let sb = UIStoryboard(name: "Main", bundle: nil)
                 let inventoryVC = sb.instantiateViewController(withIdentifier: "inventory_vc") as! InventoryCollectionViewController
            
-                let viewControllers = [HomeViewController(), inventoryVC,  BusinessSettingViewController()]
+                let viewControllers = [HomeViewController(), inventoryVC,  BusinessSettingViewController(business: User.current()!.business!)]
                 viewControllers.forEach { $0.viewDidLoad() }
                 let nav = viewControllers.map {
                     return PrimaryNavigationController(rootViewController: $0)

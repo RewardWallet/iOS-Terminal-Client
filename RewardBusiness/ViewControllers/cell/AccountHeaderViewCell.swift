@@ -84,8 +84,8 @@ extension AccountHeaderViewCell: ListBindable {
         nameLabel.text = user.business?.name ?? user.business?.username
 
         profileImageView.kf.indicatorType = .activity
-        profileImageView.kf.setImage(with: user.business?.image as! Resource)
-        backgroundImageView.kf.setImage(with: user.business?.image as! Resource)
+        profileImageView.kf.setImage(with: user.business?.image)
+        backgroundImageView.kf.setImage(with: user.business?.image)
     }
     
 }

@@ -65,7 +65,7 @@ final class EditProfileViewController: FormViewController {
 
     fileprivate lazy var imageRow: LabelRowFormer<ProfileImageCell> = {
         LabelRowFormer<ProfileImageCell>(instantiateType: .Nib(nibName: "ProfileImageCell")) {
-            $0.iconView.kf.setImage(with: self.user.business?.image as! Resource)
+            $0.iconView.kf.setImage(with: self.user.business?.image)
             $0.iconView.apply(Stylesheet.ImageViews.filled)
             $0.iconView.backgroundColor = .offWhite
             }.configure {

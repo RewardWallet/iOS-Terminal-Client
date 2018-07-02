@@ -70,7 +70,7 @@ class HomeViewController: RWViewController {
         
         subtitleLabel.anchorBelow(titleLabel, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, heightConstant: 30)
         
-        PaymentButton.anchor(titleLabel.bottomAnchor, left: view.layoutMarginsGuide.leftAnchor, bottom: nil, right: view.layoutMarginsGuide.rightAnchor, topConstant: 75, leftConstant: 12, bottomConstant: 0, rightConstant: 12, widthConstant: 100, heightConstant: 100)
+        PaymentButton.anchor(titleLabel.bottomAnchor, left: view.layoutMarginsGuide.leftAnchor, bottom: nil, right: view.layoutMarginsGuide.rightAnchor, topConstant: 75, leftConstant: 12, bottomConstant: 0, rightConstant: 12, widthConstant: 0, heightConstant: 100)
         RedeemButton.anchorBelow(PaymentButton, bottom: nil, topConstant: 25, bottomConstant:0, heightConstant:100)
         
 //        PaymentButtomAnchor = PaymentButtom.anchor(left: view.leftAnchor, bottom: view.layoutMarginsGuide.topAnchor, right: view.rightAnchor, heightConstant: 44)[1]

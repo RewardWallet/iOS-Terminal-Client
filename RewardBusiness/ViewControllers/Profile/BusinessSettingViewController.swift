@@ -16,39 +16,24 @@ class BusinessSettingViewController: ListViewController{
         return .lightContent
     }
    
-//    fileprivate let business: Business
-//
-//    init(for business: Business){
-//        self.business = business
-//        super.init(nibName: nil, bundle: nil)
-//    }
-//
-//    var business : Business
-//
-//    // MARK: Public
-//    init(business: Business){
-//        self.business = business
-//        super.init(nibName: nil, bundle: nil)
-//        let query = PFQuery(className: "Business")
-//        query.fromLocalDatastore()
-//        query.getObjectInBackground(withId: "rqosV8jixE").continueWith { (task: BFTask!) -> Any? in
-//            if task.error != nil{
-//                return task
-//            }
-//            return task
-//        }
-//
-//
-//
-//
-//
-//    }
-//
-//
-//
-//    required init?(coder aDecoder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
+    let business: Business
+
+    init(for business: Business){
+        self.business = business
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    // MARK: Public
+    init(business: Business){
+        self.business = business
+        super.init(nibName: nil, bundle: nil)
+    }
+
+
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

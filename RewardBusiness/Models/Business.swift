@@ -40,13 +40,21 @@ final class Business: PFObject {
     ///   - completion: A completion block with a result indicating if the login was successful
     class func loginInBackground(email: String, password: String, completion: ((Bool, Error?) -> Void)?) {
 
-      
         PFUser.logInWithUsername(inBackground: email, password: password) { (user, error) in
-            completion?(error == nil, error)
             if user != nil {
                 PushNotication.shared.registerDeviceInstallation()
+                guard let user = user as? User else { fatalError() }
+                if user.business != nil {
+                    // Pointer exists to fetch object
+                    user.business?.fetchIfNeededInBackground(block: { (object, error) in
+                        completion?(error == nil, error)
+                    })
+                } else {
+                    completion?(error == nil, error)
+                }
+            } else {
+                completion?(error == nil, error)
             }
-            
         }
 
     }
@@ -105,16 +113,3 @@ extension Business: PFSubclassing {
         return "Business"
     }
 }
-
-extension Business: ListDiffable {
-    
-    func diffIdentifier() -> NSObjectProtocol {
-        return self
-    }
-    
-    func isEqual(toDiffableObject object: ListDiffable?) -> Bool {
-        return isEqual(object)
-    }
-    
-}
-
