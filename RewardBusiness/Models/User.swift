@@ -17,7 +17,7 @@ class User: PFUser {
     @NSManaged var fullname_lower: String?
     @NSManaged var address: String?
     @NSManaged var phone: NSNumber?
-    @NSManaged var business: PFUser?
+    @NSManaged var business: Business?
     
     override class func current() -> User? {
         return PFUser.current() as? User

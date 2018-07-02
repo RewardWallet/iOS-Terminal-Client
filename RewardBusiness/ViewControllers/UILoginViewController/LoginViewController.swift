@@ -11,6 +11,8 @@ import UIKit
 
 final class LoginViewController: RWViewController {
     
+    var passedName: String = ""
+    
     // MARK: - Properties
     
     private var loginButtonBottomAnchor: NSLayoutConstraint?
@@ -95,6 +97,7 @@ final class LoginViewController: RWViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         #if DEBUG
             emailField.text = "mbin@sfu.ca"
@@ -203,6 +206,7 @@ final class LoginViewController: RWViewController {
                 self?.handleError(error?.localizedDescription)
                 return
             }
+            
             AppRouter.shared.present(.checkout, wrap: nil, from: nil, animated: true, completion: nil)
             
         }
@@ -210,7 +214,7 @@ final class LoginViewController: RWViewController {
     
     @objc
     private func didTapFacebookLogin() {
-        
+      
     }
     
     @objc
@@ -221,7 +225,8 @@ final class LoginViewController: RWViewController {
     @objc
     private func didTapSignUp() {
 //         AppRouter.shared.push(.signup, context: nil, from: navigationController, animated: true)
-        
+
+          AppRouter.shared.present(.signup, wrap: nil, from: nil, animated: true, completion: nil)
     }
     
     // MARK: - Keyboard Observer

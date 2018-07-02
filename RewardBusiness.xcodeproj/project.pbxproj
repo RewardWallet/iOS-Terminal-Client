@@ -64,6 +64,26 @@
 		FACB662520E2EFD000DF8D5C /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB662420E2EFD000DF8D5C /* SignUpViewController.swift */; };
 		FACB662720E2F35500DF8D5C /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB662620E2F35500DF8D5C /* String+Extensions.swift */; };
 		FACB662B20E301E700DF8D5C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB662A20E301E700DF8D5C /* HomeViewController.swift */; };
+		FACB662E20E4943600DF8D5C /* InventoryCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB662D20E4943600DF8D5C /* InventoryCollectionViewController.swift */; };
+		FACB663020E49E1200DF8D5C /* Inventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB662F20E49E1200DF8D5C /* Inventory.swift */; };
+		FACB663C20E4B10C00DF8D5C /* InventoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB663A20E4B10C00DF8D5C /* InventoryCell.swift */; };
+		FACB663D20E4B10C00DF8D5C /* InventoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FACB663B20E4B10C00DF8D5C /* InventoryCell.xib */; };
+		FACB663F20E80D5500DF8D5C /* WelcomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB663E20E80D5400DF8D5C /* WelcomViewController.swift */; };
+		FACB664220E80EC100DF8D5C /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB664120E80EC100DF8D5C /* SplashScreenView.swift */; };
+		FACB664420E80ED700DF8D5C /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB664320E80ED700DF8D5C /* GradientView.swift */; };
+		FACB664820E98D6500DF8D5C /* RewardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB664720E98D6500DF8D5C /* RewardModel.swift */; };
+		FACB664A20E98D9400DF8D5C /* Coupon.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB664920E98D9400DF8D5C /* Coupon.swift */; };
+		FACB664C20E98DE000DF8D5C /* Number+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB664B20E98DE000DF8D5C /* Number+Extensions.swift */; };
+		FACB664F20E98FF100DF8D5C /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB664E20E98FF100DF8D5C /* EditProfileViewController.swift */; };
+		FACB665120E990CC00DF8D5C /* ImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB665020E990CC00DF8D5C /* ImagePickerController.swift */; };
+		FACB665320E9911500DF8D5C /* UIAlertController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB665220E9911500DF8D5C /* UIAlertController+Extensions.swift */; };
+		FACB665520E9926700DF8D5C /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB665420E9926700DF8D5C /* ListViewController.swift */; };
+		FACB665920E9BE1D00DF8D5C /* AccountCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB665820E9BE1D00DF8D5C /* AccountCellViewModel.swift */; };
+		FACB665B20E9BE3B00DF8D5C /* AccountSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB665A20E9BE3B00DF8D5C /* AccountSectionController.swift */; };
+		FACB665D20E9BF0700DF8D5C /* AccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB665C20E9BF0700DF8D5C /* AccountCell.swift */; };
+		FACB665F20E9BF2200DF8D5C /* AccountHeaderViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB665E20E9BF2200DF8D5C /* AccountHeaderViewCell.swift */; };
+		FACB666120E9BF7B00DF8D5C /* RWCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB666020E9BF7B00DF8D5C /* RWCollectionViewCell.swift */; };
+		FACB666320E9BFB200DF8D5C /* RWCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB666220E9BFB200DF8D5C /* RWCollectionReusableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -151,6 +171,26 @@
 		FACB662420E2EFD000DF8D5C /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		FACB662620E2F35500DF8D5C /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		FACB662A20E301E700DF8D5C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		FACB662D20E4943600DF8D5C /* InventoryCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryCollectionViewController.swift; sourceTree = "<group>"; };
+		FACB662F20E49E1200DF8D5C /* Inventory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inventory.swift; sourceTree = "<group>"; };
+		FACB663A20E4B10C00DF8D5C /* InventoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryCell.swift; sourceTree = "<group>"; };
+		FACB663B20E4B10C00DF8D5C /* InventoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InventoryCell.xib; sourceTree = "<group>"; };
+		FACB663E20E80D5400DF8D5C /* WelcomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomViewController.swift; sourceTree = "<group>"; };
+		FACB664120E80EC100DF8D5C /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
+		FACB664320E80ED700DF8D5C /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		FACB664720E98D6500DF8D5C /* RewardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardModel.swift; sourceTree = "<group>"; };
+		FACB664920E98D9400DF8D5C /* Coupon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coupon.swift; sourceTree = "<group>"; };
+		FACB664B20E98DE000DF8D5C /* Number+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Number+Extensions.swift"; sourceTree = "<group>"; };
+		FACB664E20E98FF100DF8D5C /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		FACB665020E990CC00DF8D5C /* ImagePickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerController.swift; sourceTree = "<group>"; };
+		FACB665220E9911500DF8D5C /* UIAlertController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extensions.swift"; sourceTree = "<group>"; };
+		FACB665420E9926700DF8D5C /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		FACB665820E9BE1D00DF8D5C /* AccountCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCellViewModel.swift; sourceTree = "<group>"; };
+		FACB665A20E9BE3B00DF8D5C /* AccountSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSectionController.swift; sourceTree = "<group>"; };
+		FACB665C20E9BF0700DF8D5C /* AccountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCell.swift; sourceTree = "<group>"; };
+		FACB665E20E9BF2200DF8D5C /* AccountHeaderViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountHeaderViewCell.swift; sourceTree = "<group>"; };
+		FACB666020E9BF7B00DF8D5C /* RWCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RWCollectionViewCell.swift; sourceTree = "<group>"; };
+		FACB666220E9BFB200DF8D5C /* RWCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RWCollectionReusableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +247,9 @@
 				FA2AC93720C07F1000D05A75 /* Business.swift */,
 				FA2AC93920C0804700D05A75 /* User.swift */,
 				FA2AC93B20C080C700D05A75 /* DigitalCard.swift */,
+				FACB662F20E49E1200DF8D5C /* Inventory.swift */,
+				FACB664720E98D6500DF8D5C /* RewardModel.swift */,
+				FACB664920E98D9400DF8D5C /* Coupon.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -223,6 +266,7 @@
 		FA2AC93F20C0946E00D05A75 /* UILoginViewController */ = {
 			isa = PBXGroup;
 			children = (
+				FACB663E20E80D5400DF8D5C /* WelcomViewController.swift */,
 				FACB660E20DC0E5C00DF8D5C /* LoginViewController.swift */,
 				FACB662420E2EFD000DF8D5C /* SignUpViewController.swift */,
 			);
@@ -289,6 +333,7 @@
 				FA903D3620B92B7B0081A8A2 /* Main.storyboard */,
 				FA2AC93420C07EC400D05A75 /* Networking */,
 				FA2AC93120C07E5A00D05A75 /* Models */,
+				FACB664020E80EAB00DF8D5C /* Views */,
 				FA903D6420B92F940081A8A2 /* ViewControllers */,
 				FA903D6320B92F8C0081A8A2 /* Styling */,
 				FA903D3920B92B7B0081A8A2 /* Assets.xcassets */,
@@ -331,18 +376,21 @@
 		FA903D6420B92F940081A8A2 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				FA903D6720B931240081A8A2 /* RWViewController.swift */,
+				FACB665420E9926700DF8D5C /* ListViewController.swift */,
+				FACB662A20E301E700DF8D5C /* HomeViewController.swift */,
+				FA903D7520BA2EB40081A8A2 /* NumPadViewController.swift */,
+				FACB662D20E4943600DF8D5C /* InventoryCollectionViewController.swift */,
+				FA2AC94F20C5CB1A00D05A75 /* InventoryItemViewController.swift */,
+				FA903D6B20BA09150081A8A2 /* QRScanViewController.swift */,
+				FA2AC95320C5E08500D05A75 /* QRCodeDetailsViewController.swift */,
+				FACB661C20DC208200DF8D5C /* MainContainerController.swift */,
+				FACB663320E4A6BE00DF8D5C /* cell */,
 				FA2AC94620C0A85600D05A75 /* NumPad */,
 				FA2AC93F20C0946E00D05A75 /* UILoginViewController */,
 				FA903D6D20BA0D840081A8A2 /* NavigationControllers */,
 				FACB662C20E306C200DF8D5C /* Redeem */,
-				FA903D6720B931240081A8A2 /* RWViewController.swift */,
-				FACB662A20E301E700DF8D5C /* HomeViewController.swift */,
-				FA903D7520BA2EB40081A8A2 /* NumPadViewController.swift */,
-				FA2AC94F20C5CB1A00D05A75 /* InventoryItemViewController.swift */,
-				FA903D6B20BA09150081A8A2 /* QRScanViewController.swift */,
-				FA2AC95320C5E08500D05A75 /* QRCodeDetailsViewController.swift */,
-				FA903D7720BA2FC20081A8A2 /* BusinessSettingViewController.swift */,
-				FACB661C20DC208200DF8D5C /* MainContainerController.swift */,
+				FACB664D20E98FB200DF8D5C /* Profile */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -368,6 +416,8 @@
 				FACB661E20DC213B00DF8D5C /* UIApplication+Extensions.swift */,
 				FACB662020DC218600DF8D5C /* UIWindow+Extensions.swift */,
 				FACB662620E2F35500DF8D5C /* String+Extensions.swift */,
+				FACB664B20E98DE000DF8D5C /* Number+Extensions.swift */,
+				FACB665220E9911500DF8D5C /* UIAlertController+Extensions.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -387,6 +437,40 @@
 			children = (
 			);
 			path = Redeem;
+			sourceTree = "<group>";
+		};
+		FACB663320E4A6BE00DF8D5C /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				FACB663A20E4B10C00DF8D5C /* InventoryCell.swift */,
+				FACB663B20E4B10C00DF8D5C /* InventoryCell.xib */,
+				FACB665C20E9BF0700DF8D5C /* AccountCell.swift */,
+				FACB665E20E9BF2200DF8D5C /* AccountHeaderViewCell.swift */,
+				FACB666020E9BF7B00DF8D5C /* RWCollectionViewCell.swift */,
+				FACB666220E9BFB200DF8D5C /* RWCollectionReusableView.swift */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
+		FACB664020E80EAB00DF8D5C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FACB664120E80EC100DF8D5C /* SplashScreenView.swift */,
+				FACB664320E80ED700DF8D5C /* GradientView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FACB664D20E98FB200DF8D5C /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				FA903D7720BA2FC20081A8A2 /* BusinessSettingViewController.swift */,
+				FACB664E20E98FF100DF8D5C /* EditProfileViewController.swift */,
+				FACB665020E990CC00DF8D5C /* ImagePickerController.swift */,
+				FACB665820E9BE1D00DF8D5C /* AccountCellViewModel.swift */,
+				FACB665A20E9BE3B00DF8D5C /* AccountSectionController.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -510,6 +594,7 @@
 				FA2AC96D20D2412A00D05A75 /* ProfileFieldCell.xib in Resources */,
 				FA2AC96720D2412A00D05A75 /* PhoneFieldCell.xib in Resources */,
 				FA903D6120B92DF40081A8A2 /* README.md in Resources */,
+				FACB663D20E4B10C00DF8D5C /* InventoryCell.xib in Resources */,
 				FA903D3820B92B7B0081A8A2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -540,6 +625,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-RewardBusiness/Pods-RewardBusiness-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AlertHUDKit/AlertHUDKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/CollectionKit/CollectionKit.framework",
 				"${BUILT_PRODUCTS_DIR}/DeckTransition/DeckTransition.framework",
 				"${BUILT_PRODUCTS_DIR}/DynamicTabBarController/DynamicTabBarController.framework",
 				"${BUILT_PRODUCTS_DIR}/Former/Former.framework",
@@ -557,6 +643,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlertHUDKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CollectionKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DeckTransition.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DynamicTabBarController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Former.framework",
@@ -663,6 +750,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FACB663C20E4B10C00DF8D5C /* InventoryCell.swift in Sources */,
 				FA2AC95020C5CB1A00D05A75 /* InventoryItemViewController.swift in Sources */,
 				FA2AC93C20C080C700D05A75 /* DigitalCard.swift in Sources */,
 				FA2AC93A20C0804700D05A75 /* User.swift in Sources */,
@@ -670,38 +758,56 @@
 				FA2AC93E20C081AC00D05A75 /* PushNotication.swift in Sources */,
 				FA2AC93620C07ED900D05A75 /* API.swift in Sources */,
 				FA2AC96B20D2412A00D05A75 /* FormerInputAccessoryView.swift in Sources */,
+				FACB665520E9926700DF8D5C /* ListViewController.swift in Sources */,
 				FA903D7420BA0F680081A8A2 /* UIColor+Extension.swift in Sources */,
 				FA2AC96820D2412A00D05A75 /* ProfileFieldCell.swift in Sources */,
 				FA903D6F20BA0DD10081A8A2 /* RWNavigationController.swift in Sources */,
+				FACB663F20E80D5500DF8D5C /* WelcomViewController.swift in Sources */,
 				FA903D3520B92B7B0081A8A2 /* ViewController.swift in Sources */,
 				FA2AC94520C0A30900D05A75 /* NumPad+UIView.swift in Sources */,
 				FA2AC95420C5E08500D05A75 /* QRCodeDetailsViewController.swift in Sources */,
+				FACB664A20E98D9400DF8D5C /* Coupon.swift in Sources */,
+				FACB664C20E98DE000DF8D5C /* Number+Extensions.swift in Sources */,
+				FACB665120E990CC00DF8D5C /* ImagePickerController.swift in Sources */,
+				FACB665320E9911500DF8D5C /* UIAlertController+Extensions.swift in Sources */,
 				FACB660F20DC0E5C00DF8D5C /* LoginViewController.swift in Sources */,
 				FA903D7620BA2EB40081A8A2 /* NumPadViewController.swift in Sources */,
+				FACB662E20E4943600DF8D5C /* InventoryCollectionViewController.swift in Sources */,
+				FACB664820E98D6500DF8D5C /* RewardModel.swift in Sources */,
 				FA2AC93320C07E9900D05A75 /* Transaction.swift in Sources */,
 				FA9BC01D20DB319700C46400 /* UIView+Style.swift in Sources */,
+				FACB665920E9BE1D00DF8D5C /* AccountCellViewModel.swift in Sources */,
 				FACB662720E2F35500DF8D5C /* String+Extensions.swift in Sources */,
 				FACB661F20DC213B00DF8D5C /* UIApplication+Extensions.swift in Sources */,
+				FACB664420E80ED700DF8D5C /* GradientView.swift in Sources */,
+				FACB664F20E98FF100DF8D5C /* EditProfileViewController.swift in Sources */,
+				FACB666320E9BFB200DF8D5C /* RWCollectionReusableView.swift in Sources */,
 				FA2AC96420D2412A00D05A75 /* ProfileLabelCell.swift in Sources */,
 				FACB661720DC1A4000DF8D5C /* AppRouter.swift in Sources */,
 				FA2AC96320D2412A00D05A75 /* DynamicHeightCell.swift in Sources */,
 				FACB662120DC218600DF8D5C /* UIWindow+Extensions.swift in Sources */,
 				FA2AC96520D2412A00D05A75 /* ProfileImageCell.swift in Sources */,
 				FA903D6820B931240081A8A2 /* RWViewController.swift in Sources */,
+				FACB664220E80EC100DF8D5C /* SplashScreenView.swift in Sources */,
 				FA903D7820BA2FC20081A8A2 /* BusinessSettingViewController.swift in Sources */,
 				FACB662B20E301E700DF8D5C /* HomeViewController.swift in Sources */,
 				FACB660D20DB39D200DF8D5C /* UIAnimatedPhoneNumberTextField.swift in Sources */,
+				FACB665D20E9BF0700DF8D5C /* AccountCell.swift in Sources */,
 				FACB661D20DC208200DF8D5C /* MainContainerController.swift in Sources */,
+				FACB666120E9BF7B00DF8D5C /* RWCollectionViewCell.swift in Sources */,
 				FACB660B20DB39AF00DF8D5C /* UIAnimatedTextField.swift in Sources */,
 				FACB662320DC245E00DF8D5C /* RippleButton.swift in Sources */,
 				FACB661B20DC1FC900DF8D5C /* NavigationControllers.swift in Sources */,
 				FA2AC94E20C4C28100D05A75 /* ConfigureNumPad.swift in Sources */,
+				FACB663020E49E1200DF8D5C /* Inventory.swift in Sources */,
 				FA2AC96920D2412A00D05A75 /* PhoneFieldCell.swift in Sources */,
 				FA2AC95220C5D2C000D05A75 /* ConfigureItemPad.swift in Sources */,
 				FACB661920DC1E7000DF8D5C /* Enum+Extensions.swift in Sources */,
+				FACB665F20E9BF2200DF8D5C /* AccountHeaderViewCell.swift in Sources */,
 				FACB660820DB38EE00DF8D5C /* NSAttributedString+Extensions.swift in Sources */,
 				FA903D3320B92B7B0081A8A2 /* AppDelegate.swift in Sources */,
 				FACB662520E2EFD000DF8D5C /* SignUpViewController.swift in Sources */,
+				FACB665B20E9BE3B00DF8D5C /* AccountSectionController.swift in Sources */,
 				FA2AC93820C07F1000D05A75 /* Business.swift in Sources */,
 				FA903D6C20BA09150081A8A2 /* QRScanViewController.swift in Sources */,
 				FA903D6620B92FC60081A8A2 /* Constants.swift in Sources */,

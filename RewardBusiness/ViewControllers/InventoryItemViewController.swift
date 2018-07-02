@@ -53,7 +53,7 @@ class InventoryItemViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print("aaaa", cost, " ", count)
         // Do any additional setup after loading the view.
         view.backgroundColor = .backgroundColor
         

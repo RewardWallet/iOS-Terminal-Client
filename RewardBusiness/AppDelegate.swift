@@ -22,7 +22,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         API.shared.initialize()
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = AppRouter.shared.viewController(for: .login)
+
+       window?.rootViewController = AppRouter.shared.viewController(for: .login)
+        window?.makeKeyAndVisible()
+        
      
         return true
     }

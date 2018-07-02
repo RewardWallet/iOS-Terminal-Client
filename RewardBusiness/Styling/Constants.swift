@@ -171,8 +171,16 @@ extension UIImage {
         return UIImage(named: "person-icon")?.withRenderingMode(defaultRenderingMode)
     }
     
+    static var iconAbout: UIImage? {
+        return UIImage(named: "about-icon")?.withRenderingMode(defaultRenderingMode)
+    }
+    
     static var iconPhone: UIImage? {
         return UIImage(named: "phone-icon")?.withRenderingMode(defaultRenderingMode)
+    }
+    
+    static var iconAdress: UIImage? {
+        return UIImage(named: "address-icon")?.withRenderingMode(defaultRenderingMode)
     }
     
     static var iconLock: UIImage? {

@@ -32,7 +32,7 @@ class API: NSObject {
     
     func initialize() {
         
-        [Transaction.self, Business.self, DigitalCard.self].forEach { $0.registerSubclass() }
+        [User.self, Transaction.self, Business.self, RewardModel.self, DigitalCard.self].forEach { $0.registerSubclass() }
         Parse.setLogLevel(.debug)
         Parse.enableLocalDatastore()
         let config = ParseClientConfiguration {
@@ -114,6 +114,35 @@ class API: NSObject {
         }
         
     }
+    
+    func fetchBusinesses(filtered filter: String, completion: @escaping ([Business])->Void) {
+        
+        var queries = [PFQuery<PFObject>]()
+        
+        guard let nameQuery = Business.query() else { fatalError() }
+        nameQuery.whereKey("name", contains: filter)
+        queries.append(nameQuery)
+        
+        guard let addressQuery = Business.query() else { fatalError() }
+        addressQuery.whereKey("address", contains: filter)
+        queries.append(addressQuery)
+        
+        guard let categoryQuery = Business.query() else { fatalError() }
+        categoryQuery.whereKey("categories", contains: filter)
+        queries.append(categoryQuery)
+        
+        let query = PFQuery.orQuery(withSubqueries: queries)
+        query.includeKey("rewardModel")
+        query.limit = 10
+        query.findObjectsInBackground { (objects, error) in
+            guard let businesses = objects as? [Business], error == nil else {
+                print(error ?? "Error")
+                return
+            }
+            completion(businesses)
+        }
+    }
+    
     
 }
 

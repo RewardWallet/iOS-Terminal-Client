@@ -7,14 +7,18 @@
 //
 
 import UIKit
+import Parse
 
 class HomeViewController: RWViewController {
 
+    //fileprivate var fetchedbusiness = [Business] = []
+
+    
     private var PaymentButtonAnchor: NSLayoutConstraint?
     private var RedeemButtonAnchor: NSLayoutConstraint?
     
     private let titleLabel = UILabel(style: Stylesheet.Labels.title) {
-        $0.text = "Hello RewardBusiness"
+        //$0.text = "Hello RewardBusiness"
         $0.textAlignment = .left
     }
     
@@ -38,15 +42,16 @@ class HomeViewController: RWViewController {
                      for: .touchUpInside)
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         view.backgroundColor = .backgroundColor
         // Do any additional setup after loading the view.
         title = "Checkout"
         tabBarItem = UITabBarItem.init(title: title, image: UIImage.icon_wallet, selectedImage: UIImage.icon_wallet)
-
+        //fetchBusiness()
         setupView()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -58,7 +63,7 @@ class HomeViewController: RWViewController {
     private func setupView(){
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didTapView))
         view.addGestureRecognizer(tapGesture)
-        
+       
         [titleLabel, subtitleLabel, PaymentButton, RedeemButton].forEach { view.addSubview($0)}
 
         titleLabel.anchor(view.layoutMarginsGuide.topAnchor, left: view.layoutMarginsGuide.leftAnchor, right: view.layoutMarginsGuide.rightAnchor, topConstant: 50, leftConstant: 12, rightConstant: 12, heightConstant: 40)
@@ -91,7 +96,17 @@ class HomeViewController: RWViewController {
 //        AppRouter.shared.present(.redeem, wrap: nil, from: nil, animated: true, completion: nil)
         
     }
-
+    
+//    func fetchBusiness(){
+//
+//        API.shared.fetchBusinesses(filtered: "Starbucks") { [weak self] in
+//            if business[0].name! == "Startbucks"{
+//                self.titleLabel.text = business[0].name
+//            }else{
+//                self.titleLabel.text = "RewardBusiness"
+//            }
+//        }
+//    }
     
 
     /*

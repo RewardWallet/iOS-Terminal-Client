@@ -40,11 +40,13 @@ final class Business: PFObject {
     ///   - completion: A completion block with a result indicating if the login was successful
     class func loginInBackground(email: String, password: String, completion: ((Bool, Error?) -> Void)?) {
 
+      
         PFUser.logInWithUsername(inBackground: email, password: password) { (user, error) in
             completion?(error == nil, error)
             if user != nil {
                 PushNotication.shared.registerDeviceInstallation()
             }
+            
         }
 
     }
@@ -62,9 +64,25 @@ final class Business: PFObject {
         user.username = email
         user.password = password
         user.signUpInBackground { (success, error) in
-            completion?(error == nil, error)
+//            completion?(error == nil, error)
             if success {
                 PushNotication.shared.registerDeviceInstallation()
+                
+                let business = Business()
+                business.email = email
+                business.name = email
+                business.saveInBackground(block: { (success, error) in
+                    if (success == false){
+                        completion?(false, error)
+                    }else{
+                        user.business = business
+                        user.saveInBackground(block: { (success, error) in
+                            completion?(error == nil, error)
+                        })
+                    }
+                })
+            }else {
+                completion?(false, error)
             }
         }
     }

@@ -15,7 +15,7 @@ enum AppRoute {
     //case dispatch
     
     //Auth
-    case login, signup//, logout
+    case welcome, login, signup//, logout
     
     //checkout
     case checkout
@@ -27,7 +27,10 @@ enum AppRoute {
     case qrcode
     
     //account
-    case account
+    case account, profile
+    
+    //RewardBusiness
+    case about
     
     var pattern: URLPattern {
         
@@ -35,6 +38,7 @@ enum AppRoute {
         
         switch self {
         //case .dispatch: return urlScheme
+        case .welcome: return urlScheme + "welcome/"
         case .login: return urlScheme + "login/"
         case .signup: return urlScheme + "signup/"
         case .checkout :return urlScheme + "checkout/"
@@ -43,7 +47,7 @@ enum AppRoute {
 //        case .business : return urlScheme + "business/"
 //
        case .account: return urlScheme + "account/"
-//        case .profile: return urlScheme + "profile/"
+       case .profile: return urlScheme + "profile/"
 //        case .about: return urlScheme + "about/"
 //        case .termsOfService: return urlScheme + "about/terms-and-service"
         case .numpad:
@@ -52,6 +56,8 @@ enum AppRoute {
             return urlScheme + "inventory/"
         case .qrcode:
             return urlScheme + "qrcode/"
+        case .about:
+            return urlScheme + "about/"
         }
     }
 }
@@ -145,6 +151,11 @@ class AppRouter: Navigator {
             switch route {
 //            case .dispatch:
 //                return DispatchViewController()
+            case .welcome:
+                return WelcomeViewController()
+                
+                
+                
             case .login:
                 return LoginViewController()
 //            case .logout:
@@ -161,7 +172,10 @@ class AppRouter: Navigator {
                 return  QRScanViewController()
             case .checkout, .inventory, .account:
                 let index = [.checkout, .inventory, .account].index(of: route)!
-                let viewControllers = [HomeViewController(), InventoryItemViewController(),  BusinessSettingViewController()]
+                let sb = UIStoryboard(name: "Main", bundle: nil)
+                let inventoryVC = sb.instantiateViewController(withIdentifier: "inventory_vc") as! InventoryCollectionViewController
+           
+                let viewControllers = [HomeViewController(), inventoryVC,  BusinessSettingViewController()]
                 viewControllers.forEach { $0.viewDidLoad() }
                 let nav = viewControllers.map {
                     return PrimaryNavigationController(rootViewController: $0)
@@ -171,15 +185,15 @@ class AppRouter: Navigator {
                 let tabBarController = MainContainerController(viewControllers: nav)
                 tabBarController.displayViewController(at: index, animated: false)
                 return tabBarController
-//            case .profile:
-//                guard let user = User.current() else { return self.viewController(for: .login) }
-//                return EditProfileViewController(user: user)
+            case .profile:
+                guard let user = User.current() else { return self.viewController(for: .login) }
+                return EditProfileViewController(user: user)
 //            case .business:
 //                guard let business = context as? Business else { fatalError("Business nil in context") }
 //                return BusinessViewController(for: business)
 //
-//            case .about:
-//                return RWViewController()
+            case .about:
+                return RWViewController()
 //            case .termsOfService:
 //                return TermsOfServiceViewController()
 

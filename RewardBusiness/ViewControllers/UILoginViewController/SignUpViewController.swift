@@ -9,6 +9,7 @@
 
 import UIKit
 import M13Checkbox
+import Parse
 
 final class SignUpViewController: RWViewController {
     
@@ -38,15 +39,17 @@ final class SignUpViewController: RWViewController {
     }
     
     private let nameField = UIAnimatedTextField(style: Stylesheet.TextFields.primary) {
-        $0.placeholder = "First and Last Name"
+        $0.placeholder = "Business Name"
     }
     private let nameIconView = UIImageView(style: Stylesheet.ImageViews.fitted) {
         $0.image = UIImage.iconPerson
     }
     
-    private let phoneField = UIAnimatedPhoneNumberTextField(style: Stylesheet.TextFields.phone)
-    private let phoneIconView = UIImageView(style: Stylesheet.ImageViews.fitted) {
-        $0.image = UIImage.iconPhone
+    private let AboutInfo = UIAnimatedTextField(style: Stylesheet.TextFields.primary){
+        $0.placeholder = "About"
+    }
+    private let AboutIconView = UIImageView(style: Stylesheet.ImageViews.fitted) {
+        $0.image = UIImage.iconAbout
     }
     
     private let passwordField = UIAnimatedTextField(style: Stylesheet.TextFields.password)
@@ -60,6 +63,15 @@ final class SignUpViewController: RWViewController {
     private let confirmPasswordIconView = UIImageView(style: Stylesheet.ImageViews.fitted) {
         $0.image = UIImage.iconCheckLock
     }
+    
+    private let addressInfo = UIAnimatedTextField(style: Stylesheet.TextFields.primary){
+        $0.placeholder = "Address"
+    }
+    private let addressIconView = UIImageView(style: Stylesheet.ImageViews.fitted){
+        $0.image = UIImage.iconAdress
+    }
+    
+    
     
     private let subscribeButton = UIButton(style: Stylesheet.Buttons.regular) {
         $0.setTitle("Keep Me Updated", for: .normal)
@@ -80,7 +92,7 @@ final class SignUpViewController: RWViewController {
     
     private lazy var closeButton = UIButton(style: Stylesheet.Buttons.close) {
         $0.addTarget(self,
-                     action: #selector(SignUpViewController.dismissViewController),
+                     action: #selector(SignUpViewController.didTapClose),
                      for: .touchUpInside)
     }
     
@@ -97,6 +109,8 @@ final class SignUpViewController: RWViewController {
                      for: .touchUpInside)
     }
     
+
+
     // MARK: - View Life Cycle
     
     override func viewDidLoad() {
@@ -115,7 +129,7 @@ final class SignUpViewController: RWViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if navigationController?.viewControllers.first != self {
-            closeButton.isHidden = true
+            //closeButton.isHidden = true
         } else {
             navigationController?.setNavigationBarHidden(true, animated: animated)
             titleLabelTopAnchor?.constant = titleLabelDefaultAnchorTopConstant()
@@ -138,7 +152,7 @@ final class SignUpViewController: RWViewController {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didTapView))
         view.addGestureRecognizer(tapGesture)
         
-        [closeButton, titleLabel, subtitleLabel, emailField, emailIconView, nameField, nameIconView, phoneField, phoneIconView, passwordField, passwordIconView, confirmPasswordField, confirmPasswordIconView, subscribeCheckbox, subscribeButton, termsButton, registerButton].forEach { view.addSubview($0) }
+        [closeButton, titleLabel, subtitleLabel, emailField, emailIconView, nameField, nameIconView, AboutInfo, AboutIconView, passwordField, passwordIconView, confirmPasswordField, confirmPasswordIconView, addressInfo, addressIconView, subscribeCheckbox, subscribeButton, termsButton, registerButton].forEach { view.addSubview($0) }
         
         closeButton.anchor(view.layoutMarginsGuide.topAnchor, left: view.layoutMarginsGuide.leftAnchor, topConstant: 6, leftConstant: 6, widthConstant: 36, heightConstant: 36)
         
@@ -147,7 +161,7 @@ final class SignUpViewController: RWViewController {
         subtitleLabel.anchorBelow(titleLabel, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, heightConstant: 25)
         
         var lastView: UIView = subtitleLabel
-        for subview in [emailField, emailIconView, nameField, nameIconView, phoneField, phoneIconView, passwordField, passwordIconView, confirmPasswordField, confirmPasswordIconView] {
+        for subview in [emailField, emailIconView, nameField, nameIconView, AboutInfo, AboutIconView, passwordField, passwordIconView, confirmPasswordField, confirmPasswordIconView, addressInfo, addressIconView] {
             if subview is UIImageView {
                 subview.anchorLeftOf(lastView, topConstant: 14, rightConstant: 8)
                 subview.anchorAspectRatio()
@@ -186,6 +200,11 @@ final class SignUpViewController: RWViewController {
     // MARK: - User Actions
     
     @objc
+    private func didTapClose(){
+          AppRouter.shared.present(.login, wrap: nil, from: nil, animated: true, completion: nil)
+    }
+    
+    @objc
     private func didTapView() {
         view.endEditing(true)
     }
@@ -218,20 +237,30 @@ final class SignUpViewController: RWViewController {
             return handleError("Passwords do not match")
         }
         
+        let name = nameField.text
+        
         API.shared.showProgressHUD(ignoreUserInteraction: true)
-        Business.signUpInBackground(email: email, password: password) { [weak self] (success, error) in
+        Business.signUpInBackground( email: email, password: password) { [weak self] (success, error) in
             API.shared.dismissProgressHUD()
             guard success else {
                 self?.handleError(error?.localizedDescription)
                 return
             }
-            let business = Business()
-                
+            let business =  Business()
+
+
+
                 business.name = self?.nameField.text
+                //add about, address rewardModel, image, email,
+                business.email = self?.emailField.text
+                business.about = self?.AboutInfo.text
+                business.address = self?.addressInfo.text
                 business.fullname_lower = self?.nameField.text?.lowercased()
                 business.saveEventually()
-        
-            AppRouter.shared.present(.numpad, wrap: nil, from: nil, animated: true, completion: nil)
+            
+            guard AppRouter.shared.viewController(for: .checkout, context: uname) != nil else{ return }
+            
+            AppRouter.shared.present(.login, wrap: nil, from: nil, animated: true, completion: nil)
         }
     }
     
