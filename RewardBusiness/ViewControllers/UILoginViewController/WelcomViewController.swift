@@ -171,14 +171,14 @@ class WelcomeViewController: RWViewController {
     @objc
     func didTapLogin() {
         
-        AppRouter.shared.present(.login, wrap: InversePrimaryNavigationController.self,
+        AppRouter.shared.present(.login, wrap: nil,
                                  from: self, animated: true, completion: nil)
     }
     
     @objc
     func didTapSignUp() {
         
-        AppRouter.shared.present(.signup, wrap: InversePrimaryNavigationController.self,
+        AppRouter.shared.present(.signup, wrap: nil,
                                  from: self, animated: true, completion: nil)
     }
     

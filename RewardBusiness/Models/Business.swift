@@ -15,12 +15,13 @@ final class Business: PFObject {
     @NSManaged var username: String?
     @NSManaged var name: String?
     @NSManaged var fullname_lower: String?
+    @NSManaged var phone: NSNumber?
     @NSManaged var image: PFFile?
     @NSManaged var address: String?
     @NSManaged var category: String?
     @NSManaged var email: String?
     @NSManaged var about: String?
-    @NSManaged var distributionModel: NSNumber?
+    @NSManaged var rewardModel: RewardModel?
     
     
     /// Saves the object to the server
@@ -40,22 +41,61 @@ final class Business: PFObject {
     ///   - completion: A completion block with a result indicating if the login was successful
     class func loginInBackground(email: String, password: String, completion: ((Bool, Error?) -> Void)?) {
 
+//        PFUser.logInWithUsername(inBackground: email, password: password) { (user, error) in
+//            if user != nil {
+//                PushNotication.shared.registerDeviceInstallation()
+//                guard let user = user as? User else { fatalError() }
+//                if user.business != nil {
+//                    // Pointer exists to fetch object
+//                    user.business?.fetchIfNeededInBackground(block: { (object, error) in
+//                        completion?(error == nil, error)
+//                    })
+////                    user.business?.rewardModel?.fetchIfNeededInBackground(block: {(object, error) in
+////                        completion?(error == nil, error)
+////                    })
+//                    
+//
+//                    
+//                } else {
+//                    completion?(error == nil, error)
+//                }
+//                
+//                
+//                
+//
+//            } else {
+//                completion?(error == nil, error)
+//            }
+//        }
+        
         PFUser.logInWithUsername(inBackground: email, password: password) { (user, error) in
             if user != nil {
                 PushNotication.shared.registerDeviceInstallation()
                 guard let user = user as? User else { fatalError() }
                 if user.business != nil {
                     // Pointer exists to fetch object
-                    user.business?.fetchIfNeededInBackground(block: { (object, error) in
-                        completion?(error == nil, error)
+                    user.business?.fetchIfNeededInBackground(block: { (success, error) in
+                        
+                        if (success != nil) {
+                            if user.business?.rewardModel != nil{
+                                user.business?.rewardModel?.fetchIfNeededInBackground(block: {(object, error) in
+                                    completion?(error == nil, error)
+                                })
+                            }
+                        }else {
+                            completion?(error == nil, error)
+                        }
                     })
+                    
                 } else {
                     completion?(error == nil, error)
                 }
+
             } else {
                 completion?(error == nil, error)
             }
         }
+
 
     }
 
@@ -67,12 +107,39 @@ final class Business: PFObject {
     ///   - completion: Result
     class func signUpInBackground(email: String, password: String, completion: ((Bool, Error?) -> Void)?) {
 
+//        let user = User()
+//        user.email = email
+//        user.username = email
+//        user.password = password
+//        user.signUpInBackground { (success, error) in
+////            completion?(error == nil, error)
+//            if success {
+//                PushNotication.shared.registerDeviceInstallation()
+//
+//                let business = Business()
+//                business.email = email
+//                business.name = email
+//                business.saveInBackground(block: { (success, error) in
+//                    if (success == false){
+//                        completion?(false, error)
+//                    }else{
+//                        user.business = business
+//                        user.saveInBackground(block: { (success, error) in
+//                            completion?(error == nil, error)
+//                        })
+//                    }
+//                })
+//            }else {
+//                completion?(false, error)
+//            }
+//        }
+        
         let user = User()
         user.email = email
         user.username = email
         user.password = password
         user.signUpInBackground { (success, error) in
-//            completion?(error == nil, error)
+            //            completion?(error == nil, error)
             if success {
                 PushNotication.shared.registerDeviceInstallation()
                 
@@ -80,19 +147,31 @@ final class Business: PFObject {
                 business.email = email
                 business.name = email
                 business.saveInBackground(block: { (success, error) in
-                    if (success == false){
-                        completion?(false, error)
-                    }else{
-                        user.business = business
-                        user.saveInBackground(block: { (success, error) in
-                            completion?(error == nil, error)
+                    if success {
+                        let rewardModel = RewardModel()
+                        rewardModel.rewardModelName = email
+                        rewardModel.saveInBackground(block: { (success, error) in
+                            if success{
+                                business.rewardModel = rewardModel
+                                user.business = business
+                                user.saveInBackground(block: { (success, error) in
+                                    completion?(error == nil, error)
+                                })
+                            }else {
+                                completion?(error == nil, error)
+                            }
                         })
+
+                    }else{
+                        completion?(false, error)
                     }
                 })
             }else {
                 completion?(false, error)
             }
         }
+        
+        
     }
 
     /// Logs out the user in the background and unregisters the devices installation token

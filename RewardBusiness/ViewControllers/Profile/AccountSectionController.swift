@@ -9,6 +9,7 @@
 
 import UIKit
 import IGListKit
+import Former
 
 final class AccountSectionController: ListSectionController {
     
@@ -61,7 +62,9 @@ final class AccountSectionController: ListSectionController {
 //        } else {
 //            AppRouter.shared.push(route, context: nil, from: viewController?.navigationController, animated: true)
 //        }
+        
         AppRouter.shared.push(route, context: nil, from: viewController?.navigationController, animated: true)
+   
     }
     
 }

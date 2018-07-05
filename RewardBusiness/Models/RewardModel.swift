@@ -13,6 +13,7 @@ import IGListKit
 final class RewardModel: PFObject {
     
     @NSManaged var modelType: NSNumber?
+    @NSManaged var rewardModelName: String?
     @NSManaged var cashBackPercent: NSNumber?
     @NSManaged var giftCardPoints: NSNumber?
     @NSManaged var giftCardThreshold: NSNumber?
@@ -42,6 +43,7 @@ final class RewardModel: PFObject {
         }
         return nil
     }
+    
     
 }
 

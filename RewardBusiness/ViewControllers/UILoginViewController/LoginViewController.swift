@@ -208,6 +208,7 @@ final class LoginViewController: RWViewController {
             }
             
             AppRouter.shared.present(.checkout, wrap: nil, from: nil, animated: true, completion: nil)
+//            AppRouter.shared.present(.checkout, wrap: PlainNavigationController.self, from: self, animated: true, completion: nil)
             
         }
     }
@@ -224,6 +225,7 @@ final class LoginViewController: RWViewController {
     
     @objc
     private func didTapSignUp() {
+      
 //         AppRouter.shared.push(.signup, context: nil, from: navigationController, animated: true)
 
           AppRouter.shared.present(.signup, wrap: nil, from: nil, animated: true, completion: nil)

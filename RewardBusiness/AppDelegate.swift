@@ -16,18 +16,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
         API.shared.initialize()
+        KingfisherManager.shared.defaultOptions = [.fromMemoryCacheOrRefresh]
         window = UIWindow(frame: UIScreen.main.bounds)
+    
 
+        
        window?.rootViewController = AppRouter.shared.viewController(for: .login)
+        
         window?.makeKeyAndVisible()
         
      
         return true
+    }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        
+        // Try presenting the URL first
+        if AppRouter.shared.present(url, wrap: UINavigationController.self) != nil {
+            print("[Navigator] present: \(url)")
+            return true
+        }
+        
+        // Try opening the URL
+        if AppRouter.shared.open(url) == true {
+            print("[Navigator] open: \(url)")
+            return true
+        }
+        return false
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

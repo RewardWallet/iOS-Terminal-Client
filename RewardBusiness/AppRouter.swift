@@ -120,7 +120,7 @@ class AppRouter: Navigator {
     
     func push(_ route: AppRoute, context: Any?, from: UINavigationControllerType?, animated: Bool) {
         
-        _ = push(route, context: context, from: from, animated: animated)
+        _ = push(route.pattern, context: context, from: from, animated: animated)
     }
     
     // MARK: - Private API
@@ -174,8 +174,9 @@ class AppRouter: Navigator {
                 let index = [.checkout, .inventory, .account].index(of: route)!
                 let sb = UIStoryboard(name: "Main", bundle: nil)
                 let inventoryVC = sb.instantiateViewController(withIdentifier: "inventory_vc") as! InventoryCollectionViewController
-           
+              
                 let viewControllers = [HomeViewController(), inventoryVC,  BusinessSettingViewController(business: User.current()!.business!)]
+          
                 viewControllers.forEach { $0.viewDidLoad() }
                 let nav = viewControllers.map {
                     return PrimaryNavigationController(rootViewController: $0)

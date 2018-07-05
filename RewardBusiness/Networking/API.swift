@@ -35,10 +35,12 @@ class API: NSObject {
         [User.self, Transaction.self, Business.self, RewardModel.self, DigitalCard.self].forEach { $0.registerSubclass() }
         Parse.setLogLevel(.debug)
         Parse.enableLocalDatastore()
+    
         let config = ParseClientConfiguration {
             $0.applicationId = "5ejBLYkzVaVibHAIIQZvbawrEywUCNqpDFVpHgU"
             $0.clientKey = "oR3Jp5YMyxSBu6r6nh9xuYQD5AcsdubQmvATY1OEtXo"
             $0.server = "https://nathantannar.me/api/prod/"
+            $0.isLocalDatastoreEnabled = true
         }
         Parse.initialize(with: config)
     }

@@ -39,7 +39,7 @@ class BusinessSettingViewController: ListViewController{
         super.viewDidLoad()
         view.backgroundColor = .backgroundColor
         // Do any additional setup after loading the view.
-        title = "Account Profile"
+        title = "Business"
        
   
         tabBarItem = UITabBarItem.init(title: title, image: UIImage.icon_user , selectedImage: UIImage.icon_user)

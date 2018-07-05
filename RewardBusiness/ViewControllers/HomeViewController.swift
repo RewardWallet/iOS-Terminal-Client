@@ -18,7 +18,7 @@ class HomeViewController: RWViewController {
     private var RedeemButtonAnchor: NSLayoutConstraint?
     
     private let titleLabel = UILabel(style: Stylesheet.Labels.title) {
-        //$0.text = "Hello RewardBusiness"
+        $0.text = "Hello RewardBusiness"
         $0.textAlignment = .left
     }
     
