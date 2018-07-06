@@ -19,8 +19,10 @@ final class AccountSectionController: ListSectionController {
     
     private let viewModels: [AccountCellViewModel] = [
         AccountCellViewModel(text: "Profile", icon: .icon_user, route: .profile),
+        AccountCellViewModel(text: "Add Inventory", icon: .icon_shop, route: .addInventory),
         AccountCellViewModel(text: "About", icon: .icon_about, route: .about),
 //        AccountCellViewModel(text: "Log Out", icon: .icon_logOut, route: .logout)
+
     ]
     
     // MARK: - Subview Reference

@@ -33,6 +33,7 @@
 		FA2AC96B20D2412A00D05A75 /* FormerInputAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2AC96020D2412A00D05A75 /* FormerInputAccessoryView.swift */; };
 		FA2AC96C20D2412A00D05A75 /* ProfileImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA2AC96120D2412A00D05A75 /* ProfileImageCell.xib */; };
 		FA2AC96D20D2412A00D05A75 /* ProfileFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA2AC96220D2412A00D05A75 /* ProfileFieldCell.xib */; };
+		FA82EBE220EED8A4008CAFE2 /* AddInventoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA82EBE120EED8A4008CAFE2 /* AddInventoryViewController.swift */; };
 		FA903D3320B92B7B0081A8A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA903D3220B92B7B0081A8A2 /* AppDelegate.swift */; };
 		FA903D3520B92B7B0081A8A2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA903D3420B92B7B0081A8A2 /* ViewController.swift */; };
 		FA903D3820B92B7B0081A8A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA903D3620B92B7B0081A8A2 /* Main.storyboard */; };
@@ -136,6 +137,7 @@
 		FA2AC96020D2412A00D05A75 /* FormerInputAccessoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormerInputAccessoryView.swift; sourceTree = "<group>"; };
 		FA2AC96120D2412A00D05A75 /* ProfileImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileImageCell.xib; sourceTree = "<group>"; };
 		FA2AC96220D2412A00D05A75 /* ProfileFieldCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileFieldCell.xib; sourceTree = "<group>"; };
+		FA82EBE120EED8A4008CAFE2 /* AddInventoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddInventoryViewController.swift; sourceTree = "<group>"; };
 		FA903D2F20B92B7B0081A8A2 /* RewardBusiness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RewardBusiness.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA903D3220B92B7B0081A8A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA903D3420B92B7B0081A8A2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -304,6 +306,14 @@
 			path = Former;
 			sourceTree = "<group>";
 		};
+		FA82EBDE20EED113008CAFE2 /* Inventory */ = {
+			isa = PBXGroup;
+			children = (
+				FA82EBE120EED8A4008CAFE2 /* AddInventoryViewController.swift */,
+			);
+			path = Inventory;
+			sourceTree = "<group>";
+		};
 		FA903D2620B92B7A0081A8A2 = {
 			isa = PBXGroup;
 			children = (
@@ -394,6 +404,7 @@
 				FA2AC93F20C0946E00D05A75 /* UILoginViewController */,
 				FA903D6D20BA0D840081A8A2 /* NavigationControllers */,
 				FACB662C20E306C200DF8D5C /* Redeem */,
+				FA82EBDE20EED113008CAFE2 /* Inventory */,
 				FACB664D20E98FB200DF8D5C /* Profile */,
 			);
 			path = ViewControllers;
@@ -758,6 +769,7 @@
 				FACB660B20DB39AF00DF8D5C /* UIAnimatedTextField.swift in Sources */,
 				FACB662320DC245E00DF8D5C /* RippleButton.swift in Sources */,
 				FACB661B20DC1FC900DF8D5C /* NavigationControllers.swift in Sources */,
+				FA82EBE220EED8A4008CAFE2 /* AddInventoryViewController.swift in Sources */,
 				FA2AC94E20C4C28100D05A75 /* ConfigureNumPad.swift in Sources */,
 				FACB663020E49E1200DF8D5C /* Inventory.swift in Sources */,
 				FA2AC96920D2412A00D05A75 /* PhoneFieldCell.swift in Sources */,

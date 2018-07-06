@@ -86,6 +86,7 @@ final class Business: PFObject {
                             completion?(error == nil, error)
                         }
                     })
+                  
                     
                 } else {
                     completion?(error == nil, error)

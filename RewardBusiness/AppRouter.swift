@@ -29,6 +29,9 @@ enum AppRoute {
     //account
     case account, profile
     
+    //inventory
+    case addInventory
+    
     //RewardBusiness
     case about
     
@@ -58,6 +61,8 @@ enum AppRoute {
             return urlScheme + "qrcode/"
         case .about:
             return urlScheme + "about/"
+        case .addInventory:
+            return urlScheme + "addInventory/"
         }
     }
 }
@@ -193,6 +198,11 @@ class AppRouter: Navigator {
 //                guard let business = context as? Business else { fatalError("Business nil in context") }
 //                return BusinessViewController(for: business)
 //
+            case .addInventory:
+                guard let user = User.current() else{ return
+                    self.viewController(for: .login)
+                }
+                return AddInventoryViewController(user: user)
             case .about:
                 return RWViewController()
 //            case .termsOfService:
