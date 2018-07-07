@@ -144,7 +144,7 @@ final class AddInventoryViewController: FormViewController{
             }.configure {
                 $0.placeholder = "Add Inventory description"
             }.onTextChanged {
-                self.inventory.description = $0
+                self.inventory.text = $0
         }
         
         let priceRow = TextFieldRowFormer<ProfileFieldCell>(instantiateType: .Nib(nibName: "ProfileFieldCell")) { [weak self] in

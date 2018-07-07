@@ -24,7 +24,7 @@ enum AppRoute {
     case shoppingList
     
     //numpad
-    case numpad//, inventory
+    case numpad, inventory
     
     //qrcode
     case qrcode
@@ -59,8 +59,8 @@ enum AppRoute {
 //        case .termsOfService: return urlScheme + "about/terms-and-service"
         case .numpad:
             return urlScheme + "numpad/"
-//        case .inventory:
-//            return urlScheme + "inventory/"
+        case .inventory:
+            return urlScheme + "inventory/"
         case .qrcode:
             return urlScheme + "qrcode/"
         case .about:
@@ -181,16 +181,15 @@ class AppRouter: Navigator {
     
             case .qrcode:
                 return  QRScanViewController()
-            case .checkout, .shoppingList, /*.inventory,*/ .account:
-                let index = [.checkout, .shoppingList, /*.inventory,*/.account].index(of: route)!
-//                let sb = UIStoryboard(name: "Main", bundle: nil)
-//                let inventoryVC = sb.instantiateViewController(withIdentifier: "inventory_vc") as! InventoryCollectionViewController
+            case .shoppingList:
+                return InventoryPaymentViewController()
+            case .checkout, .inventory, .account:
+                let index = [.checkout, .inventory, .account].index(of: route)!
+                let sb = UIStoryboard(name: "Main", bundle: nil)
+                let inventoryVC = sb.instantiateViewController(withIdentifier: "inventory_vc") as! InventoryCollectionViewController
                 
-                guard let inventories = context as? [Inventory] else { fatalError("DigitalCard nil in context") }
-                
-                let viewControllers = [HomeViewController(user: User.current()!), InventoryPaymentViewController(for: inventories), /*inventoryVC,*/  BusinessSettingViewController(business: User.current()!.business!)]
+                let viewControllers = [HomeViewController(user: User.current()!), inventoryVC, BusinessSettingViewController(for: User.current()!.business!)]
           
-                viewControllers.forEach { $0.viewDidLoad() }
                 let nav = viewControllers.map {
                     return PrimaryNavigationController(rootViewController: $0)
                 }

@@ -16,7 +16,7 @@ final class Inventory: PFObject{
     @NSManaged var price: NSNumber?
     @NSManaged var image: PFFile?
     @NSManaged var categories: [String]?
-    @NSManaged override var description: String
+    @NSManaged var text: String
     @NSManaged var business: Business?
     @NSManaged var rewardModel: RewardModel?
 

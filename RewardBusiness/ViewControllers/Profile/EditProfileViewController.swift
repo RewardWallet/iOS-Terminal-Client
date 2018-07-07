@@ -317,17 +317,17 @@ final class EditProfileViewController: FormViewController {
     func didTapSave(){
         API.shared.showProgressHUD(ignoreUserInteraction: true)
        
-        user.business?.name = modifiedBusiness.name
-        user.business?.about = modifiedBusiness.about
-        user.business?.phone = modifiedBusiness.phone
-        user.business?.address = modifiedBusiness.address
-        user.business?.rewardModel?.rewardModelName = rewardModel.rewardModelName
-        user.business?.rewardModel?.modelType = rewardModel.modelType
-        user.business?.rewardModel?.cashBackPercent = rewardModel.cashBackPercent
-        user.business?.rewardModel?.tokensPerItem = rewardModel.tokensPerItem
-        user.business?.rewardModel?.giftCardPoints = rewardModel.giftCardPoints
-        user.business?.rewardModel?.giftCardThreshold = rewardModel.giftCardThreshold
-        user.business?.image = modifiedBusiness.image
+        user.business?.name = modifiedBusiness.name ?? user.business?.name
+        user.business?.about = modifiedBusiness.about ?? user.business?.about
+        user.business?.phone = modifiedBusiness.phone ?? user.business?.phone
+        user.business?.address = modifiedBusiness.address ?? user.business?.address
+        user.business?.rewardModel?.rewardModelName = rewardModel.rewardModelName ?? user.business?.rewardModel?.rewardModelName
+        user.business?.rewardModel?.modelType = rewardModel.modelType ?? user.business?.rewardModel?.modelType
+        user.business?.rewardModel?.cashBackPercent = rewardModel.cashBackPercent ?? user.business?.rewardModel?.cashBackPercent
+        user.business?.rewardModel?.tokensPerItem = rewardModel.tokensPerItem ?? user.business?.rewardModel?.tokensPerItem
+        user.business?.rewardModel?.giftCardPoints = rewardModel.giftCardPoints ?? user.business?.rewardModel?.giftCardPoints
+        user.business?.rewardModel?.giftCardThreshold = rewardModel.giftCardThreshold ?? user.business?.rewardModel?.giftCardThreshold
+        user.business?.image = modifiedBusiness.image ?? user.business?.image
         user.business?.saveInBackground() { [weak self] success, error in
             print()
             API.shared.dismissProgressHUD()

@@ -21,15 +21,9 @@ class BusinessSettingViewController: ListViewController{
     init(for business: Business){
         self.business = business
         super.init(nibName: nil, bundle: nil)
+        title = "Business"
+        tabBarItem = UITabBarItem.init(title: title, image: UIImage.icon_user , selectedImage: UIImage.icon_user)
     }
-
-    // MARK: Public
-    init(business: Business){
-        self.business = business
-        super.init(nibName: nil, bundle: nil)
-    }
-
-
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -39,10 +33,7 @@ class BusinessSettingViewController: ListViewController{
         super.viewDidLoad()
         view.backgroundColor = .backgroundColor
         // Do any additional setup after loading the view.
-        title = "Business"
-       
-  
-        tabBarItem = UITabBarItem.init(title: title, image: UIImage.icon_user , selectedImage: UIImage.icon_user)
+        
         adapter.dataSource = self
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.sectionHeadersPinToVisibleBounds = true
@@ -71,14 +62,6 @@ class BusinessSettingViewController: ListViewController{
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-
-
-    func fetchBusiness(){
-        API.shared.fetchBusinesses(filtered: "Starbucks") { (business) in
-            //set title name equals business name
-            self.title = business[0].name!
-        }
     }
     
     /*

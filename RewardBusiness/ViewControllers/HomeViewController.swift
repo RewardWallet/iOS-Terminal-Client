@@ -13,19 +13,6 @@ class HomeViewController: RWViewController {
 
     //fileprivate var fetchedbusiness = [Business] = []
 
-    var inventories: [Inventory] = []
-//    
-//    init(for inventories: [Inventory]){
-//        self.inventories = inventories
-//        super.init(nibName: nil, bundle: nil)
-//    }
-//    
-//    // MARK: Public
-//    init(inventories: [Inventory]){
-//        self.inventories = inventories
-//        super.init(nibName: nil, bundle: nil)
-//    }
-//    
     var user: User
     
     
@@ -33,6 +20,8 @@ class HomeViewController: RWViewController {
     init(user: User){
         self.user = user
         super.init(nibName: nil, bundle: nil)
+        title = "Checkout"
+        tabBarItem = UITabBarItem.init(title: title, image: UIImage.icon_wallet, selectedImage: UIImage.icon_wallet)
     }
 
     
@@ -73,12 +62,10 @@ class HomeViewController: RWViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchInventory()
       
         view.backgroundColor = .backgroundColor
         // Do any additional setup after loading the view.
-        title = "Checkout"
-        tabBarItem = UITabBarItem.init(title: title, image: UIImage.icon_wallet, selectedImage: UIImage.icon_wallet)
+        
         //fetchBusiness()
         setupView()
         
@@ -96,9 +83,7 @@ class HomeViewController: RWViewController {
     }
     
     // MARK: - Setup
-    private func setupView(){
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didTapView))
-        view.addGestureRecognizer(tapGesture)
+    private func setupView() {
        
         [titleLabel, subtitleLabel, PaymentButton, RedeemButton].forEach { view.addSubview($0)}
 
@@ -114,17 +99,13 @@ class HomeViewController: RWViewController {
 //        RedeemButtomAnchor = RedeemButtom.anchor(left: view.leftAnchor, bottom: view.layoutMarginsGuide.bottomAnchor, right: view.rightAnchor, heightConstant: 44)[1]
     }
     
-    @objc
-    private func didTapView() {
-        view.endEditing(true)
-    }
-    
     
     @objc
     private func didTapPayment() {
         
         if User.current()?.business?.rewardModel?.modelType?.intValue == 5{
             //go to inventory based
+            AppRouter.shared.present(.shoppingList, context: nil, wrap: nil, from: nil, animated: true, completion: nil)
         }else{
             AppRouter.shared.present(.numpad, wrap: nil, from: nil, animated: true, completion: nil)
         }
@@ -135,34 +116,9 @@ class HomeViewController: RWViewController {
     }
     @objc
     private func didTapRedeem() {
-        
 //        AppRouter.shared.present(.redeem, wrap: nil, from: nil, animated: true, completion: nil)
         
-        AppRouter.shared.present(.shoppingList, context: self.inventories, wrap: nil, from: nil, animated: true, completion: nil)
-    }
-    
-    private func fetchInventory() {
-
-        
-        if user.business != nil{
-            API.shared.fetchInventoryList { (inventories) in
-                self.inventories = inventories
-                print(self.inventories)
-            }
-        }
-        
         
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

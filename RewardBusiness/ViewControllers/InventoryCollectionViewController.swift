@@ -30,6 +30,18 @@ class InventoryCollectionViewController: UIViewController  {
     
     var estimateWidth = 160.0
     var cellMarginSize = 16.0
+    
+    init() {
+        super.init(nibName: nil, bundle: nil)
+        title = "Total Inventory"
+        tabBarItem = UITabBarItem.init(title: title, image: UIImage.iconCheckout, selectedImage: UIImage.iconCheckout)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        title = "Total Inventory"
+        tabBarItem = UITabBarItem.init(title: title, image: UIImage.iconCheckout, selectedImage: UIImage.iconCheckout)
+    }
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,8 +49,7 @@ class InventoryCollectionViewController: UIViewController  {
 
         // Do any additional setup after loading the view.
         view.backgroundColor = .backgroundColor
-        title = "Total Inventory"
-        tabBarItem = UITabBarItem.init(title: title, image: UIImage.iconCheckout    , selectedImage: UIImage.iconCheckout)
+        
 
         let addButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add, target: nil, action: #selector(InventoryCollectionViewController.didTapAdd))
         navigationItem.rightBarButtonItem = addButton

@@ -20,9 +20,10 @@ final class InventoryPaymentViewController: FormViewController{
     private var inventories: [Inventory] = []
     
     // MARK: Initialization
-    init(for inventories: [Inventory]){
-        self.inventories = inventories
+    init(){
         super.init(nibName: nil, bundle: nil)
+        title = "Shopping List"
+        tabBarItem = UITabBarItem(title: title, image: UIImage.iconCheckout , selectedImage: UIImage.iconCheckout)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -34,16 +35,21 @@ final class InventoryPaymentViewController: FormViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(inventories, "aaaaa")
-        configure()
     }
     
     // MARK: Private
     
+    private func fetchInventory() {
+        
+        API.shared.fetchInventoryList { (inventories) in
+            self.inventories = inventories
+            print(self.inventories)
+            self.configure()
+        }
+    }
+    
   
     private func configure() {
-        title = "Shopping List"
-        tabBarItem = UITabBarItem.init(title: title, image: UIImage.icon_user , selectedImage: UIImage.iconCheckout)
         // Create RowFomers
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(didTapdone))
         
