@@ -93,20 +93,21 @@ class API: NSObject {
         }
     }
     
-//    func fetchDigitalCards(inBackground completion: @escaping ([DigitalCard])->Void) {
-//
-//        guard let user = User.current(), let query = DigitalCard.query() as? PFQuery<DigitalCard> else { fatalError() }
-//        query.whereKey("user", equalTo: user)
-//        query.includeKeys(["business"])
-//        query.findObjectsInBackground { (objects, error) in
-//            guard let digitalCards = objects, error == nil else {
-//                print(error ?? "Error")
-//                return
-//            }
-//            completion(digitalCards)
-//        }
-//    }
-//
+    func fetchInventoryList(inBackground completion: @escaping ([Inventory])->Void) {
+
+        guard let business = User.current()?.business, let query = Inventory.query() as? PFQuery<Inventory> else { fatalError() }
+        
+        query.whereKey("business", equalTo: business)
+        //query.includeKeys(["business"])
+        query.findObjectsInBackground { (objects, error) in
+            guard let inventorys = objects, error == nil else {
+                print(error ?? "Error")
+                return
+            }
+            completion(inventorys)
+        }
+    }
+
     func closeTransaction(transactionId: String, inBackground block: (([String:Any]?, Error?)->Void)?) {
         
         guard let userId = User.current()?.objectId else { return }

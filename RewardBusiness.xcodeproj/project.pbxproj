@@ -11,6 +11,8 @@
 		3855F3F320EACC6900BA6769 /* PFFile+Kingfisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3855F3F120EACC6900BA6769 /* PFFile+Kingfisher.swift */; };
 		56F90503FC319538D536387A /* Pods_RewardBusinessTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D4BB35A868F91E64F4437F2 /* Pods_RewardBusinessTests.framework */; };
 		A8BD77D499E2210E95A5E940 /* Pods_RewardBusiness.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99645BB038B5BD2083A82785 /* Pods_RewardBusiness.framework */; };
+		FA1B066B20EEFE5700E85580 /* InventoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1B066920EEFE5700E85580 /* InventoryTableViewCell.swift */; };
+		FA1B067420F07ABB00E85580 /* InventoryPaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1B067320F07ABB00E85580 /* InventoryPaymentViewController.swift */; };
 		FA2AC93320C07E9900D05A75 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2AC93220C07E9900D05A75 /* Transaction.swift */; };
 		FA2AC93620C07ED900D05A75 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2AC93520C07ED900D05A75 /* API.swift */; };
 		FA2AC93820C07F1000D05A75 /* Business.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2AC93720C07F1000D05A75 /* Business.swift */; };
@@ -115,6 +117,8 @@
 		99645BB038B5BD2083A82785 /* Pods_RewardBusiness.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RewardBusiness.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCEE8F2FA431E7B34982AC76 /* Pods-RewardBusiness.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RewardBusiness.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RewardBusiness/Pods-RewardBusiness.debug.xcconfig"; sourceTree = "<group>"; };
 		E49AAA5D470182DAF2A3D628 /* Pods-RewardBusiness.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RewardBusiness.release.xcconfig"; path = "Pods/Target Support Files/Pods-RewardBusiness/Pods-RewardBusiness.release.xcconfig"; sourceTree = "<group>"; };
+		FA1B066920EEFE5700E85580 /* InventoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryTableViewCell.swift; sourceTree = "<group>"; };
+		FA1B067320F07ABB00E85580 /* InventoryPaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryPaymentViewController.swift; sourceTree = "<group>"; };
 		FA2AC93220C07E9900D05A75 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		FA2AC93520C07ED900D05A75 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		FA2AC93720C07F1000D05A75 /* Business.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Business.swift; sourceTree = "<group>"; };
@@ -244,6 +248,14 @@
 				4E81872762953E855787B901 /* Pods-RewardBusinessTests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		FA1B066620EEF24100E85580 /* Payment */ = {
+			isa = PBXGroup;
+			children = (
+				FA1B067320F07ABB00E85580 /* InventoryPaymentViewController.swift */,
+			);
+			path = Payment;
 			sourceTree = "<group>";
 		};
 		FA2AC93120C07E5A00D05A75 /* Models */ = {
@@ -401,11 +413,12 @@
 				FACB661C20DC208200DF8D5C /* MainContainerController.swift */,
 				FACB663320E4A6BE00DF8D5C /* cell */,
 				FA2AC94620C0A85600D05A75 /* NumPad */,
-				FA2AC93F20C0946E00D05A75 /* UILoginViewController */,
 				FA903D6D20BA0D840081A8A2 /* NavigationControllers */,
+				FA1B066620EEF24100E85580 /* Payment */,
 				FACB662C20E306C200DF8D5C /* Redeem */,
 				FA82EBDE20EED113008CAFE2 /* Inventory */,
 				FACB664D20E98FB200DF8D5C /* Profile */,
+				FA2AC93F20C0946E00D05A75 /* UILoginViewController */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -465,6 +478,7 @@
 				FACB665E20E9BF2200DF8D5C /* AccountHeaderViewCell.swift */,
 				FACB666020E9BF7B00DF8D5C /* RWCollectionViewCell.swift */,
 				FACB666220E9BFB200DF8D5C /* RWCollectionReusableView.swift */,
+				FA1B066920EEFE5700E85580 /* InventoryTableViewCell.swift */,
 			);
 			path = cell;
 			sourceTree = "<group>";
@@ -719,6 +733,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA1B067420F07ABB00E85580 /* InventoryPaymentViewController.swift in Sources */,
 				FACB663C20E4B10C00DF8D5C /* InventoryCell.swift in Sources */,
 				FA2AC95020C5CB1A00D05A75 /* InventoryItemViewController.swift in Sources */,
 				FA2AC93C20C080C700D05A75 /* DigitalCard.swift in Sources */,
@@ -759,6 +774,7 @@
 				FA2AC96520D2412A00D05A75 /* ProfileImageCell.swift in Sources */,
 				FA903D6820B931240081A8A2 /* RWViewController.swift in Sources */,
 				FACB664220E80EC100DF8D5C /* SplashScreenView.swift in Sources */,
+				FA1B066B20EEFE5700E85580 /* InventoryTableViewCell.swift in Sources */,
 				FA903D7820BA2FC20081A8A2 /* BusinessSettingViewController.swift in Sources */,
 				FACB662B20E301E700DF8D5C /* HomeViewController.swift in Sources */,
 				FACB660D20DB39D200DF8D5C /* UIAnimatedPhoneNumberTextField.swift in Sources */,

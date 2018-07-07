@@ -20,8 +20,11 @@ enum AppRoute {
     //checkout
     case checkout
     
+    //shoppingList
+    case shoppingList
+    
     //numpad
-    case numpad, inventory
+    case numpad//, inventory
     
     //qrcode
     case qrcode
@@ -45,6 +48,7 @@ enum AppRoute {
         case .login: return urlScheme + "login/"
         case .signup: return urlScheme + "signup/"
         case .checkout :return urlScheme + "checkout/"
+        case .shoppingList: return urlScheme + "shoppingList/"
         //case .logout: return urlScheme + "logout/"
       
 //        case .business : return urlScheme + "business/"
@@ -55,14 +59,15 @@ enum AppRoute {
 //        case .termsOfService: return urlScheme + "about/terms-and-service"
         case .numpad:
             return urlScheme + "numpad/"
-        case .inventory:
-            return urlScheme + "inventory/"
+//        case .inventory:
+//            return urlScheme + "inventory/"
         case .qrcode:
             return urlScheme + "qrcode/"
         case .about:
             return urlScheme + "about/"
         case .addInventory:
             return urlScheme + "addInventory/"
+
         }
     }
 }
@@ -173,14 +178,17 @@ class AppRouter: Navigator {
 //            case .inventory:
 //                return InventoryItemViewController()
 //
+    
             case .qrcode:
                 return  QRScanViewController()
-            case .checkout, .inventory, .account:
-                let index = [.checkout, .inventory, .account].index(of: route)!
-                let sb = UIStoryboard(name: "Main", bundle: nil)
-                let inventoryVC = sb.instantiateViewController(withIdentifier: "inventory_vc") as! InventoryCollectionViewController
-              
-                let viewControllers = [HomeViewController(), inventoryVC,  BusinessSettingViewController(business: User.current()!.business!)]
+            case .checkout, .shoppingList, /*.inventory,*/ .account:
+                let index = [.checkout, .shoppingList, /*.inventory,*/.account].index(of: route)!
+//                let sb = UIStoryboard(name: "Main", bundle: nil)
+//                let inventoryVC = sb.instantiateViewController(withIdentifier: "inventory_vc") as! InventoryCollectionViewController
+                
+                guard let inventories = context as? [Inventory] else { fatalError("DigitalCard nil in context") }
+                
+                let viewControllers = [HomeViewController(user: User.current()!), InventoryPaymentViewController(for: inventories), /*inventoryVC,*/  BusinessSettingViewController(business: User.current()!.business!)]
           
                 viewControllers.forEach { $0.viewDidLoad() }
                 let nav = viewControllers.map {
@@ -208,6 +216,7 @@ class AppRouter: Navigator {
 //            case .termsOfService:
 //                return TermsOfServiceViewController()
 
+          
             }
             
         }

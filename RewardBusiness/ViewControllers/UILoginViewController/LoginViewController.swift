@@ -13,8 +13,9 @@ final class LoginViewController: RWViewController {
     
     var passedName: String = ""
     
-    // MARK: - Properties
     
+    // MARK: - Properties
+    private var inventories: [Inventory] = []
     private var loginButtonBottomAnchor: NSLayoutConstraint?
     private var keyboardIsHidden: Bool = true
     
@@ -207,7 +208,10 @@ final class LoginViewController: RWViewController {
                 return
             }
             
-            AppRouter.shared.present(.checkout, wrap: nil, from: nil, animated: true, completion: nil)
+//            AppRouter.shared.present(.checkout, wrap: nil, from: nil, animated: true, completion: nil)
+            
+            AppRouter.shared.present(.checkout, context: self?.inventories, wrap: nil, from: nil, animated: true, completion: nil)
+            
 //            AppRouter.shared.present(.checkout, wrap: PlainNavigationController.self, from: self, animated: true, completion: nil)
             
         }

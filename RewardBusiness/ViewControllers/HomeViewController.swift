@@ -13,6 +13,35 @@ class HomeViewController: RWViewController {
 
     //fileprivate var fetchedbusiness = [Business] = []
 
+    var inventories: [Inventory] = []
+//    
+//    init(for inventories: [Inventory]){
+//        self.inventories = inventories
+//        super.init(nibName: nil, bundle: nil)
+//    }
+//    
+//    // MARK: Public
+//    init(inventories: [Inventory]){
+//        self.inventories = inventories
+//        super.init(nibName: nil, bundle: nil)
+//    }
+//    
+    var user: User
+    
+    
+    // MARK: Public
+    init(user: User){
+        self.user = user
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
+    
     
     private var PaymentButtonAnchor: NSLayoutConstraint?
     private var RedeemButtonAnchor: NSLayoutConstraint?
@@ -44,7 +73,8 @@ class HomeViewController: RWViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        fetchInventory()
+      
         view.backgroundColor = .backgroundColor
         // Do any additional setup after loading the view.
         title = "Checkout"
@@ -53,6 +83,12 @@ class HomeViewController: RWViewController {
         setupView()
         
     }
+    
+//    override func viewDidAppear(_ animated: Bool) {
+//        if inventories.isEmpty{
+//             fetchInventory()
+//        }
+//    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -87,7 +123,14 @@ class HomeViewController: RWViewController {
     @objc
     private func didTapPayment() {
         
+        if User.current()?.business?.rewardModel?.modelType?.intValue == 5{
+            //go to inventory based
+        }else{
             AppRouter.shared.present(.numpad, wrap: nil, from: nil, animated: true, completion: nil)
+        }
+        
+        
+        
             
     }
     @objc
@@ -95,18 +138,21 @@ class HomeViewController: RWViewController {
         
 //        AppRouter.shared.present(.redeem, wrap: nil, from: nil, animated: true, completion: nil)
         
+        AppRouter.shared.present(.shoppingList, context: self.inventories, wrap: nil, from: nil, animated: true, completion: nil)
     }
     
-//    func fetchBusiness(){
-//
-//        API.shared.fetchBusinesses(filtered: "Starbucks") { [weak self] in
-//            if business[0].name! == "Startbucks"{
-//                self.titleLabel.text = business[0].name
-//            }else{
-//                self.titleLabel.text = "RewardBusiness"
-//            }
-//        }
-//    }
+    private func fetchInventory() {
+
+        
+        if user.business != nil{
+            API.shared.fetchInventoryList { (inventories) in
+                self.inventories = inventories
+                print(self.inventories)
+            }
+        }
+        
+        
+    }
     
 
     /*

@@ -88,8 +88,14 @@ class NumPadViewController: RWViewController{
     @objc
     private func didSavePayment(){
         print(textField.text as! String)
-        guard AppRouter.shared.viewController(for: .inventory, context: textField.text?.sanitized() ?? "0") != nil else{ return }
-        AppRouter.shared.present(.inventory, wrap: nil, from: nil, animated: true, completion: nil)
+//        guard AppRouter.shared.viewController(for: .inventory, context: textField.text?.sanitized() ?? "0") != nil else{ return }
+//        AppRouter.shared.present(.inventory, wrap: nil, from: nil, animated: true, completion: nil)
+        
+      
+        
+        
+        
+        
 //        let InventoryItemViewController = self.storyboard?.instantiateViewController(withIdentifier: "InventoryItemViewController") as! InventoryItemViewController
 //        InventoryItemViewController.cost = Double(textField.text?.sanitized() ?? "0") ?? 0
 //        //self.present(InventoryItemViewController, animated: true, completion: nil)

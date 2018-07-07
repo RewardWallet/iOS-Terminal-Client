@@ -70,7 +70,53 @@ final class AddInventoryViewController: FormViewController{
         }
     }()
     
-    
+    private lazy var informationSection: SectionFormer = {
+        let cashBackPercentRow = TextFieldRowFormer<ProfileFieldCell>(instantiateType: .Nib(nibName: "ProfileFieldCell")) { [weak self] in
+            $0.titleLabel.text = "CashBack"
+            $0.textField.inputAccessoryView = self?.formerInputAccessoryView
+            }.configure {
+                $0.placeholder = "Enter your cash back percent"
+                if let num = self.user.business?.rewardModel?.cashBackPercent  {
+                    $0.text = "\(num)"
+                }
+            }.onTextChanged {
+                self.rewardModel.cashBackPercent = NSNumber(value: Int($0.digits) ?? 9999999999)
+        }
+        let tokensPointsRow = TextFieldRowFormer<ProfileFieldCell>(instantiateType: .Nib(nibName: "ProfileFieldCell")) { [weak self] in
+            $0.titleLabel.text = "Tokens"
+            $0.textField.inputAccessoryView = self?.formerInputAccessoryView
+            }.configure {
+                $0.placeholder = "Enter your cash reward points per purchase"
+                if let num = self.user.business?.rewardModel?.tokensPerItem  {
+                    $0.text = "\(num)"
+                }
+            }.onTextChanged {
+                self.rewardModel.tokensPerItem = NSNumber(value: Int($0.digits) ?? 9999999999)
+        }
+        let giftCardPointsRow = TextFieldRowFormer<ProfileFieldCell>(instantiateType: .Nib(nibName: "ProfileFieldCell")) { [weak self] in
+            $0.titleLabel.text = "GiftCard"
+            $0.textField.inputAccessoryView = self?.formerInputAccessoryView
+            }.configure {
+                $0.placeholder = "Enter your giftCard Points"
+                if let num = self.user.business?.rewardModel?.giftCardPoints  {
+                    $0.text = "\(num)"
+                }
+            }.onTextChanged {
+                self.rewardModel.giftCardPoints = NSNumber(value: Int($0.digits) ?? 9999999999)
+        }
+        let giftCardThresholdRow = TextFieldRowFormer<ProfileFieldCell>(instantiateType: .Nib(nibName: "ProfileFieldCell")) { [weak self] in
+            $0.titleLabel.text = "GiftCard"
+            $0.textField.inputAccessoryView = self?.formerInputAccessoryView
+            }.configure {
+                $0.placeholder = "Enter your giftCard threshold"
+                if let num = self.user.business?.rewardModel?.giftCardThreshold  {
+                    $0.text = "\(num)"
+                }
+            }.onTextChanged {
+                self.rewardModel.giftCardThreshold = NSNumber(value: Int($0.digits) ?? 9999999999)
+        }
+        return SectionFormer(rowFormer: cashBackPercentRow,tokensPointsRow,giftCardPointsRow,giftCardThresholdRow)
+    }()
     
     
     
@@ -122,12 +168,6 @@ final class AddInventoryViewController: FormViewController{
         }
         
         
-
-        
-        
-  
-        
-        
         
         // Create Headers
         
@@ -139,17 +179,66 @@ final class AddInventoryViewController: FormViewController{
             }
         }
         
+        
+        
+        // Create Inventory Model
+        
+       
+        let rewardModelRow = InlinePickerRowFormer<ProfileLabelCell, String>(instantiateType: .Nib(nibName: "ProfileLabelCell")){
+            $0.titleLabel.text = "Type"
+            }.configure{
+                let modelnames = ["Cash Back", "Token", "Gift Card", "Coupon"]
+                
+                $0.pickerItems = modelnames.map {
+                    InlinePickerItem(title: $0)
+                }
+                
+                if let modelname = self.user.business?.rewardModel?.rewardModelName{
+                    $0.selectedRow = modelnames.index(of: modelname) ?? 0
+                    
+                }
+                
+            }.onValueChanged {
+                //self.modifiedBusiness.rewardModel?.rewardModelName = $0.title
+                self.rewardModel.rewardModelName = $0.title
+                if ($0.title == "Cash Back") {
+                    self.rewardModel.modelType = NSNumber(value: 1)
+                }else if($0.title == "Token") {
+                    self.rewardModel.modelType = NSNumber(value: 2)
+                }else if($0.title == "Gift Card"){
+                    self.rewardModel.modelType = NSNumber(value: 3)
+                }else{
+                    self.rewardModel.modelType = NSNumber(value: 4)
+                }
+                
+                
+        }
+        
+        let moreRow = SwitchRowFormer<FormSwitchCell>() {
+            $0.titleLabel.text = "Add more information ?"
+            $0.titleLabel.font = .boldSystemFont(ofSize: 15)
+            }.configure {
+                $0.switched = moreInfo
+                $0.switchWhenSelected = true
+            }.onSwitchChanged { [weak self] in
+                self?.moreInfo = $0
+                self?.switchInfomationSection()
+        }
+        
+        
+        
         // Create SectionFormers
         
         let imageSection = SectionFormer(rowFormer: imageRow)
             .set(headerViewFormer: createHeader("Inventory Photo"))
         let aboutSection = SectionFormer(rowFormer: nameRow, priceRow,descriptionRow, businessRow)
             .set(headerViewFormer: createHeader("Inventory Info"))
-
+   
+        let rewardModelSection = SectionFormer(rowFormer: rewardModelRow,moreRow).set(headerViewFormer: createHeader("Reward Model"))
         
         
         
-        former.append(sectionFormer: imageSection, aboutSection)
+        former.append(sectionFormer: imageSection, aboutSection, rewardModelSection)
             .onCellSelected { [weak self] _ in
                 self?.formerInputAccessoryView.update()
         }
@@ -178,7 +267,7 @@ final class AddInventoryViewController: FormViewController{
 //        user.business?.image = modifiedBusiness.image
         
         inventory.business = user.business
-        inventory.rewardModel = user.business?.rewardModel
+        inventory.rewardModel = rewardModel
         inventory.saveInBackground() { (success, error) in
             
             print()
@@ -207,6 +296,34 @@ final class AddInventoryViewController: FormViewController{
     }
    
    
+    private lazy var subRowFormers: RowFormer = {
+        return CheckRowFormer<FormCheckCell>() {
+            $0.titleLabel.text = "Enter more detail"
+            $0.titleLabel.font = .boldSystemFont(ofSize: 16)
+        }
+    }()
+    
+    
+    private func insertRows(sectionTop: RowFormer, sectionBottom: RowFormer) -> (Bool) -> Void {
+        return { [weak self] insert in
+            guard let `self` = self else { return }
+            if insert {
+                
+                self.former.insertUpdate(rowFormers: [self.subRowFormers], below: sectionBottom)
+                
+            } else {
+                self.former.removeUpdate(rowFormers: [self.subRowFormers])
+            }
+        }
+    }
+    
+    private func switchInfomationSection() {
+        if moreInfo {
+            former.insertUpdate(sectionFormer: informationSection, toSection: former.numberOfSections, rowAnimation: .top)
+        } else {
+            former.removeUpdate(sectionFormer: informationSection, rowAnimation: .top)
+        }
+    }
     
     
     func handleError(_ error: String?) {
