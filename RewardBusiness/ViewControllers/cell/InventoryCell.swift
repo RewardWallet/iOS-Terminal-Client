@@ -7,32 +7,36 @@
 //
 
 import UIKit
+import Kingfisher
 
 class InventoryCell: UICollectionViewCell {
     @IBOutlet weak var InventoryName: UILabel!
     
     @IBOutlet weak var InventoryImage: UIImageView!
     @IBOutlet weak var UnitCost: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-        
+        setupView()
     }
+    
     func setupView(){
         backgroundColor = .primaryColor
+        layer.cornerRadius = 16
+        clipsToBounds = true
+        
     }
-    
 
-    
-    func setInventoryName(text: String){
+    func setInventoryName(text: String?){
         self.InventoryName.text = text
     }
     
-    func setInventoryImage(image: UIImage){
-        self.InventoryImage.image = image
+    func setInventoryImage(image: Resource?){
+        self.InventoryImage.kf.indicatorType = .activity
+        self.InventoryImage.kf.setImage(with: image)
     }
     
-    func setCost(text: String){
-        self.UnitCost.text = text
+    func setCost(number: NSNumber?){
+        self.UnitCost.text = number?.doubleValue.toDollars()
     }
 }

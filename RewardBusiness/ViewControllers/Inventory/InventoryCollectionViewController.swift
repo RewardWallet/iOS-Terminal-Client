@@ -8,38 +8,25 @@
 
 import UIKit
 
-
 class InventoryCollectionViewController: UIViewController  {
 
 
     @IBOutlet weak var InventoryCollectionView: UICollectionView!
     
-    let inventory = Inventory()
-    
-    //let unitCost = ["1.50","2.0","2.0","3.5", "4.5","5.5"]
-    let unitCost = ["1.0","2.0","2.0","3.5", "4.5","5.5"]
-    let inventoryName = ["beer","cheese","chicken","coffee","doughnut","pancakes"]
-    var inventoryImage: [UIImage] = [
-        UIImage(named: "beer-1")!,
-        UIImage(named: "cheese")!,
-        UIImage(named: "chicken-leg")!,
-        UIImage(named: "coffee")!,
-        UIImage(named: "doughnut")!,
-        UIImage(named: "pancakes")!
-    ]
+    private var inventory = [Inventory]()
     
     var estimateWidth = 160.0
     var cellMarginSize = 16.0
     
     init() {
         super.init(nibName: nil, bundle: nil)
-        title = "Total Inventory"
+        title = "Inventory"
         tabBarItem = UITabBarItem.init(title: title, image: UIImage.iconCheckout, selectedImage: UIImage.iconCheckout)
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        title = "Total Inventory"
+        title = "Inventory"
         tabBarItem = UITabBarItem.init(title: title, image: UIImage.iconCheckout, selectedImage: UIImage.iconCheckout)
     }
    
@@ -48,81 +35,82 @@ class InventoryCollectionViewController: UIViewController  {
 
 
         // Do any additional setup after loading the view.
-        view.backgroundColor = .backgroundColor
+        view.backgroundColor = .white
         
 
-        let addButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add, target: nil, action: #selector(InventoryCollectionViewController.didTapAdd))
+        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addInventory))
         navigationItem.rightBarButtonItem = addButton
-        addButton.tintColor = UIColor.white
-        //navigationBar.items = [navigationItem]
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: nil, action: nil)
         
-        
-        //set Delegates
-        //self.InventorycollectionView.delegate = self
-        self.InventoryCollectionView.dataSource = self
-        
-        //Register cells
-        self.InventoryCollectionView.register(UINib(nibName: "InventoryCell", bundle: nil), forCellWithReuseIdentifier: "InventoryCell")
-
         //setup Grid View
         self.setupGridView()
+        loadInventory()
     }
-
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        self.setupGridView()
-        DispatchQueue.main.async {
-            self.InventoryCollectionView.reloadData()
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if User.current()?.business?.rewardModel?.modelType?.intValue == 5 {
+            navigationItem.prompt = nil
+        } else {
+            navigationItem.prompt = "Set your businesses RewardModel to `Inventory`"
         }
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @objc
+    func loadInventory() {
+        API.shared.fetchInventoryList {
+            self.inventory = $0
+            self.InventoryCollectionView.reloadData()
+            self.InventoryCollectionView.refreshControl?.endRefreshing()
+        }
+    }
+    
+   
+    @objc
+    func addInventory() {
+        navigationController?.pushViewController(AddInventoryViewController(for: User.current()!.business!), animated: true)
     }
 
     func setupGridView(){
+        self.InventoryCollectionView.alwaysBounceVertical = true
+        self.InventoryCollectionView.delegate = self
+        self.InventoryCollectionView.dataSource = self
+        //Register cells
+        self.InventoryCollectionView.register(UINib(nibName: "InventoryCell", bundle: nil), forCellWithReuseIdentifier: "InventoryCell")
         let flow = InventoryCollectionView?.collectionViewLayout as! UICollectionViewFlowLayout
         flow.minimumInteritemSpacing = CGFloat(self.cellMarginSize)
         flow.minimumLineSpacing = CGFloat(self.cellMarginSize)
+        let rc = UIRefreshControl()
+        rc.addTarget(self, action: #selector(loadInventory), for: .valueChanged)
+        InventoryCollectionView.refreshControl = rc
     }
-
-    
-    @objc private func didTapAdd() {
-       
-    }
-    
-  
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 
-extension InventoryCollectionViewController: UICollectionViewDataSource{
+extension InventoryCollectionViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return inventoryName.count
+        return inventory.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = InventoryCollectionView.dequeueReusableCell(withReuseIdentifier: "InventoryCell", for: indexPath) as! InventoryCell
-        cell.setInventoryName(text: self.inventoryName[indexPath.row])
-        cell.setInventoryImage(image: self.inventoryImage[indexPath.row])
-        cell.setCost(text: self.unitCost[indexPath.row])
+        cell.setInventoryName(text: self.inventory[indexPath.row].name)
+        cell.setInventoryImage(image: self.inventory[indexPath.row].image)
+        cell.setCost(number: self.inventory[indexPath.row].price)
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = AddInventoryViewController(editing: inventory[indexPath.row])
+        navigationController?.pushViewController(vc, animated: true)
     }
     
 }
 
 
-extension InventoryCollectionViewController: UICollectionViewDelegateFlowLayout{
+extension InventoryCollectionViewController: UICollectionViewDelegateFlowLayout {
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         let width = self.calculateWith()

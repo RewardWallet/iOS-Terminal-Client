@@ -13,11 +13,11 @@ import IGListKit
 final class RewardModel: PFObject {
     
     @NSManaged var modelType: NSNumber?
-    @NSManaged var rewardModelName: String?
     @NSManaged var cashBackPercent: NSNumber?
     @NSManaged var giftCardPoints: NSNumber?
     @NSManaged var giftCardThreshold: NSNumber?
     @NSManaged var tokensPerItem: NSNumber?
+    @NSManaged var coupon: Coupon?
     
     func modelTypeDescription() -> String? {
         if let model = modelType?.intValue {

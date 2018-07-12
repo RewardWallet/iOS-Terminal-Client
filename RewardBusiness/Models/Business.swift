@@ -150,7 +150,7 @@ final class Business: PFObject {
                 business.saveInBackground(block: { (success, error) in
                     if success {
                         let rewardModel = RewardModel()
-                        rewardModel.rewardModelName = email
+                        rewardModel.modelType = NSNumber(value: 1)
                         rewardModel.saveInBackground(block: { (success, error) in
                             if success{
                                 business.rewardModel = rewardModel

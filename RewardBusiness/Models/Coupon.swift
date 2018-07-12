@@ -11,7 +11,7 @@ import Parse
 
 class Coupon: PFObject {
     
-    @NSManaged var business: User?
+    @NSManaged var business: Business?
     @NSManaged var expireDate: Date?
     @NSManaged var text: String?
     @NSManaged var image: PFFile

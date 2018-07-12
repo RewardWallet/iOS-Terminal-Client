@@ -15,13 +15,19 @@ final class Inventory: PFObject{
     @NSManaged var name: String?
     @NSManaged var price: NSNumber?
     @NSManaged var image: PFFile?
-    @NSManaged var categories: [String]?
     @NSManaged var text: String
     @NSManaged var business: Business?
     @NSManaged var rewardModel: RewardModel?
 
-    override init(){
+    override init() {
         super.init()
+    }
+    
+    convenience init(for business: Business){
+        self.init()
+        self.business = business
+        self.rewardModel = RewardModel()
+        self.rewardModel?.modelType = NSNumber(value: 1)
     }
     
     override func saveInBackground(block: PFBooleanResultBlock? = nil) {
@@ -29,44 +35,6 @@ final class Inventory: PFObject{
             block?(success, error)
         }
     }
-    
-    
-    
-//    class func addInventory(name: String, unitCost: Double, image: UIImage,
-//                            completeion: @escaping ((Bool, Error?)->Void) ) {
-//
-//        let inventory = Inventory()
-//        inventory.name = name
-//        inventory.unitCost = NSNumber(value: unitCost)
-//        if let data = UIImageJPEGRepresentation(image, 0.75) {
-//            inventory.image = PFFile(data: data)
-//        }
-//
-//        inventory.saveInBackground { (success, error) in
-//            completeion(success, error)
-//        }
-//
-//    }
-
-
-    
-    
-    class func addInventory(name: String, unitCost: Double, image: UIImage, business: Business, completeion: @escaping ((Bool, Error?)->Void) ) {
-        
-        let inventory = Inventory()
-        inventory.name = name
-        inventory.price = NSNumber(value: unitCost)
-        if let data = UIImageJPEGRepresentation(image, 0.75) {
-            inventory.image = PFFile(data: data)
-        }
-        inventory.business = business
-        inventory.rewardModel = business.rewardModel
-        inventory.saveInBackground { (success, error) in
-            completeion(success, error)
-        }
-        
-    }
-    
     
 }
 

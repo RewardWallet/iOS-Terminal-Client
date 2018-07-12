@@ -16,8 +16,19 @@ final class EditProfileViewController: FormViewController {
     var user: User
     
     var modifiedBusiness = Business()
-    var rewardModel = RewardModel()
-    var moreInfo  = false
+    
+    var isPointsPerPurchase: Bool = false
+    
+    var rewardModel: RewardModel {
+        if user.business?.rewardModel == nil {
+            user.business?.rewardModel = RewardModel()
+        }
+        return user.business!.rewardModel!
+    }
+    
+    private var couponDescription: String = ""
+    private var couponExpiry: Date = Date()
+    private var rewardModelSection: SectionFormer?
 
     // MARK: Public
     init(user: User){
@@ -40,9 +51,9 @@ final class EditProfileViewController: FormViewController {
 
     fileprivate lazy var imageRow: LabelRowFormer<ProfileImageCell> = {
         LabelRowFormer<ProfileImageCell>(instantiateType: .Nib(nibName: "ProfileImageCell")) {
-            $0.iconView.kf.setImage(with: self.user.business?.image)
-            $0.iconView.apply(Stylesheet.ImageViews.filled)
-            $0.iconView.backgroundColor = .offWhite
+                $0.iconView.kf.setImage(with: self.user.business?.image)
+                $0.iconView.apply(Stylesheet.ImageViews.filled)
+                $0.iconView.backgroundColor = .offWhite
             }.configure {
                 $0.text = "Select from your library"
                 $0.rowHeight = 60
@@ -52,11 +63,6 @@ final class EditProfileViewController: FormViewController {
                 imagePicker.onImageSelection { [weak self] image in
                     guard let image = image, let imageData = UIImageJPEGRepresentation(image, 0.75) else { return }
                     row.cell.iconView.image = image
-//                    if let key = self?.user.picture?.url {
-//                        KingfisherManager.shared.cache.removeImage(forKey: key)
-//                    }
-//                    let file = PFFile(name: "picture.jpg", data: imageData)
-//                    self?.userModified.picture = file
                     if let key = self?.user.business?.image?.url {
                             KingfisherManager.shared.cache.removeImage(forKey: key)
                         }
@@ -68,56 +74,111 @@ final class EditProfileViewController: FormViewController {
     }()
 
     
-    private lazy var informationSection: SectionFormer = {
-        let cashBackPercentRow = TextFieldRowFormer<ProfileFieldCell>(instantiateType: .Nib(nibName: "ProfileFieldCell")) { [weak self] in
-            $0.titleLabel.text = "CashBack"
-            $0.textField.inputAccessoryView = self?.formerInputAccessoryView
+    fileprivate lazy var cashBackPercentRow: TextFieldRowFormer<ProfileFieldCell> = {
+        TextFieldRowFormer<ProfileFieldCell>(instantiateType: .Nib(nibName: "ProfileFieldCell")) {
+            $0.titleLabel.text = "Cash Back"
+            $0.textField.keyboardType = .decimalPad
+            $0.textField.inputAccessoryView = self.formerInputAccessoryView
             }.configure {
-                $0.placeholder = "Enter your cash back percent"
-                if let num = self.user.business?.rewardModel?.cashBackPercent  {
+                $0.placeholder = "% of total"
+                if let num = self.rewardModel.cashBackPercent  {
                     $0.text = "\(num)"
                 }
             }.onTextChanged {
-                self.rewardModel.cashBackPercent = NSNumber(value: Int($0.digits) ?? 9999999999)
+                self.rewardModel.cashBackPercent = NSNumber(value: Int($0.digits) ?? 0)
         }
-        let tokensPointsRow = TextFieldRowFormer<ProfileFieldCell>(instantiateType: .Nib(nibName: "ProfileFieldCell")) { [weak self] in
-            $0.titleLabel.text = "Tokens"
-            $0.textField.inputAccessoryView = self?.formerInputAccessoryView
+    }()
+    
+    fileprivate lazy var tokenPointsRows: [RowFormer] = {
+        
+        let pointsPerItem = self.rewardModel.tokensPerItem?.doubleValue ?? 0
+        self.isPointsPerPurchase = pointsPerItem < 0
+        
+        let inputRow = TextFieldRowFormer<ProfileFieldCell>(instantiateType: .Nib(nibName: "ProfileFieldCell")) {
+                $0.titleLabel.text = "Tokens"
+                $0.textField.keyboardType = .decimalPad
+                $0.textField.inputAccessoryView = self.formerInputAccessoryView
             }.configure {
-                $0.placeholder = "Enter your cash reward points per purchase"
-                if let num = self.user.business?.rewardModel?.tokensPerItem  {
-                    $0.text = "\(num)"
-                }
+                $0.placeholder = self.isPointsPerPurchase ? "Points per purchase" : "Points per item"
+                $0.text = self.isPointsPerPurchase ? "\(-pointsPerItem)" : "\(pointsPerItem)"
             }.onTextChanged {
-                self.rewardModel.tokensPerItem = NSNumber(value: Int($0.digits) ?? 9999999999)
+                if self.isPointsPerPurchase {
+                    self.rewardModel.tokensPerItem = NSNumber(value: -(Int($0.digits) ?? 0))
+                } else {
+                    self.rewardModel.tokensPerItem = NSNumber(value: Int($0.digits) ?? 0)
+                }
         }
+        let switchRow = SwitchRowFormer<FormSwitchCell>() {
+                $0.titleLabel.text = "Per Purchase"
+                $0.titleLabel.font = .boldSystemFont(ofSize: 15)
+                $0.switchButton.onTintColor = .primaryColor
+            }.configure {
+                $0.switched = self.isPointsPerPurchase
+            }.onSwitchChanged { isPerPurchase in
+                
+                inputRow.cell.textField.placeholder = isPerPurchase ? "Points per purchase" : "Points per item"
+                self.isPointsPerPurchase = isPerPurchase
+                if self.isPointsPerPurchase {
+                    self.rewardModel.tokensPerItem = NSNumber(value: -(Int(inputRow.cell.textField.text?.digits ?? "0") ?? 0))
+                } else {
+                    self.rewardModel.tokensPerItem = NSNumber(value: Int(inputRow.cell.textField.text?.digits ?? "0") ?? 0)
+                }
+        }
+        return [inputRow, switchRow]
+    }()
+    
+    fileprivate lazy var giftCardPointsRows: [TextFieldRowFormer<ProfileFieldCell>] = {
         let giftCardPointsRow = TextFieldRowFormer<ProfileFieldCell>(instantiateType: .Nib(nibName: "ProfileFieldCell")) { [weak self] in
-            $0.titleLabel.text = "GiftCard"
+            $0.titleLabel.text = "Gift Card"
+            $0.textField.keyboardType = .decimalPad
             $0.textField.inputAccessoryView = self?.formerInputAccessoryView
             }.configure {
-                $0.placeholder = "Enter your giftCard Points"
-                if let num = self.user.business?.rewardModel?.giftCardPoints  {
+                $0.placeholder = "Points per purchase"
+                if let num = self.rewardModel.giftCardPoints  {
                     $0.text = "\(num)"
                 }
             }.onTextChanged {
-                self.rewardModel.giftCardPoints = NSNumber(value: Int($0.digits) ?? 9999999999)
+                self.rewardModel.giftCardPoints = NSNumber(value: Int($0.digits) ?? 0)
         }
         let giftCardThresholdRow = TextFieldRowFormer<ProfileFieldCell>(instantiateType: .Nib(nibName: "ProfileFieldCell")) { [weak self] in
-            $0.titleLabel.text = "GiftCard"
+            $0.titleLabel.text = "Gift Card"
+            $0.textField.keyboardType = .decimalPad
             $0.textField.inputAccessoryView = self?.formerInputAccessoryView
             }.configure {
-                $0.placeholder = "Enter your giftCard threshold"
-                if let num = self.user.business?.rewardModel?.giftCardThreshold  {
+                $0.placeholder = "Minimum purchase"
+                if let num = self.rewardModel.giftCardThreshold  {
                     $0.text = "\(num)"
                 }
             }.onTextChanged {
                 self.rewardModel.giftCardThreshold = NSNumber(value: Int($0.digits) ?? 9999999999)
         }
-        return SectionFormer(rowFormer: cashBackPercentRow,tokensPointsRow,giftCardPointsRow,giftCardThresholdRow)
+        return [giftCardPointsRow, giftCardThresholdRow]
     }()
     
-    
-    
+    fileprivate lazy var couponRows: [RowFormer] = {
+        let descriptionRow = TextViewRowFormer<FormTextViewCell>() { [weak self] in
+            $0.textView.font = .systemFont(ofSize: 15)
+            $0.textView.inputAccessoryView = self?.formerInputAccessoryView
+            }.configure {
+                $0.placeholder = "Coupon Description"
+                $0.text = self.rewardModel.coupon?.text
+            }.onTextChanged {
+                self.couponDescription = $0
+                self.rewardModel.coupon?.text = $0
+        }
+        let expiryRow = InlineDatePickerRowFormer<FormInlineDatePickerCell>() {
+            $0.titleLabel.text = "Expires"
+            $0.titleLabel.font = .boldSystemFont(ofSize: 15)
+            $0.displayLabel.font = .systemFont(ofSize: 15)
+            }.inlineCellSetup {
+                $0.datePicker.date = self.rewardModel.coupon?.expireDate ?? Date()
+                $0.datePicker.datePickerMode = .dateAndTime
+            }.onDateChanged {
+                self.couponExpiry = $0
+                self.rewardModel.coupon?.expireDate = $0
+            }.displayTextFromDate(String.mediumDateShortTime)
+        return [descriptionRow, expiryRow]
+    }()
     
     
     func configure() {
@@ -194,50 +255,42 @@ final class EditProfileViewController: FormViewController {
         
         let rewardModelRow = InlinePickerRowFormer<ProfileLabelCell, String>(instantiateType: .Nib(nibName: "ProfileLabelCell")){
             $0.titleLabel.text = "Type"
-            }.configure{
-                let modelnames = ["Cash Back", "Token", "Gift Card", "Coupon", "Inventory"]
-                
+            }.configure {
+                let modelnames = ["Select One", "Cash Back", "Token", "Gift Card", "Coupon", "Inventory"]
                 $0.pickerItems = modelnames.map {
                     InlinePickerItem(title: $0)
                 }
-                
-                if let modelname = self.user.business?.rewardModel?.rewardModelName{
-                    $0.selectedRow = modelnames.index(of: modelname) ?? 0
-                    
+                if let modelType = self.rewardModel.modelType?.intValue {
+                    $0.selectedRow = modelType
                 }
-                
             }.onValueChanged {
-                //self.modifiedBusiness.rewardModel?.rewardModelName = $0.title
-                self.rewardModel.rewardModelName = $0.title
+                
+                guard let rmSection = self.rewardModelSection else { return }
+                
+                let rowsToRemove: [RowFormer] = [1..<rmSection.numberOfRows].flatMap {
+                    return rmSection.rowFormers[$0]
+                }
+                self.former.removeUpdate(rowFormers: rowsToRemove, rowAnimation: .automatic)
+                
                 if ($0.title == "Cash Back") {
                     self.rewardModel.modelType = NSNumber(value: 1)
-                }else if($0.title == "Token") {
+                    self.former.insertUpdate(rowFormer: self.cashBackPercentRow, below: self.rewardModelSection!.firstRowFormer!, rowAnimation: .automatic)
+                } else if ($0.title == "Token") {
                     self.rewardModel.modelType = NSNumber(value: 2)
-                }else if($0.title == "Gift Card"){
+                    self.former.insertUpdate(rowFormers: self.tokenPointsRows, below: self.rewardModelSection!.firstRowFormer!, rowAnimation: .automatic)
+                } else if ($0.title == "Gift Card"){
                     self.rewardModel.modelType = NSNumber(value: 3)
-                }else if($0.title == "Coupon"){
+                    self.former.insertUpdate(rowFormers: self.giftCardPointsRows, below: self.rewardModelSection!.firstRowFormer!, rowAnimation: .automatic)
+                } else if ($0.title == "Coupon") {
                     self.rewardModel.modelType = NSNumber(value: 4)
-                }else {
+                    self.former.insertUpdate(rowFormers: self.couponRows, below: self.rewardModelSection!.firstRowFormer!, rowAnimation: .automatic)
+                } else if ($0.title == "Inventory") {
                     self.rewardModel.modelType = NSNumber(value: 5)
+                } else {
+                    self.rewardModel.modelType = NSNumber(value: 0)
                 }
-                
-                
         }
-        
-        let moreRow = SwitchRowFormer<FormSwitchCell>() {
-            $0.titleLabel.text = "Add more information ?"
-            $0.titleLabel.font = .boldSystemFont(ofSize: 15)
-            }.configure {
-                $0.switched = moreInfo
-                $0.switchWhenSelected = true
-            }.onSwitchChanged { [weak self] in
-                self?.moreInfo = $0
-                self?.switchInfomationSection()
-        }
-        
-        
-       
-        
+  
         let changePasswordRow = LabelRowFormer<FormLabelCell>() {
             $0.titleLabel.textColor = .primaryColor
             $0.titleLabel.font = .boldSystemFont(ofSize: 15)
@@ -268,13 +321,30 @@ final class EditProfileViewController: FormViewController {
             .set(headerViewFormer: createHeader("Introduction"))
         let aboutSection = SectionFormer(rowFormer: nameRow, emailRow, phoneRow, locationRow)
             .set(headerViewFormer: createHeader("About"))
-        let rewardModelSection = SectionFormer(rowFormer: rewardModelRow,moreRow).set(headerViewFormer: createHeader("Reward Model"))
+        
+        
+        let type = rewardModel.modelType?.intValue ?? 0
+        switch type {
+        case 1:
+            rewardModelSection = SectionFormer(rowFormer: rewardModelRow, cashBackPercentRow).set(headerViewFormer: createHeader("Reward Model"))
+        case 2:
+            rewardModelSection = SectionFormer(rowFormer: rewardModelRow, tokenPointsRows[0], tokenPointsRows[1]).set(headerViewFormer: createHeader("Reward Model"))
+        case 3:
+            rewardModelSection = SectionFormer(rowFormer: rewardModelRow, giftCardPointsRows[0], giftCardPointsRows[1]).set(headerViewFormer: createHeader("Reward Model"))
+        case 4:
+            rewardModelSection = SectionFormer(rowFormer: rewardModelRow, couponRows[0], couponRows[1]).set(headerViewFormer: createHeader("Reward Model"))
+        default:
+            rewardModelSection = SectionFormer(rowFormer: rewardModelRow).set(headerViewFormer: createHeader("Reward Model"))
+        }
+        
+        
+        
         let securitySection = SectionFormer(rowFormer: changePasswordRow)
             .set(headerViewFormer: createHeader("Security"))
 
         
         
-        former.append(sectionFormer: imageSection, introductionSection, aboutSection,  securitySection,rewardModelSection)
+        former.append(sectionFormer: imageSection, introductionSection, aboutSection,  securitySection, rewardModelSection!)
             .onCellSelected { [weak self] _ in
                 self?.formerInputAccessoryView.update()
         }
@@ -282,46 +352,30 @@ final class EditProfileViewController: FormViewController {
    
     }
     
-    private lazy var subRowFormers: RowFormer = {
-            return CheckRowFormer<FormCheckCell>() {
-                $0.titleLabel.text = "Enter more detail"
-                $0.titleLabel.font = .boldSystemFont(ofSize: 16)
-            }
-    }()
-    
-
-    private func insertRows(sectionTop: RowFormer, sectionBottom: RowFormer) -> (Bool) -> Void {
-        return { [weak self] insert in
-            guard let `self` = self else { return }
-            if insert {
-            
-                self.former.insertUpdate(rowFormers: [self.subRowFormers], below: sectionBottom)
-                
-            } else {
-                self.former.removeUpdate(rowFormers: [self.subRowFormers])
-            }
-        }
-    }
-    
-    private func switchInfomationSection() {
-        if moreInfo {
-            former.insertUpdate(sectionFormer: informationSection, toSection: former.numberOfSections, rowAnimation: .top)
-        } else {
-            former.removeUpdate(sectionFormer: informationSection, rowAnimation: .top)
-        }
-    }
-    
 
     
     @objc
     func didTapSave(){
         API.shared.showProgressHUD(ignoreUserInteraction: true)
+        
+        if rewardModel.modelType?.intValue == 4 && rewardModel.coupon == nil {
+            // create coupon
+            let coupon = Coupon()
+            coupon.business = user.business
+            coupon.text = couponDescription
+            coupon.expireDate = couponExpiry
+            do {
+                try coupon.save()
+            } catch let error {
+                handleError(error.localizedDescription)
+            }
+            rewardModel.coupon = coupon
+        }
        
         user.business?.name = modifiedBusiness.name ?? user.business?.name
         user.business?.about = modifiedBusiness.about ?? user.business?.about
         user.business?.phone = modifiedBusiness.phone ?? user.business?.phone
         user.business?.address = modifiedBusiness.address ?? user.business?.address
-        user.business?.rewardModel?.rewardModelName = rewardModel.rewardModelName ?? user.business?.rewardModel?.rewardModelName
         user.business?.rewardModel?.modelType = rewardModel.modelType ?? user.business?.rewardModel?.modelType
         user.business?.rewardModel?.cashBackPercent = rewardModel.cashBackPercent ?? user.business?.rewardModel?.cashBackPercent
         user.business?.rewardModel?.tokensPerItem = rewardModel.tokensPerItem ?? user.business?.rewardModel?.tokensPerItem
@@ -332,7 +386,7 @@ final class EditProfileViewController: FormViewController {
             print()
             API.shared.dismissProgressHUD()
             if success{
-                self?.handleError("Profile Updated")
+                self?.handleSuccess("Profile Updated")
                 self?.navigationController?.popViewController(animated: true)
             }else{
                 self?.handleError(error?.localizedDescription)

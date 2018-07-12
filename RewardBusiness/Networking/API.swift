@@ -98,7 +98,7 @@ class API: NSObject {
         guard let business = User.current()?.business, let query = Inventory.query() as? PFQuery<Inventory> else { fatalError() }
         
         query.whereKey("business", equalTo: business)
-        //query.includeKeys(["business"])
+        query.includeKeys(["business", "rewardModel.coupon", "rewardModel"])
         query.findObjectsInBackground { (objects, error) in
             guard let inventorys = objects, error == nil else {
                 print(error ?? "Error")

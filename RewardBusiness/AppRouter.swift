@@ -206,10 +206,10 @@ class AppRouter: Navigator {
 //                return BusinessViewController(for: business)
 //
             case .addInventory:
-                guard let user = User.current() else{ return
+                guard let business = User.current()?.business else{ return
                     self.viewController(for: .login)
                 }
-                return AddInventoryViewController(user: user)
+                return AddInventoryViewController(for: business)
             case .about:
                 return RWViewController()
 //            case .termsOfService:

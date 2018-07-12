@@ -321,6 +321,8 @@
 		FA82EBDE20EED113008CAFE2 /* Inventory */ = {
 			isa = PBXGroup;
 			children = (
+				FA2AC94F20C5CB1A00D05A75 /* InventoryItemViewController.swift */,
+				FACB662D20E4943600DF8D5C /* InventoryCollectionViewController.swift */,
 				FA82EBE120EED8A4008CAFE2 /* AddInventoryViewController.swift */,
 			);
 			path = Inventory;
@@ -406,8 +408,6 @@
 				FACB665420E9926700DF8D5C /* ListViewController.swift */,
 				FACB662A20E301E700DF8D5C /* HomeViewController.swift */,
 				FA903D7520BA2EB40081A8A2 /* NumPadViewController.swift */,
-				FACB662D20E4943600DF8D5C /* InventoryCollectionViewController.swift */,
-				FA2AC94F20C5CB1A00D05A75 /* InventoryItemViewController.swift */,
 				FA903D6B20BA09150081A8A2 /* QRScanViewController.swift */,
 				FA2AC95320C5E08500D05A75 /* QRCodeDetailsViewController.swift */,
 				FACB661C20DC208200DF8D5C /* MainContainerController.swift */,
@@ -415,7 +415,6 @@
 				FA2AC94620C0A85600D05A75 /* NumPad */,
 				FA903D6D20BA0D840081A8A2 /* NavigationControllers */,
 				FA1B066620EEF24100E85580 /* Payment */,
-				FACB662C20E306C200DF8D5C /* Redeem */,
 				FA82EBDE20EED113008CAFE2 /* Inventory */,
 				FACB664D20E98FB200DF8D5C /* Profile */,
 				FA2AC93F20C0946E00D05A75 /* UILoginViewController */,
@@ -460,13 +459,6 @@
 				FACB662220DC245E00DF8D5C /* RippleButton.swift */,
 			);
 			path = Controls;
-			sourceTree = "<group>";
-		};
-		FACB662C20E306C200DF8D5C /* Redeem */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Redeem;
 			sourceTree = "<group>";
 		};
 		FACB663320E4A6BE00DF8D5C /* cell */ = {
