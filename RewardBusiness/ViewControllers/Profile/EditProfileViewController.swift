@@ -170,6 +170,8 @@ final class EditProfileViewController: FormViewController {
             $0.titleLabel.text = "Expires"
             $0.titleLabel.font = .boldSystemFont(ofSize: 15)
             $0.displayLabel.font = .systemFont(ofSize: 15)
+            }.configure {
+                $0.date = self.rewardModel.coupon?.expireDate ?? Date()
             }.inlineCellSetup {
                 $0.datePicker.date = self.rewardModel.coupon?.expireDate ?? Date()
                 $0.datePicker.datePickerMode = .dateAndTime

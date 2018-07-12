@@ -45,7 +45,7 @@ class QRScanViewController: RWViewController, AVCaptureMetadataOutputObjectsDele
         print("transactionIddddd", transactionId)
         view.backgroundColor = .backgroundColor
         navigationItem.title = "QRCode Scan"
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(goBacktoHome))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(goBacktoHome))
                 
         captureSession = AVCaptureSession()
         
@@ -172,20 +172,8 @@ class QRScanViewController: RWViewController, AVCaptureMetadataOutputObjectsDele
         AudioServicesPlayAlertSound(systemSoundId)
         //infoLbi.text = StringCodeValue
         
-        let Openparams: [AnyHashable: Any] = ["businessId": businessId, "amount": cost, "itemCount": count]
-        PFCloud.callFunction(inBackground: "openTransaction", withParameters: Openparams) { (response, error) in
-            let json = response as? [String:Any]
-            if let transactionId = json?["objectId"] {
-            
-                let Closeparams: [AnyHashable: Any] = ["transactionId": transactionId, "userId": self.userId]
-                PFCloud.callFunction(inBackground: "closeTransaction", withParameters: Closeparams) { (response, error) in
-                    let json = response as? [String:Any]
-                    let pointsAdded = json?["pointsAdded"]
-                    print(pointsAdded)
-                }
-            }
-            
-        }
+   
+        goBacktoHome()
 
         found(code: StringCodeValue)
 //        if let url = URL(string: StringCodeValue) {
