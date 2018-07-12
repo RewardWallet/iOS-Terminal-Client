@@ -105,9 +105,9 @@ class HomeViewController: RWViewController {
         
         if User.current()?.business?.rewardModel?.modelType?.intValue == 5{
             //go to inventory based
-            AppRouter.shared.present(.shoppingList, context: nil, wrap: nil, from: nil, animated: true, completion: nil)
+            AppRouter.shared.present(.shoppingList, context: nil, wrap: PrimaryNavigationController.self, from: nil, animated: true, completion: nil)
         }else{
-            AppRouter.shared.present(.numpad, wrap: nil, from: nil, animated: true, completion: nil)
+            AppRouter.shared.present(.numpad, wrap: PrimaryNavigationController.self, from: nil, animated: true, completion: nil)
         }
         
         
@@ -116,7 +116,7 @@ class HomeViewController: RWViewController {
     }
     @objc
     private func didTapRedeem() {
-//        AppRouter.shared.present(.redeem, wrap: nil, from: nil, animated: true, completion: nil)
+        AppRouter.shared.present(.redeem, wrap: PrimaryNavigationController.self, from: nil, animated: true, completion: nil)
         
         
     }

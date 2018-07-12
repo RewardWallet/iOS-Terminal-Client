@@ -13,6 +13,7 @@
 		A8BD77D499E2210E95A5E940 /* Pods_RewardBusiness.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99645BB038B5BD2083A82785 /* Pods_RewardBusiness.framework */; };
 		FA1B066B20EEFE5700E85580 /* InventoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1B066920EEFE5700E85580 /* InventoryTableViewCell.swift */; };
 		FA1B067420F07ABB00E85580 /* InventoryPaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1B067320F07ABB00E85580 /* InventoryPaymentViewController.swift */; };
+		FA1B067620F7FB5E00E85580 /* RedeemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1B067520F7FB5E00E85580 /* RedeemViewController.swift */; };
 		FA2AC93320C07E9900D05A75 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2AC93220C07E9900D05A75 /* Transaction.swift */; };
 		FA2AC93620C07ED900D05A75 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2AC93520C07ED900D05A75 /* API.swift */; };
 		FA2AC93820C07F1000D05A75 /* Business.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2AC93720C07F1000D05A75 /* Business.swift */; };
@@ -23,7 +24,6 @@
 		FA2AC94E20C4C28100D05A75 /* ConfigureNumPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2AC94D20C4C28100D05A75 /* ConfigureNumPad.swift */; };
 		FA2AC95020C5CB1A00D05A75 /* InventoryItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2AC94F20C5CB1A00D05A75 /* InventoryItemViewController.swift */; };
 		FA2AC95220C5D2C000D05A75 /* ConfigureItemPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2AC95120C5D2C000D05A75 /* ConfigureItemPad.swift */; };
-		FA2AC95420C5E08500D05A75 /* QRCodeDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2AC95320C5E08500D05A75 /* QRCodeDetailsViewController.swift */; };
 		FA2AC96320D2412A00D05A75 /* DynamicHeightCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2AC95820D2412900D05A75 /* DynamicHeightCell.swift */; };
 		FA2AC96420D2412A00D05A75 /* ProfileLabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2AC95920D2412900D05A75 /* ProfileLabelCell.swift */; };
 		FA2AC96520D2412A00D05A75 /* ProfileImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2AC95A20D2412900D05A75 /* ProfileImageCell.swift */; };
@@ -119,6 +119,7 @@
 		E49AAA5D470182DAF2A3D628 /* Pods-RewardBusiness.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RewardBusiness.release.xcconfig"; path = "Pods/Target Support Files/Pods-RewardBusiness/Pods-RewardBusiness.release.xcconfig"; sourceTree = "<group>"; };
 		FA1B066920EEFE5700E85580 /* InventoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryTableViewCell.swift; sourceTree = "<group>"; };
 		FA1B067320F07ABB00E85580 /* InventoryPaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryPaymentViewController.swift; sourceTree = "<group>"; };
+		FA1B067520F7FB5E00E85580 /* RedeemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedeemViewController.swift; sourceTree = "<group>"; };
 		FA2AC93220C07E9900D05A75 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		FA2AC93520C07ED900D05A75 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		FA2AC93720C07F1000D05A75 /* Business.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Business.swift; sourceTree = "<group>"; };
@@ -129,7 +130,6 @@
 		FA2AC94D20C4C28100D05A75 /* ConfigureNumPad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureNumPad.swift; sourceTree = "<group>"; };
 		FA2AC94F20C5CB1A00D05A75 /* InventoryItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryItemViewController.swift; sourceTree = "<group>"; };
 		FA2AC95120C5D2C000D05A75 /* ConfigureItemPad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureItemPad.swift; sourceTree = "<group>"; };
-		FA2AC95320C5E08500D05A75 /* QRCodeDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeDetailsViewController.swift; sourceTree = "<group>"; };
 		FA2AC95820D2412900D05A75 /* DynamicHeightCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicHeightCell.swift; sourceTree = "<group>"; };
 		FA2AC95920D2412900D05A75 /* ProfileLabelCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileLabelCell.swift; sourceTree = "<group>"; };
 		FA2AC95A20D2412900D05A75 /* ProfileImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileImageCell.swift; sourceTree = "<group>"; };
@@ -409,7 +409,6 @@
 				FACB662A20E301E700DF8D5C /* HomeViewController.swift */,
 				FA903D7520BA2EB40081A8A2 /* NumPadViewController.swift */,
 				FA903D6B20BA09150081A8A2 /* QRScanViewController.swift */,
-				FA2AC95320C5E08500D05A75 /* QRCodeDetailsViewController.swift */,
 				FACB661C20DC208200DF8D5C /* MainContainerController.swift */,
 				FACB663320E4A6BE00DF8D5C /* cell */,
 				FA2AC94620C0A85600D05A75 /* NumPad */,
@@ -459,6 +458,14 @@
 				FACB662220DC245E00DF8D5C /* RippleButton.swift */,
 			);
 			path = Controls;
+			sourceTree = "<group>";
+		};
+		FACB662C20E306C200DF8D5C /* Redeem */ = {
+			isa = PBXGroup;
+			children = (
+				FA1B067520F7FB5E00E85580 /* RedeemViewController.swift */,
+			);
+			path = Redeem;
 			sourceTree = "<group>";
 		};
 		FACB663320E4A6BE00DF8D5C /* cell */ = {
@@ -741,13 +748,13 @@
 				FACB663F20E80D5500DF8D5C /* WelcomViewController.swift in Sources */,
 				FA903D3520B92B7B0081A8A2 /* ViewController.swift in Sources */,
 				FA2AC94520C0A30900D05A75 /* NumPad+UIView.swift in Sources */,
-				FA2AC95420C5E08500D05A75 /* QRCodeDetailsViewController.swift in Sources */,
 				FACB664A20E98D9400DF8D5C /* Coupon.swift in Sources */,
 				FACB664C20E98DE000DF8D5C /* Number+Extensions.swift in Sources */,
 				FACB665120E990CC00DF8D5C /* ImagePickerController.swift in Sources */,
 				FACB665320E9911500DF8D5C /* UIAlertController+Extensions.swift in Sources */,
 				FACB660F20DC0E5C00DF8D5C /* LoginViewController.swift in Sources */,
 				FA903D7620BA2EB40081A8A2 /* NumPadViewController.swift in Sources */,
+				FA1B067620F7FB5E00E85580 /* RedeemViewController.swift in Sources */,
 				FACB662E20E4943600DF8D5C /* InventoryCollectionViewController.swift in Sources */,
 				FACB664820E98D6500DF8D5C /* RewardModel.swift in Sources */,
 				FA2AC93320C07E9900D05A75 /* Transaction.swift in Sources */,

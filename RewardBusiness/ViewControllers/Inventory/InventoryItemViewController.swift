@@ -8,11 +8,13 @@
 
 import UIKit
 import NumPad
+import Parse
 
 class InventoryItemViewController: UIViewController {
     
     var cost: Double = 0
     var count: Int = 0
+    var isRedeem: Bool = false
 
     lazy var numPad: NumPad = { [unowned self] in
         let numPad = ConfigureItemPad()
@@ -64,7 +66,7 @@ class InventoryItemViewController: UIViewController {
         self.containerView.addSubview(numPad)
         
         title = "Total Inventory"
-        tabBarItem = UITabBarItem.init(title: title, image: UIImage.iconCheckout    , selectedImage: UIImage.iconCheckout)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "back", style: .plain, target: self, action: #selector(didTapBack))
         
     }
 
@@ -78,16 +80,35 @@ class InventoryItemViewController: UIViewController {
         //save the total amount total and the total item
         //open transaction
         
-        print(textField.text as! String)
-        let purchasedinfo = [cost, count] as [Any]
-        guard let viewController = AppRouter.shared.viewController(for: .qrcode, context: purchasedinfo) else{ return }
-        AppRouter.shared.present(viewController, wrap: PrimaryNavigationController.self, from: self, animated: true, completion: nil)
+        print(textField.text)
+
+        let Openparams: [AnyHashable: Any] = ["businessId": User.current()?.business?.objectId, "amount": self.cost, "itemCount": self.count]
+        PFCloud.callFunction(inBackground: "openTransaction", withParameters: Openparams) { (response, error) in
+            let json = response as? [String:Any]
+            if let transactionId = json?["objectId"] {
+                let info = [self.isRedeem, transactionId] as [Any]
+                guard let viewController = AppRouter.shared.viewController(for: .qrcode, context: info) else{ return }
+                AppRouter.shared.present(viewController, wrap: PrimaryNavigationController.self, from: self, animated: true, completion: nil)
+                
+                
+            }
+                
+        }
+    }
+        
+    @objc
+    func didTapBack(){
+        AppRouter.shared.present(.numpad, context: nil, wrap: PrimaryNavigationController.self, from: nil, animated: true, completion: nil)
+    }
+        
+        
+        
 //        let QRScanViewController = self.storyboard?.instantiateViewController(withIdentifier: "QRScanViewController") as! QRScanViewController
 //        QRScanViewController.cost = cost
 //        QRScanViewController.count = Int(textField.text?.sanitized() ?? "0") ?? 0
 //        //self.present(InventoryItemViewController, animated: true, completion: nil)
 //        self.navigationController?.pushViewController(QRScanViewController, animated: true)
-    }
+  
     
     /*
     // MARK: - Navigation

@@ -73,7 +73,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="ZuD-8w-t8W"/>
                     </view>
-                    <navigationItem key="navigationItem" id="O27-vB-cxt"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3FM-QR-ndG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -298,24 +297,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Twc-jT-kSI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-405" y="-4498"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="wZg-MP-tYj">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Xp8-gn-suC" customClass="RWNavigationController" customModule="RewardBusiness" customModuleProvider="target" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="deK-7O-zbF">
-                        <rect key="frame" x="0.0" y="20" width="1024" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="UpP-Fh-kId" kind="relationship" relationship="rootViewController" id="tCH-Jz-ONM"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xba-2G-tHY" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-22" y="-352"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8Ya-UD-zex">

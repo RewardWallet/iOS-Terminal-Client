@@ -22,6 +22,7 @@ class QRScanViewController: RWViewController, AVCaptureMetadataOutputObjectsDele
     var transactionId: String = ""
     var cost: Double = 0
     var count: Int = 0
+    var isRedeem: Bool = false
     
 
     
@@ -36,11 +37,15 @@ class QRScanViewController: RWViewController, AVCaptureMetadataOutputObjectsDele
         return codeFrame
     }()
     
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("transactionIddddd", transactionId)
         view.backgroundColor = .backgroundColor
         navigationItem.title = "QRCode Scan"
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(fetchNumPad))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(goBacktoHome))
                 
         captureSession = AVCaptureSession()
         
@@ -82,9 +87,29 @@ class QRScanViewController: RWViewController, AVCaptureMetadataOutputObjectsDele
     }
     
     @objc
-    func fetchNumPad(){
-           AppRouter.shared.present(.numpad, wrap: nil, from: nil, animated: true, completion: nil)
+    func goBacktoHome(){
+        
+        
+        //close the transaction
+        if isRedeem == true {
+            
+            let Closeparams: [AnyHashable: Any] = ["transactionId": transactionId, "userId": self.userId]
+            PFCloud.callFunction(inBackground: "closeRedeemTransaction", withParameters: Closeparams) { (response, error) in
+                let json = response as? [String:Any]
+                let pointsAdded = json?["pointsRedeemed"]
+                print(pointsAdded)
+            }
+        }else {
+            let Closeparams: [AnyHashable: Any] = ["transactionId": transactionId, "userId": self.userId]
+            PFCloud.callFunction(inBackground: "closeTransaction", withParameters: Closeparams) { (response, error) in
+                let json = response as? [String:Any]
+                let pointsAdded = json?["pointsAdded"]
+                print(pointsAdded)
+            }
+           AppRouter.shared.present(.checkout, wrap: nil, from: nil, animated: true, completion: nil)
+        }
     }
+    
     
     func failed() {
         let ac = UIAlertController(title: "Scanning not supported", message: "Your device does not support scanning a code from an item. Please use a device with a camera.", preferredStyle: .alert)
@@ -220,13 +245,13 @@ class QRScanViewController: RWViewController, AVCaptureMetadataOutputObjectsDele
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        if let nextVC = segue.destination as? QRCodeDetailsViewController{
-            nextVC.scannedCode = infoLbi.text
-        }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        // Get the new view controller using segue.destinationViewController.
+//        // Pass the selected object to the new view controller.
+//        if let nextVC = segue.destination as? QRCodeDetailsViewController{
+//            nextVC.scannedCode = infoLbi.text
+//        }
+//    }
    
 
 }
