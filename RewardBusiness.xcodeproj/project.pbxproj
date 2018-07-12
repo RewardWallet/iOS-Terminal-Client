@@ -9,11 +9,11 @@
 /* Begin PBXBuildFile section */
 		3855F3F220EACC6900BA6769 /* Parse+IGListKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3855F3F020EACC6800BA6769 /* Parse+IGListKit.swift */; };
 		3855F3F320EACC6900BA6769 /* PFFile+Kingfisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3855F3F120EACC6900BA6769 /* PFFile+Kingfisher.swift */; };
+		386FE91F20F80969001B2238 /* RedeemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386FE91E20F80968001B2238 /* RedeemViewController.swift */; };
 		56F90503FC319538D536387A /* Pods_RewardBusinessTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D4BB35A868F91E64F4437F2 /* Pods_RewardBusinessTests.framework */; };
 		A8BD77D499E2210E95A5E940 /* Pods_RewardBusiness.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99645BB038B5BD2083A82785 /* Pods_RewardBusiness.framework */; };
 		FA1B066B20EEFE5700E85580 /* InventoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1B066920EEFE5700E85580 /* InventoryTableViewCell.swift */; };
 		FA1B067420F07ABB00E85580 /* InventoryPaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1B067320F07ABB00E85580 /* InventoryPaymentViewController.swift */; };
-		FA1B067620F7FB5E00E85580 /* RedeemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1B067520F7FB5E00E85580 /* RedeemViewController.swift */; };
 		FA2AC93320C07E9900D05A75 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2AC93220C07E9900D05A75 /* Transaction.swift */; };
 		FA2AC93620C07ED900D05A75 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2AC93520C07ED900D05A75 /* API.swift */; };
 		FA2AC93820C07F1000D05A75 /* Business.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2AC93720C07F1000D05A75 /* Business.swift */; };
@@ -112,6 +112,7 @@
 		1D4BB35A868F91E64F4437F2 /* Pods_RewardBusinessTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RewardBusinessTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3855F3F020EACC6800BA6769 /* Parse+IGListKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Parse+IGListKit.swift"; sourceTree = "<group>"; };
 		3855F3F120EACC6900BA6769 /* PFFile+Kingfisher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PFFile+Kingfisher.swift"; sourceTree = "<group>"; };
+		386FE91E20F80968001B2238 /* RedeemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RedeemViewController.swift; path = Redeem/RedeemViewController.swift; sourceTree = "<group>"; };
 		4E81872762953E855787B901 /* Pods-RewardBusinessTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RewardBusinessTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RewardBusinessTests/Pods-RewardBusinessTests.release.xcconfig"; sourceTree = "<group>"; };
 		7FD8ECEDF286247AC7F1E5B3 /* Pods-RewardBusinessTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RewardBusinessTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RewardBusinessTests/Pods-RewardBusinessTests.debug.xcconfig"; sourceTree = "<group>"; };
 		99645BB038B5BD2083A82785 /* Pods_RewardBusiness.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RewardBusiness.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -239,6 +240,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		386FE91C20F808E0001B2238 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				FA1B067520F7FB5E00E85580 /* RedeemViewController.swift */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		EA6354CF8A8C77A72E21F6CA /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -338,6 +347,7 @@
 				FA903D3020B92B7B0081A8A2 /* Products */,
 				EA6354CF8A8C77A72E21F6CA /* Pods */,
 				1077EB5DB19F6E72E0A59A6C /* Frameworks */,
+				386FE91C20F808E0001B2238 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -410,6 +420,7 @@
 				FA903D7520BA2EB40081A8A2 /* NumPadViewController.swift */,
 				FA903D6B20BA09150081A8A2 /* QRScanViewController.swift */,
 				FACB661C20DC208200DF8D5C /* MainContainerController.swift */,
+				386FE91E20F80968001B2238 /* RedeemViewController.swift */,
 				FACB663320E4A6BE00DF8D5C /* cell */,
 				FA2AC94620C0A85600D05A75 /* NumPad */,
 				FA903D6D20BA0D840081A8A2 /* NavigationControllers */,
@@ -458,14 +469,6 @@
 				FACB662220DC245E00DF8D5C /* RippleButton.swift */,
 			);
 			path = Controls;
-			sourceTree = "<group>";
-		};
-		FACB662C20E306C200DF8D5C /* Redeem */ = {
-			isa = PBXGroup;
-			children = (
-				FA1B067520F7FB5E00E85580 /* RedeemViewController.swift */,
-			);
-			path = Redeem;
 			sourceTree = "<group>";
 		};
 		FACB663320E4A6BE00DF8D5C /* cell */ = {
@@ -754,7 +757,7 @@
 				FACB665320E9911500DF8D5C /* UIAlertController+Extensions.swift in Sources */,
 				FACB660F20DC0E5C00DF8D5C /* LoginViewController.swift in Sources */,
 				FA903D7620BA2EB40081A8A2 /* NumPadViewController.swift in Sources */,
-				FA1B067620F7FB5E00E85580 /* RedeemViewController.swift in Sources */,
+				386FE91F20F80969001B2238 /* RedeemViewController.swift in Sources */,
 				FACB662E20E4943600DF8D5C /* InventoryCollectionViewController.swift in Sources */,
 				FACB664820E98D6500DF8D5C /* RewardModel.swift in Sources */,
 				FA2AC93320C07E9900D05A75 /* Transaction.swift in Sources */,
