@@ -20,11 +20,14 @@ enum AppRoute {
     //checkout
     case checkout
     
+    //redeem
+    case redeem
+    
     //shoppingList
     case shoppingList
     
     //numpad
-    case numpad, inventory
+    case numpad, numpaditem, inventory
     
     //qrcode
     case qrcode
@@ -47,7 +50,8 @@ enum AppRoute {
         case .welcome: return urlScheme + "welcome/"
         case .login: return urlScheme + "login/"
         case .signup: return urlScheme + "signup/"
-        case .checkout :return urlScheme + "checkout/"
+        case .checkout: return urlScheme + "checkout/"
+        case .redeem: return urlScheme + "redeem/"
         case .shoppingList: return urlScheme + "shoppingList/"
         //case .logout: return urlScheme + "logout/"
       
@@ -59,6 +63,9 @@ enum AppRoute {
 //        case .termsOfService: return urlScheme + "about/terms-and-service"
         case .numpad:
             return urlScheme + "numpad/"
+        case .numpaditem:
+            return urlScheme + "numpadItem/"
+            
         case .inventory:
             return urlScheme + "inventory/"
         case .qrcode:
@@ -99,7 +106,7 @@ class AppRouter: Navigator {
                 let navigationController = wrapClass.init()
                 navigationController.pushViewController(viewController, animated: false)
                 UIApplication.shared.presentedWindow?
-                    .switchRootViewController(viewController,
+                    .switchRootViewController(navigationController,
                                               animated: animated,
                                               duration: 0.5,
                                               options: .transitionFlipFromRight,
@@ -123,7 +130,7 @@ class AppRouter: Navigator {
                 return viewController
             }
         } else {
-            return present(route, context: context, wrap: wrap, from: from, animated: animated, completion: completion)
+            return present(route.pattern, context: context, wrap: wrap, from: from, animated: animated, completion: completion)
         }
         
     }
@@ -175,12 +182,27 @@ class AppRouter: Navigator {
                 return SignUpViewController()
             case .numpad:
                 return NumPadViewController()
-//            case .inventory:
-//                return InventoryItemViewController()
-//
+            case .numpaditem:
+                guard let totalAmount = context as? Double else { fatalError("totalAmount nil in context")}
+                
+                let vc = InventoryItemViewController()
+                vc.cost = totalAmount
+                return vc
+            case .redeem:
+                return RedeemViewController()
     
             case .qrcode:
-                return  QRScanViewController()
+                print(context)
+                guard let context = context as? [Any] else {
+                    fatalError("context is nil")
+                }
+                guard let transactionId = context[1] as? String else { fatalError("transactionId nil in context")}
+                let vc = QRScanViewController()
+                vc.transactionId = transactionId
+                guard let isRedeem = context[0] as? Bool else
+                    { fatalError("isRedeem nil in context")}
+                vc.isRedeem = isRedeem
+                return vc
             case .shoppingList:
                 return InventoryPaymentViewController()
             case .checkout, .inventory, .account:

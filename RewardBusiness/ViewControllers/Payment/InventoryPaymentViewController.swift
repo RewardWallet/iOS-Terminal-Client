@@ -18,12 +18,15 @@ final class InventoryPaymentViewController: FormViewController{
     
     // MARK: Properties
     private var inventories: [Inventory] = []
+    private var selected: [String:Int] = [:]
+    var userId : String = ""
+    var isRedeem: Bool = false
+   
     
     // MARK: Initialization
     init(){
         super.init(nibName: nil, bundle: nil)
-        title = "Shopping List"
-        tabBarItem = UITabBarItem(title: title, image: UIImage.iconCheckout , selectedImage: UIImage.iconCheckout)
+       
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -35,6 +38,12 @@ final class InventoryPaymentViewController: FormViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = "Shopping List"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next" , style:.plain, target: self, action: #selector(didTapNext))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(didTapCancel))
+        fetchInventory()
+        
+        
     }
     
     // MARK: Private
@@ -51,38 +60,88 @@ final class InventoryPaymentViewController: FormViewController{
   
     private func configure() {
         // Create RowFomers
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(didTapdone))
+
+      
+        
+        let cells: [StepperRowFormer<InventoryTableViewCell>] = inventories.map { item in
+            return StepperRowFormer<InventoryTableViewCell>() {
+                $0.titleLabel.text = item.name
+                $0.subtitleLabel.text = item.price?.stringValue
+                }.onValueChanged { count in
+                    self.selected[item.objectId!] = Int(count)
+                    print("selectedCounts:",  count)
+            }
+        }
         
         
-        
-        
-        
-        
-        let stepperRow = StepperRowFormer<InventoryTableViewCell>(){
-            $0.titleLabel.text = "ItemName"
-            $0.subtitleLabel.text = "price"
-            
-            }.displayTextFromValue { "\(Int($0))" }
-        
+  
         
         
         // Create SectionFormers
         
-    
         
-        let sectionFormer1 = SectionFormer(rowFormer: stepperRow)
         
-     
+        
+        let sectionFormer1 = SectionFormer(rowFormers: cells)
         former.append(sectionFormer: sectionFormer1)
     }
     
     @objc
-    func didTapdone(){
+    func didTapNext(){
         //perform transaction
+        
+        let objectIds: [String] = selected.map { (pair) -> [String] in
+            var ids = [String]()
+            for _ in 0..<pair.value {
+                ids.append(pair.key)
+            }
+            return ids
+        }.flatMap { $0 }
+        
+        let amount: Double = selected.map { (pair) -> [Double] in
+            var amounts = [Double]()
+            for _ in 0..<pair.value {
+                let index = self.inventories.index(where: { $0.objectId == pair.key })!
+                amounts.append(self.inventories[index].price?.doubleValue ?? 0)
+            }
+            return amounts
+        }.flatMap { $0 }.reduce(0, +)
+        
+  
+        
+        
+        let Openparams: [AnyHashable: Any] = ["amount": amount, "inventoryItems": objectIds ,"businessId": User.current()?.business?.objectId]
+        PFCloud.callFunction(inBackground: "openTransaction", withParameters: Openparams) { (response, error) in
+            let json = response as? [String:Any]
+            if let transactionId = json?["objectId"] {
+                let info = [self.isRedeem, transactionId] as [Any]
+                guard let viewController = AppRouter.shared.viewController(for: .qrcode, context: info) else{ return }
+                AppRouter.shared.present(viewController, wrap: PrimaryNavigationController.self, from: self, animated: true, completion: nil)
+                
+                
+//
+//                let Closeparams: [AnyHashable: Any] = ["transactionId": transactionId, "userId": self.userId]
+//                PFCloud.callFunction(inBackground: "closeTransaction", withParameters: Closeparams) { (response, error) in
+//                    let json = response as? [String:Any]
+//                    let pointsAdded = json?["pointsAdded"]
+//                    print(pointsAdded)
+//                }
+            }
+            
+        }
+
+        
     }
+    
+    @objc
+    func didTapCancel(){
+        AppRouter.shared.present(.checkout, wrap: nil, from: nil, animated: true, completion: nil)
+    }
+ 
     
     
 }
+
 
 
 
