@@ -172,25 +172,19 @@ class QRScanViewController: RWViewController, AVCaptureMetadataOutputObjectsDele
         AudioServicesPlayAlertSound(systemSoundId)
         //infoLbi.text = StringCodeValue
         
-   
-        goBacktoHome()
+
+        API.shared.openTransaction(amount: cost, itemCount: count) { (json) in
+            if let transactionId = json?["objectId"] as? String {
+                API.shared.closeTransaction(transactionId: transactionId, userId: self.userId, completion: { (json) in
+//                    let pointsAdded = json?["pointsAdded"] as? Double
+//                    print(pointsAdded)
+                })
+            }
+        }
+        
+
 
         found(code: StringCodeValue)
-//        if let url = URL(string: StringCodeValue) {
-//            performSegue(withIdentifier: "segToDetailsVC", sender: self)
-//            captureSession?.stopRunning()
-//        }
-//        if Transaction().transactionId == transactionId{
-//            print("transactionId matched")
-//            if let url = URL(string: StringCodeValue) {
-//                performSegue(withIdentifier: "segToDetailsVC", sender: self)
-//                captureSession?.stopRunning()
-//            }
-//
-//        }else{
-//            print("transactionId is not matched")
-//        }
-//
         
     }
     

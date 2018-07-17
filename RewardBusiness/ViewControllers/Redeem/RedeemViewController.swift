@@ -12,7 +12,7 @@ import NumPad
 
 class RedeemViewController : UIViewController {
     
-    var points : Int = 0
+    var points : Double = 0
     var isRedeem : Bool = false
     
     lazy var numPad: NumPad = { [unowned self] in
@@ -77,15 +77,12 @@ class RedeemViewController : UIViewController {
     private func didTapEnter(){
         isRedeem = true
         
-        let Openparams: [AnyHashable: Any] = ["points": points, "businessId": User.current()?.business?.objectId]
-        PFCloud.callFunction(inBackground: "openRedeemTransaction", withParameters: Openparams) { (response, error) in
-            let json = response as? [String:Any]
+        API.shared.openRedeemTransaction(points: points) { (json) in
             if let transactionId = json?["objectId"] as? String {
                 let info = [self.isRedeem, transactionId] as [Any]
                 
                 AppRouter.shared.present(.qrcode, context: info, wrap: PrimaryNavigationController.self, from: self, animated: true, completion: nil)
             }
-            
         }
     }
     
@@ -109,7 +106,7 @@ extension RedeemViewController : NumPadDelegate{
                 textField.text = nil
             } else {
                 textField.text = string.sanitized()
-                points = Int(textField.text?.sanitized() ?? "0") ?? 0
+                points = Double(textField.text?.sanitized() ?? "0") ?? 0
             }
         }
     }

@@ -15,6 +15,8 @@ class API: NSObject {
     // Shared Singleton
     static let shared = API()
     
+    private var rewardBeamerHost = "http://localhost:5000"
+    
     private var isIgnoreingUserInteraction: Bool {
         return UIApplication.shared.isIgnoringInteractionEvents
     }
@@ -143,6 +145,68 @@ class API: NSObject {
                 return
             }
             completion(businesses)
+        }
+    }
+    
+    func openTransaction(amount: Double, itemCount: Int, completion: @escaping ([String:Any]?)->Void) {
+        let params: [AnyHashable: Any] = ["businessId": User.current()?.business?.objectId ?? "", "amount": amount, "itemCount": itemCount]
+        PFCloud.callFunction(inBackground: "openTransaction", withParameters: params) { (response, error) in
+            let json = response as? [String:Any]
+            completion(json)
+        }
+    }
+    
+    func openTransactionOnRewardBeamer(amount: Double, itemCount: Int, completion: @escaping ([String:Any]?)->Void) {
+        let params: [String: Any] = ["businessId": User.current()?.business?.objectId ?? "", "amount": amount, "itemCount": itemCount]
+        
+        let url = URL(string: rewardBeamerHost + "/openTransaction")!
+        var request = URLRequest(url: url)
+        request.httpBody = try? JSONSerialization.data(withJSONObject: params, options: .prettyPrinted)
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            guard let data = data else { return }
+            let json = try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers)
+            if let dict = json as? [String:Any] {
+                completion(dict)
+            } else if let str = json as? String {
+                completion(["result":str])
+            }
+        }.resume()
+    }
+    
+    func openRedeemTransaction(points: Double, completion: @escaping ([String:Any]?)->Void) {
+        let params: [AnyHashable: Any] = ["points": points, "businessId": User.current()?.business?.objectId ?? ""]
+        PFCloud.callFunction(inBackground: "openRedeemTransaction", withParameters: params) { (response, error) in
+            let json = response as? [String:Any]
+            completion(json)
+        }
+    }
+    
+    func openRedeemTransactionOnRewardBeamer(points: Double, completion: @escaping ([String:Any]?)->Void) {
+        let params: [String: Any] = ["businessId": User.current()?.business?.objectId ?? "", "points": points]
+        
+        let url = URL(string: rewardBeamerHost + "/openRedeemTransaction")!
+        var request = URLRequest(url: url)
+        request.httpBody = try? JSONSerialization.data(withJSONObject: params, options: .prettyPrinted)
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            guard let data = data else { return }
+            let json = try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers)
+            if let dict = json as? [String:Any] {
+                completion(dict)
+            } else if let str = json as? String {
+                completion(["result":str])
+            }
+            }.resume()
+    }
+    
+    func closeTransaction(transactionId: String, userId: String, completion: @escaping ([String:Any]?)->Void) {
+        let params: [AnyHashable: Any] = ["transactionId": transactionId, "userId": userId]
+        PFCloud.callFunction(inBackground: "closeTransaction", withParameters: params) { (response, error) in
+            let json = response as? [String:Any]
+            completion(json)
         }
     }
     
