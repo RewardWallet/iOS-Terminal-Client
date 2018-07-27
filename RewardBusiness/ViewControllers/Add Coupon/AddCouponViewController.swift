@@ -131,7 +131,7 @@ final class AddCouponViewController: FormViewController{
     func didTapAdd(){
         
 
-        guard coupon.description != nil else{
+        guard coupon.description == "" else{
             handleError("Please enter coupon description")
             return
         }
