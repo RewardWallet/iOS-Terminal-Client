@@ -82,18 +82,49 @@ class InventoryItemViewController: UIViewController {
         
         print(textField.text)
 
-        let Openparams: [AnyHashable: Any] = ["businessId": User.current()?.business?.objectId, "amount": self.cost, "itemCount": self.count]
-        PFCloud.callFunction(inBackground: "openTransaction", withParameters: Openparams) { (response, error) in
-            let json = response as? [String:Any]
-            if let transactionId = json?["objectId"] {
-                let info = [self.isRedeem, transactionId] as [Any]
-                guard let viewController = AppRouter.shared.viewController(for: .qrcode, context: info) else{ return }
-                AppRouter.shared.present(viewController, wrap: PrimaryNavigationController.self, from: self, animated: true, completion: nil)
-                
-                
-            }
-                
+      
+  
+        
+        
+        let alertController = UIAlertController(title: "Action Sheet", message: "Please choose one", preferredStyle: .actionSheet)
+        let RewardBeamerButton = UIAlertAction(title: "RewardBeamer", style: .default) { (action) in
+            print("open RewadBeamer transaction ")
+            
+//            API.shared.openTransactionOnRewardBeamer(amount: self.cost, itemCount: self.count, completion: { (result ) in
+//                if (result != nil) {
+//                    print("transaction success")
+//                    AppRouter.shared.present(.checkout, wrap: PrimaryNavigationController.self, from: self, animated: true, completion: nil)
+//                }else{
+//                    print("transaction fail")
+//                }
+//            })
+            
         }
+        let QRCodeButton = UIAlertAction(title: "QRCode Scan", style: .default) { (action) in
+            print("open QRCode transaction")
+            
+            print("counts: ",self.count)
+            
+            API.shared.openTransaction(amount: self.cost, itemCount: self.count) { (json) in
+                if let transactionId = json?["objectId"] as? String {
+                    let info = [self.isRedeem, transactionId] as [Any]
+                    guard let viewController = AppRouter.shared.viewController(for: .qrcode, context: info) else{ return }
+                    AppRouter.shared.present(viewController, wrap: PrimaryNavigationController.self, from: self, animated: true, completion: nil)
+                }
+            }
+            
+        }
+        let cancelButton = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+            print("Cancel button tapped")
+        }
+        
+        alertController.addAction(RewardBeamerButton)
+        alertController.addAction(QRCodeButton)
+        alertController.addAction(cancelButton)
+        
+        present(alertController, animated: true, completion: nil)
+        
+        
     }
         
     @objc

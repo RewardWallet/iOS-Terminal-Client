@@ -44,6 +44,18 @@ class PushNotication: NSObject {
         }
     }
     
+    
+    func sendNotificationToCustomers(message: String){
+        let params: [AnyHashable: Any] = ["message": message, "businessId": User.current()?.business?.objectId ?? ""]
+        PFCloud.callFunction(inBackground: "sendNotificationToCustomers", withParameters: params) { (object, error) in
+            if error == nil {
+                print("#### PUSH OK")
+            }else{
+                print("#### ERROR: \(error.debugDescription)")
+            }
+        }
+    }
+    
     //    class func send(to user: User, message: String) {
     //
     //        PFCloud.callFunction(inBackground: "pushToUser",

@@ -76,14 +76,38 @@ class RedeemViewController : UIViewController {
     
     private func didTapEnter(){
         isRedeem = true
-        
-        API.shared.openRedeemTransaction(points: points) { (json) in
-            if let transactionId = json?["objectId"] as? String {
-                let info = [self.isRedeem, transactionId] as [Any]
-                
-                AppRouter.shared.present(.qrcode, context: info, wrap: PrimaryNavigationController.self, from: self, animated: true, completion: nil)
-            }
+        let alertController = UIAlertController(title: "Action Sheet", message: "Please choose one", preferredStyle: .actionSheet)
+        let RewardBeamerButton = UIAlertAction(title: "RewardBeamer", style: .default) { (action) in
+            print("open RewadBeamer Redeem transaction ")
         }
+        
+        
+        
+        let QRCodeButton = UIAlertAction(title: "QRCode Scan", style: .default) { (action) in
+            print("open QRCode Redeem transaction")
+            
+            API.shared.openRedeemTransaction(points: self.points) { (json) in
+                if let transactionId = json?["objectId"] as? String {
+                    let info = [self.isRedeem, transactionId] as [Any]
+                    
+                    AppRouter.shared.present(.qrcode, context: info, wrap: PrimaryNavigationController.self, from: self, animated: true, completion: nil)
+                }
+            }
+            
+        }
+        let cancelButton = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+            print("Cancel button tapped")
+        }
+        
+        alertController.addAction(RewardBeamerButton)
+        alertController.addAction(QRCodeButton)
+        alertController.addAction(cancelButton)
+        
+        present(alertController, animated: true, completion: nil)
+        
+        
+        
+    
     }
     
 }

@@ -175,6 +175,14 @@ extension UIImage {
         return UIImage(named: "about-icon")?.withRenderingMode(defaultRenderingMode)
     }
     
+    static var iconCoupon: UIImage? {
+        return UIImage(named: "Advertising")?.withRenderingMode(defaultRenderingMode)
+    }
+    
+    static var iconNotification: UIImage? {
+        return UIImage(named: "New Post")?.withRenderingMode(defaultRenderingMode)
+    }
+    
     static var iconPhone: UIImage? {
         return UIImage(named: "phone-icon")?.withRenderingMode(defaultRenderingMode)
     }

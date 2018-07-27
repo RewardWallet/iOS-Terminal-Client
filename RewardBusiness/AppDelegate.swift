@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         KingfisherManager.shared.defaultOptions = [.fromMemoryCacheOrRefresh]
         window = UIWindow(frame: UIScreen.main.bounds)
         
-        window?.rootViewController = AppRouter.shared.viewController(for: .login)
+        window?.rootViewController = AppRouter.shared.viewController(for: .welcome)
         window?.makeKeyAndVisible()
      
         return true
