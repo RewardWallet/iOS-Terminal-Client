@@ -65,7 +65,7 @@ class RedeemViewController : UIViewController {
         self.containerView.addSubview(numPad)
         
         title = "Redeem Points"
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "back", style: .plain, target: self, action: #selector(didTapBack))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(didTapBack))
     }
     
     
@@ -83,6 +83,15 @@ class RedeemViewController : UIViewController {
             API.shared.openRedeemTransactionOnRewardBeamer(points: self.points, completion: { (json) in
                 if let transactionId = json?["objectId"] as? String {
                     // close transaction inside
+                    let alertController = UIAlertController(title: "Success", message: "Openned transaction with id " + transactionId, preferredStyle: .alert)
+                    alertController.addAction(UIAlertAction(title: "OK", style: .default) { _ in
+                        AppRouter.shared.present(.checkout, context: nil, wrap: nil, from: nil, animated: true, completion: nil)
+                    })
+                    self.present(alertController, animated: true, completion: nil)
+                } else {
+                    let alertController = UIAlertController(title: "ERROR", message: "Failed to find a RewardBeamer on your network", preferredStyle: .alert)
+                    alertController.addAction(UIAlertAction(title: "OK", style: .default))
+                    self.present(alertController, animated: true, completion: nil)
                 }
             })
             

@@ -66,7 +66,7 @@ class InventoryItemViewController: UIViewController {
         self.containerView.addSubview(numPad)
         
         title = "Total Inventory"
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "back", style: .plain, target: self, action: #selector(didTapBack))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(didTapBack))
         
     }
 

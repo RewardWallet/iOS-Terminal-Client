@@ -21,7 +21,7 @@ final class AccountSectionController: ListSectionController {
         AccountCellViewModel(text: "Profile", icon: .icon_user, route: .profile),
         AccountCellViewModel(text: "Add Inventory", icon: .icon_shop, route: .addInventory),
         AccountCellViewModel(text: "Add Coupon", icon: .iconCoupon, route: .addCoupon ),
-        AccountCellViewModel(text: "Notification", icon: .iconNotification, route: .notification),
+        AccountCellViewModel(text: "Send Notification to Subscribers", icon: .iconNotification, route: .notification),
         AccountCellViewModel(text: "About", icon: .icon_about, route: .about),
         AccountCellViewModel(text: "Log Out", icon: .icon_logOut, route: .logout)
 

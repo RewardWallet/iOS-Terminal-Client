@@ -84,6 +84,7 @@ final class InventoryPaymentViewController: FormViewController{
         
         let sectionFormer1 = SectionFormer(rowFormers: cells)
         former.append(sectionFormer: sectionFormer1)
+        former.reload()
     }
     
     @objc

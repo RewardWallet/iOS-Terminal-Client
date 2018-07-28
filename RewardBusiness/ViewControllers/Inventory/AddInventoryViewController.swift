@@ -38,6 +38,7 @@ final class AddInventoryViewController: FormViewController{
         self.business = inventory.business!
         self.inventory = inventory
         super.init(nibName: nil, bundle: nil)
+        title = "Edit Inventory"
     }
     
     required init?(coder aDecoder: NSCoder) {
