@@ -82,7 +82,7 @@ class NumPadViewController: RWViewController{
     private func didSavePayment(){
         print(textField.text)
         let amount = Double(textField.text?.sanitized() ?? "0") ?? 0
-        AppRouter.shared.present(.numpaditem, context: amount, wrap: PrimaryNavigationController.self, from: nil, animated: true, completion: nil)
+        AppRouter.shared.present(.numpaditem, context: amount/100, wrap: PrimaryNavigationController.self, from: nil, animated: true, completion: nil)
     
 
         

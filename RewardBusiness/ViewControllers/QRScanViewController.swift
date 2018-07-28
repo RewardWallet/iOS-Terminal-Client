@@ -45,7 +45,7 @@ class QRScanViewController: RWViewController, AVCaptureMetadataOutputObjectsDele
         print("transactionIddddd", transactionId)
         view.backgroundColor = .backgroundColor
         navigationItem.title = "QRCode Scan"
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(goBacktoHome))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(goBacktoHome))
                 
         captureSession = AVCaptureSession()
         
@@ -106,8 +106,9 @@ class QRScanViewController: RWViewController, AVCaptureMetadataOutputObjectsDele
                 let pointsAdded = json?["pointsAdded"]
                 print(pointsAdded)
             }
-           AppRouter.shared.present(.checkout, wrap: nil, from: nil, animated: true, completion: nil)
+           
         }
+        AppRouter.shared.present(.checkout, wrap: nil, from: nil, animated: true, completion: nil)
     }
     
     
@@ -172,15 +173,14 @@ class QRScanViewController: RWViewController, AVCaptureMetadataOutputObjectsDele
         AudioServicesPlayAlertSound(systemSoundId)
         //infoLbi.text = StringCodeValue
         
-        API.shared.openTransaction(amount: cost, itemCount: count) { (json) in
-            if let transactionId = json?["objectId"] as? String {
-                API.shared.closeTransaction(transactionId: transactionId, userId: self.userId, completion: { (json) in
-//                    let pointsAdded = json?["pointsAdded"] as? Double
-//                    print(pointsAdded)
-                })
-            }
-        }
         
+        
+        
+//        API.shared.closeTransaction(transactionId: transactionId, userId: self.userId, completion: { (json) in
+//            //                    let pointsAdded = json?["pointsAdded"] as? Double
+//            //                    print(pointsAdded)
+//        })
+        goBacktoHome()
 
         found(code: StringCodeValue)
         

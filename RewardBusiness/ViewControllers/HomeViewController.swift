@@ -36,7 +36,7 @@ class HomeViewController: RWViewController {
     private var RedeemButtonAnchor: NSLayoutConstraint?
     
     private let titleLabel = UILabel(style: Stylesheet.Labels.title) {
-        $0.text = "Hello RewardBusiness"
+        $0.text = "Hello \(User.current()?.business?.name ?? "RewardBusiness")"
         $0.textAlignment = .left
     }
     
@@ -48,6 +48,7 @@ class HomeViewController: RWViewController {
     
     private lazy var PaymentButton = RippleButton(style: Stylesheet.Buttons.primary) {
         $0.setTitle("PAYMENT", for: .normal)
+        $0.titleLabel?.font = UIFont(name: "PAYMENT", size: 80)
         $0.addTarget(self,
                      action: #selector(HomeViewController.didTapPayment),
                      for: .touchUpInside)
@@ -55,6 +56,7 @@ class HomeViewController: RWViewController {
     
     private lazy var RedeemButton = RippleButton(style: Stylesheet.Buttons.primary) {
         $0.setTitle("REDEEM", for: .normal)
+        $0.titleLabel?.font = UIFont(name: "REDEEM", size: 80)
         $0.addTarget(self,
                      action: #selector(HomeViewController.didTapRedeem),
                      for: .touchUpInside)

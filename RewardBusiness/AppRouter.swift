@@ -15,7 +15,7 @@ enum AppRoute {
     //case dispatch
     
     //Auth
-    case welcome, login, signup//, logout
+    case welcome, login, signup, logout
     
     //checkout
     case checkout
@@ -38,6 +38,12 @@ enum AppRoute {
     //inventory
     case addInventory
     
+    //coupon
+    case addCoupon
+    
+    //notification
+    case notification
+    
     //RewardBusiness
     case about
     
@@ -53,7 +59,7 @@ enum AppRoute {
         case .checkout: return urlScheme + "checkout/"
         case .redeem: return urlScheme + "redeem/"
         case .shoppingList: return urlScheme + "shoppingList/"
-        //case .logout: return urlScheme + "logout/"
+        case .logout: return urlScheme + "logout/"
       
 //        case .business : return urlScheme + "business/"
 //
@@ -68,10 +74,14 @@ enum AppRoute {
             
         case .inventory:
             return urlScheme + "inventory/"
+        case .addCoupon:
+            return urlScheme + "addCoupon/"
         case .qrcode:
             return urlScheme + "qrcode/"
         case .about:
             return urlScheme + "about/"
+        case .notification:
+            return urlScheme + "notification/"
         case .addInventory:
             return urlScheme + "addInventory/"
 
@@ -175,9 +185,9 @@ class AppRouter: Navigator {
                 
             case .login:
                 return LoginViewController()
-//            case .logout:
-//                User.logoutInBackground(nil)
-//                return self.viewController(for: .welcome)
+            case .logout:
+                User.logoutInBackground(nil)
+                return self.viewController(for: .welcome)
             case .signup:
                 return SignUpViewController()
             case .numpad:
@@ -232,8 +242,16 @@ class AppRouter: Navigator {
                     self.viewController(for: .login)
                 }
                 return AddInventoryViewController(for: business)
+            case .addCoupon:
+                guard let business = User.current()?.business else{ return
+                    self.viewController(for: .login)
+                }
+                return AddCouponViewController(for: business)
+                
             case .about:
                 return RWViewController()
+            case .notification:
+                return NotificationViewController()
 //            case .termsOfService:
 //                return TermsOfServiceViewController()
 

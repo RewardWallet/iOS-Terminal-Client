@@ -15,6 +15,17 @@ class Coupon: PFObject {
     @NSManaged var expireDate: Date?
     @NSManaged var text: String?
     @NSManaged var image: PFFile
+    @NSManaged var isPublic: Bool
+    
+    override init() {
+        super.init()
+    }
+    
+    convenience init(for business: Business){
+        self.init()
+        self.business = business
+       
+    }
 }
 
 extension Coupon: PFSubclassing {

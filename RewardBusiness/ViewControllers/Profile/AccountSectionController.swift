@@ -20,8 +20,10 @@ final class AccountSectionController: ListSectionController {
     private let viewModels: [AccountCellViewModel] = [
         AccountCellViewModel(text: "Profile", icon: .icon_user, route: .profile),
         AccountCellViewModel(text: "Add Inventory", icon: .icon_shop, route: .addInventory),
+        AccountCellViewModel(text: "Add Coupon", icon: .iconCoupon, route: .addCoupon ),
+        AccountCellViewModel(text: "Notification", icon: .iconNotification, route: .notification),
         AccountCellViewModel(text: "About", icon: .icon_about, route: .about),
-//        AccountCellViewModel(text: "Log Out", icon: .icon_logOut, route: .logout)
+        AccountCellViewModel(text: "Log Out", icon: .icon_logOut, route: .logout)
 
     ]
     
@@ -59,13 +61,13 @@ final class AccountSectionController: ListSectionController {
     
     override func didSelectItem(at index: Int) {
         guard let route = viewModels[index].route else { return }
-//        if route == .logout {
-//            AppRouter.shared.present(route, wrap: nil, from: nil, animated: true, completion: nil)
-//        } else {
-//            AppRouter.shared.push(route, context: nil, from: viewController?.navigationController, animated: true)
-//        }
+        if route == .logout {
+            AppRouter.shared.present(route, wrap: nil, from: nil, animated: true, completion: nil)
+        } else {
+            AppRouter.shared.push(route, context: nil, from: viewController?.navigationController, animated: true)
+        }
         
-        AppRouter.shared.push(route, context: nil, from: viewController?.navigationController, animated: true)
+        
    
     }
     
