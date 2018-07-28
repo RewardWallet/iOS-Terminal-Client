@@ -84,12 +84,8 @@ class NotificationViewController: RWViewController {
     
     @objc
     func didTapSend(){
-        print("message: ", textFieldMsg.text)
-        
         if (textFieldMsg.text == ""){
-            
             self.handleError("message is empty")
-            
         }else{
             
             PushNotication.shared.sendNotificationToCustomers(message: textFieldMsg.text!)

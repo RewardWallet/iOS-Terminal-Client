@@ -79,13 +79,6 @@ class InventoryItemViewController: UIViewController {
     private func didTapEnter(){
         //save the total amount total and the total item
         //open transaction
-        
-        print(textField.text)
-
-      
-  
-        
-        
         let alertController = UIAlertController(title: "Action Sheet", message: "Please choose one", preferredStyle: .actionSheet)
         let RewardBeamerButton = UIAlertAction(title: "RewardBeamer", style: .default) { (action) in
             print("open RewadBeamer transaction ")

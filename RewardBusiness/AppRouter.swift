@@ -202,7 +202,6 @@ class AppRouter: Navigator {
                 return RedeemViewController()
     
             case .qrcode:
-                print(context)
                 guard let context = context as? [Any] else {
                     fatalError("context is nil")
                 }

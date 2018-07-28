@@ -80,15 +80,8 @@ class NumPadViewController: RWViewController{
     
     @objc
     private func didSavePayment(){
-        print(textField.text)
         let amount = Double(textField.text?.sanitized() ?? "0") ?? 0
         AppRouter.shared.present(.numpaditem, context: amount/100, wrap: PrimaryNavigationController.self, from: nil, animated: true, completion: nil)
-    
-
-        
-        
-        
-        
 //        let InventoryItemViewController = self.storyboard?.instantiateViewController(withIdentifier: "InventoryItemViewController") as! InventoryItemViewController
 //        InventoryItemViewController.cost = Double(textField.text?.sanitized() ?? "0") ?? 0
 //        //self.present(InventoryItemViewController, animated: true, completion: nil)

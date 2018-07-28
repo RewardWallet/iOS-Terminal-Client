@@ -95,16 +95,14 @@ class QRScanViewController: RWViewController, AVCaptureMetadataOutputObjectsDele
             
             let Closeparams: [AnyHashable: Any] = ["transactionId": transactionId, "userId": self.userId]
             PFCloud.callFunction(inBackground: "closeRedeemTransaction", withParameters: Closeparams) { (response, error) in
-                let json = response as? [String:Any]
-                let pointsAdded = json?["pointsRedeemed"]
-                print(pointsAdded)
+//                let json = response as? [String:Any]
+//                let pointsAdded = json?["pointsRedeemed"]
             }
         }else {
             let Closeparams: [AnyHashable: Any] = ["transactionId": transactionId, "userId": self.userId]
             PFCloud.callFunction(inBackground: "closeTransaction", withParameters: Closeparams) { (response, error) in
-                let json = response as? [String:Any]
-                let pointsAdded = json?["pointsAdded"]
-                print(pointsAdded)
+//                let json = response as? [String:Any]
+//                let pointsAdded = json?["pointsAdded"]
             }
            
         }

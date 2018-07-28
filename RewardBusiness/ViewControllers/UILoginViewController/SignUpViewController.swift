@@ -237,8 +237,6 @@ final class SignUpViewController: RWViewController {
             return handleError("Passwords do not match")
         }
         
-        let name = nameField.text
-        
         API.shared.showProgressHUD(ignoreUserInteraction: true)
         Business.signUpInBackground( email: email, password: password) { [weak self] (success, error) in
             API.shared.dismissProgressHUD()
@@ -247,9 +245,6 @@ final class SignUpViewController: RWViewController {
                 return
             }
             let business =  Business()
-
-
-
                 business.name = self?.nameField.text
                 //add about, address rewardModel, image, email,
                 business.email = self?.emailField.text

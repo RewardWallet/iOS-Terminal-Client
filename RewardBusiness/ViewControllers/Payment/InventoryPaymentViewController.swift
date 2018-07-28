@@ -108,9 +108,6 @@ final class InventoryPaymentViewController: FormViewController{
             return amounts
         }.flatMap { $0 }.reduce(0, +)
         
-  
-        
-        
         let alertController = UIAlertController(title: "Action Sheet", message: "Please choose one", preferredStyle: .actionSheet)
         let RewardBeamerButton = UIAlertAction(title: "RewardBeamer", style: .default) { (action) in
             print("open RewadBeamer transaction ")
@@ -120,7 +117,7 @@ final class InventoryPaymentViewController: FormViewController{
         let QRCodeButton = UIAlertAction(title: "QRCode Scan", style: .default) { (action) in
             print("open QRCode transaction")
             
-            let Openparams: [AnyHashable: Any] = ["amount": amount, "inventoryItems": objectIds ,"businessId": User.current()?.business?.objectId]
+            let Openparams: [AnyHashable: Any] = ["amount": amount, "inventoryItems": objectIds ,"businessId": User.current()?.business?.objectId ?? NSNull()]
             PFCloud.callFunction(inBackground: "openTransaction", withParameters: Openparams) { (response, error) in
                 let json = response as? [String:Any]
                 if let transactionId = json?["objectId"] {

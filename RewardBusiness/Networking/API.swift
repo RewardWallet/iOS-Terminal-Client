@@ -15,7 +15,7 @@ class API: NSObject {
     // Shared Singleton
     static let shared = API()
     
-    private var rewardBeamerHost = "http://localhost:5000"
+    private var rewardBeamerHost = "http://raspberrypi.local"
     
     private var isIgnoreingUserInteraction: Bool {
         return UIApplication.shared.isIgnoringInteractionEvents
