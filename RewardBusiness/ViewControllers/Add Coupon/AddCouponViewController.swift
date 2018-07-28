@@ -18,7 +18,7 @@ final class AddCouponViewController: FormViewController{
     
     
     let business: Business
-    
+   
     var coupon: Coupon
     
 
@@ -32,6 +32,7 @@ final class AddCouponViewController: FormViewController{
     init(for business: Business){
         self.business = business
         self.coupon = Coupon(for: self.business )
+       
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -55,9 +56,11 @@ final class AddCouponViewController: FormViewController{
             }.configure {
                 $0.placeholder = "Add Coupon description"
                 $0.text = self.coupon.text
+                
             }.onTextChanged {
                 self.couponDescription = $0
                 self.coupon.text = $0
+                
         }
         let expiryRow = InlineDatePickerRowFormer<FormInlineDatePickerCell>() {
             $0.titleLabel.text = "Expires"
@@ -130,8 +133,8 @@ final class AddCouponViewController: FormViewController{
     @objc
     func didTapAdd(){
         
-
-        guard coupon.description == "" else{
+        print("coupon description:", coupon.description)
+        guard couponDescription != "" else{
             handleError("Please enter coupon description")
             return
         }

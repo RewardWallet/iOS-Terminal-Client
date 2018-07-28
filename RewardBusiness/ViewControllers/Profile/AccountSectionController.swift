@@ -61,13 +61,13 @@ final class AccountSectionController: ListSectionController {
     
     override func didSelectItem(at index: Int) {
         guard let route = viewModels[index].route else { return }
-//        if route == .logout {
-//            AppRouter.shared.present(route, wrap: nil, from: nil, animated: true, completion: nil)
-//        } else {
-//            AppRouter.shared.push(route, context: nil, from: viewController?.navigationController, animated: true)
-//        }
+        if route == .logout {
+            AppRouter.shared.present(route, wrap: nil, from: nil, animated: true, completion: nil)
+        } else {
+            AppRouter.shared.push(route, context: nil, from: viewController?.navigationController, animated: true)
+        }
         
-        AppRouter.shared.push(route, context: nil, from: viewController?.navigationController, animated: true)
+        
    
     }
     

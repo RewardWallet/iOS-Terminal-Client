@@ -79,6 +79,14 @@ class RedeemViewController : UIViewController {
         let alertController = UIAlertController(title: "Action Sheet", message: "Please choose one", preferredStyle: .actionSheet)
         let RewardBeamerButton = UIAlertAction(title: "RewardBeamer", style: .default) { (action) in
             print("open RewadBeamer Redeem transaction ")
+            
+            API.shared.openRedeemTransactionOnRewardBeamer(points: self.points, completion: { (json) in
+                if let transactionId = json?["objectId"] as? String {
+                    // close transaction inside
+                }
+            })
+            
+            
         }
         
         
