@@ -41,33 +41,6 @@ final class Business: PFObject {
     ///   - completion: A completion block with a result indicating if the login was successful
     class func loginInBackground(email: String, password: String, completion: ((Bool, Error?) -> Void)?) {
 
-//        PFUser.logInWithUsername(inBackground: email, password: password) { (user, error) in
-//            if user != nil {
-//                PushNotication.shared.registerDeviceInstallation()
-//                guard let user = user as? User else { fatalError() }
-//                if user.business != nil {
-//                    // Pointer exists to fetch object
-//                    user.business?.fetchIfNeededInBackground(block: { (object, error) in
-//                        completion?(error == nil, error)
-//                    })
-////                    user.business?.rewardModel?.fetchIfNeededInBackground(block: {(object, error) in
-////                        completion?(error == nil, error)
-////                    })
-//                    
-//
-//                    
-//                } else {
-//                    completion?(error == nil, error)
-//                }
-//                
-//                
-//                
-//
-//            } else {
-//                completion?(error == nil, error)
-//            }
-//        }
-        
         PFUser.logInWithUsername(inBackground: email, password: password) { (user, error) in
             if user != nil {
                 PushNotication.shared.registerDeviceInstallation()
@@ -79,7 +52,11 @@ final class Business: PFObject {
                         if (success != nil) {
                             if user.business?.rewardModel != nil{
                                 user.business?.rewardModel?.fetchIfNeededInBackground(block: {(object, error) in
-                                    completion?(error == nil, error)
+                                    if user.business?.rewardModel?.coupon != nil {
+                                        user.business?.rewardModel?.coupon?.fetchInBackground(block: { (object, error) in
+                                            completion?(error == nil, error)
+                                        })
+                                    }
                                 })
                             }
                         }else {
@@ -108,39 +85,12 @@ final class Business: PFObject {
     ///   - completion: Result
     class func signUpInBackground(email: String, password: String, completion: ((Bool, Error?) -> Void)?) {
 
-//        let user = User()
-//        user.email = email
-//        user.username = email
-//        user.password = password
-//        user.signUpInBackground { (success, error) in
-////            completion?(error == nil, error)
-//            if success {
-//                PushNotication.shared.registerDeviceInstallation()
-//
-//                let business = Business()
-//                business.email = email
-//                business.name = email
-//                business.saveInBackground(block: { (success, error) in
-//                    if (success == false){
-//                        completion?(false, error)
-//                    }else{
-//                        user.business = business
-//                        user.saveInBackground(block: { (success, error) in
-//                            completion?(error == nil, error)
-//                        })
-//                    }
-//                })
-//            }else {
-//                completion?(false, error)
-//            }
-//        }
-        
         let user = User()
         user.email = email
         user.username = email
         user.password = password
         user.signUpInBackground { (success, error) in
-            //            completion?(error == nil, error)
+            
             if success {
                 PushNotication.shared.registerDeviceInstallation()
                 
@@ -151,6 +101,7 @@ final class Business: PFObject {
                     if success {
                         let rewardModel = RewardModel()
                         rewardModel.modelType = NSNumber(value: 1)
+                        rewardModel.cashBackPercent = NSNumber(value: 0)
                         rewardModel.saveInBackground(block: { (success, error) in
                             if success{
                                 business.rewardModel = rewardModel
