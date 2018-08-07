@@ -197,7 +197,7 @@ final class LoginViewController: RWViewController {
     
     @objc
     private func didTapLogin() {
-        
+        print(emailField.text)
         guard let email = emailField.text, let password = passwordField.text else { return }
         
         API.shared.showProgressHUD(ignoreUserInteraction: true)

@@ -102,9 +102,11 @@ final class Business: PFObject {
                         let rewardModel = RewardModel()
                         rewardModel.modelType = NSNumber(value: 1)
                         rewardModel.cashBackPercent = NSNumber(value: 0)
+                        let coupon = Coupon()
                         rewardModel.saveInBackground(block: { (success, error) in
                             if success{
                                 business.rewardModel = rewardModel
+                                rewardModel.coupon = coupon
                                 user.business = business
                                 user.saveInBackground(block: { (success, error) in
                                     completion?(error == nil, error)
